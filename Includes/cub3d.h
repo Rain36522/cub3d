@@ -23,6 +23,10 @@
 
 # define WIDTH 1920
 # define HEIGHT 980
+# define MAP_SIZE 70
+# define DEPLACEMENT 1.5
+# define ANGLE 5
+# define DEBUG printf("\033[1;31m%s:%d\n\033[0;37m", __FILE__, __LINE__);
 
 typedef struct s_list
 {
@@ -48,7 +52,7 @@ typedef struct s_data
 	void	*mlx_win;
 	double	xpos;
 	double	ypos;
-	double	look;
+	int		look;
 	char	**map;
 	int		ix;
 	int		iy;
@@ -62,5 +66,20 @@ typedef struct s_data
 
 void	print_list(t_list *list);
 void	print_tab(char **tab);
+
+// utils mlx
+void	ft_put_square(t_data *data, int x, int y, int icolor);
+void	put_map(t_data *data);
+void	put_player(t_data *data);
+
+
+// utils calcul
+double	ft_calc_depl_x(int iangl);
+double	ft_calc_depl_y(int iangl);
+int		ft_calcul_ang(int iangl, int iofset);
+
+// key_hook
+int	key_hook(int keycode, t_data *data);
+int	ft_press_cross(void);
 
 #endif

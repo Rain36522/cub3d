@@ -6,7 +6,7 @@
 #    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/15 12:17:58 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/15 18:11:26 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,14 +31,14 @@ GREY = \\033[1;30m
 #utils/ft_check_map.c utils/ft_stock_map.c
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
-SRC = src/main.c src/input_in_list.c
+SRC = src/main.c src/input_in_list.c src/put_map.c src/key_hook.c
 
-UTL = utils/print_var.c
+UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c
 
 # $(GNL:.c=.o)
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
-all : lib $(NAME) header
+all : lib $(NAME)
 	./cub3d
 
 .c.o:
@@ -54,7 +54,6 @@ lib :
 clean :
 	@rm -f $(OBJ)
 	@make clean -C libft/
-	@make clean -C mlx/
 
 fclean : clean
 	@rm -f $(NAME)

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/15 13:00:20 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/15 16:31:33 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "utils/utils.h"
-#include "cub3d.h"
+#include "../Includes/cub3d.h"
 
 int		len_tab(t_list *list)
 {
@@ -66,7 +65,6 @@ void	add_end(t_list **list, char *line)
 {
 	t_list	*tmp;
 	t_list	*new_node;
-	int		i;
 
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
@@ -156,10 +154,10 @@ void	init_list(char **argv)
 	close(fd);
 }
 
-int	main(int argc, char **argv)
-{
-	(void) argc;
-	(void) argv;
-	init_list(argv);
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	(void) argc;
+// 	(void) argv;
+// 	init_list(argv);
+// 	return (0);
+// }

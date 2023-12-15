@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_var.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:54:22 by csil              #+#    #+#             */
-/*   Updated: 2023/12/15 11:32:22 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/15 16:06:07 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../Includes/cub3d.h"
 
 void	print_list(t_list *list)
 {
