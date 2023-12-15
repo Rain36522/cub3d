@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 12:20:05 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/15 12:20:05 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
+/*   Updated: 2023/12/15 13:00:20 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+# include "utils/utils.h"
+#include "cub3d.h"
 
-int		len_tab(t_input *input)
+int		len_tab(t_list *list)
 {
 	int		len;
 
 	len = 0;
-	while (input->map->next != NULL)
+	while (list->next != NULL)
 	{
-		input->map = input->map->next;
+		list = list->next;
 		len++;
 	}
 	return (len);
@@ -29,8 +30,10 @@ void	put_map_int_tab(t_input *input)
 {
 	int		i;
 	int		len;
+	t_list	*tmp;
 
-	len = len_tab(input);
+	tmp = input->map;
+	len = len_tab(tmp);
 	input->tab_map = malloc(sizeof(char *) * (len + 1));
 	if (!input->tab_map)
 	{
@@ -38,45 +41,62 @@ void	put_map_int_tab(t_input *input)
 		return ;
 	}
 	i = 0;
-	while (input->map->next != NULL)
+	while (tmp->next != NULL)
 	{
-		input->tab_map[i] = input->map->str;
-		input->map = input->map->next;
+		input->tab_map[i] = tmp->str;
+		tmp = tmp->next;
 		i++;
 	}
-	input->tab_map[i] = input->map->str;
+	input->tab_map[i] = tmp->str;
 	input->tab_map[i + 1] = NULL;
 }
 
-void	create_tab(t_input *input, int fd)
+t_list	*ptr_last_node(t_list *list)
 {
-	char	*line;
-
-	line = NULL;
-	input->map = malloc(sizeof(t_list));
-	if (!input->map)
+	if (!list)
+		return (NULL);
+	while (list->next)
 	{
-		printf ("Erreur alloation map list\n");
+		list = list->next;
+	}
+	return (list);
+}
+
+void	add_end(t_list **list, char *line)
+{
+	t_list	*tmp;
+	t_list	*new_node;
+	int		i;
+
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+	{
+		printf ("Error list allocation\n");
 		return ;
 	}
-	input->map->str = line;
-	input->map = input->map->next;
+	new_node->str = line;
+	new_node->next = NULL;
+	if (!*list)
+	{
+		*list = new_node;
+		return ;
+	}
+	tmp = ptr_last_node(*list);
+	tmp->next = new_node;
+}
+
+void	create_linked_list(t_input *input, int fd, char	*line)
+{
 	while (1)
 	{
-		line = get_next_line(fd);
 		if (line == NULL)
 		{
-			free (line);
-			line = NULL;
-			input->map = NULL;
-			break ;
+			free(line);
+			break;
 		}
-		input->map = malloc(sizeof(t_list));
-		input->map->str = line;
-		printf ("la ligne: %s\n", input->map->str = line);
-		input->map = input->map->next;
+		add_end(&input->map, line);
+		line = get_next_line(fd);
 	}
-	input->map = NULL;
 }
 
 void	input_in_list(t_input *input, int fd)
@@ -105,7 +125,7 @@ void	input_in_list(t_input *input, int fd)
 			input->c = line;
 		else
 		{
-			create_tab(input, fd);
+			create_linked_list(input, fd, line);
 			break ;
 		}
 	}
@@ -114,7 +134,6 @@ void	input_in_list(t_input *input, int fd)
 		free (line);
 		line = NULL;
 	}
-	print_list(input->map);
 }
 
 void	init_list(char **argv)
@@ -131,14 +150,16 @@ void	init_list(char **argv)
 		return ;
 	}
 	input_in_list(&input, fd);
-	//put_map_int_tab(&input);
+	put_map_int_tab(&input);
+	print_list(input.map);
+	print_tab(input.tab_map);
 	close(fd);
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	(void) argc;
-// 	(void) argv;
-// 	init_list(argv);
-// 	return (0);
-// }
+int	main(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
+	init_list(argv);
+	return (0);
+}
