@@ -6,11 +6,11 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 09:28:38 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 13:49:52 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/16 13:53:16 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../Includes/cub3d.h"
 
 // Check if the nbr is to big.
 // If it is too big : return 1
