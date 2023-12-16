@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 09:14:26 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/16 20:49:22 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	add_end(t_list **list, char *line, t_input *input)
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
 	{
-		printf ("Error list allocation\n");
+		printf ("Error\nlist allocation failed\n");
 		init_free_all_and_exit(input);
 	}
 	new_node->str = line;

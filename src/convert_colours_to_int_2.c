@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 09:28:38 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 13:42:57 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/16 20:51:08 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	not_enough_commas(char *str)
 	}
 	if (counter == 2)
 		return (0);
-	printf ("Error: should be 3 numbers separate by commas (RGB)\n");
+	printf ("Error\nshould be 3 numbers separate by commas (RGB)\n");
 	return (1);
 }
 

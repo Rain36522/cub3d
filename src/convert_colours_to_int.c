@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 09:28:38 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 13:53:16 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/16 20:47:37 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ static int	convert_colours_to_int(char *str, int *colour)
 	(void) colour;
 	if (other_than_digit(str) == 1)
 	{
-		printf ("Error: only numbers are allowed for colours value\n");
+		printf ("Error\nonly numbers are allowed for colours value\n");
 		free_str_and_null(str);
 		return (1);
 	}
 	else if (is_size_nbr_valid(str) == 1)
 	{
-		printf ("Error: number between 0-255 are allowed for colours value\n");
+		printf ("Error\nnumber between 0-255 are allowed for colours value\n");
 		free_str_and_null(str);
 		return (1);
 	}

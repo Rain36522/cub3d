@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 09:12:10 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/16 20:49:56 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	put_map_int_tab(t_input *input)
 	input->tab_map = malloc(sizeof(char *) * (len + 1));
 	if (!input->tab_map)
 	{
-		init_print_error("Error tab map allocation\n");
+		init_print_error("Error\ntab map allocation failed\n");
 		return (init_free_all_and_exit(input));
 	}
 	i = 0;
@@ -110,7 +110,7 @@ t_input	*init_list(char **argv)
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0)
 	{
-		init_print_error("Error map opening\n");
+		init_print_error("Error\nmap opening failed\n");
 		return (NULL);
 	}
 	if (input_in_list(input, fd, line) == 1)

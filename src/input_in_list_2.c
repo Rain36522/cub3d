@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 09:09:11 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/16 20:48:41 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ int	only_path(t_input *input)
 	if (input->no[0] == 'N' && input->no[1] == 'O' && input->no[2] == ' ')
 		input->no = ft_strdup_free(input->no + 3);
 	else
-		return (init_print_error("Error : NO is not valid.\n"));
+		return (init_print_error("Error\nNO is not valid.\n"));
 	if (input->so[0] == 'S' && input->so[1] == 'O' && input->so[2] == ' ')
 		input->so = ft_strdup_free(input->so + 3);
 	else
-		return (init_print_error("Error : SO is not valid.\n"));
+		return (init_print_error("Error\nSO is not valid.\n"));
 	if (input->we[0] == 'W' && input->we[1] == 'E' && input->we[2] == ' ')
 		input->we = ft_strdup_free(input->we + 3);
 	else
-		return (init_print_error("Error : WE is not valid.\n"));
+		return (init_print_error("Error\nWE is not valid.\n"));
 	if (input->ea[0] == 'E' && input->ea[1] == 'A' && input->ea[2] == ' ')
 		input->ea = ft_strdup_free(input->ea + 3);
 	else
-		return (init_print_error("Error : EA is not valid.\n"));
+		return (init_print_error("Error\nEA is not valid.\n"));
 	return (0);
 }
 
@@ -82,10 +82,10 @@ int only_nbr(t_input *input)
 	if (input->f[0] == 'F' && input->f[1] == ' ')
 		input->f = ft_strdup_free(input->f + 2);
 	else
-		return (init_print_error("Error : F is not valid.\n"));
+		return (init_print_error("Error\nF is not valid.\n"));
 	if (input->c[0] == 'C' && input->c[1] == ' ')
 		input->c = ft_strdup_free(input->c + 2);
 	else
-		return (init_print_error("Error : C is not valid.\n"));
+		return (init_print_error("Error\nC is not valid.\n"));
 	return (0);
 }
