@@ -44,6 +44,12 @@ typedef struct s_input
 	char	*c;
 	t_list	*map;
 	char	**tab_map;
+	int		f_r;
+	int		f_g;
+	int		f_b;
+	int		c_r;
+	int		c_g;
+	int		c_b;
 }				t_input;
 
 typedef struct s_data
@@ -96,5 +102,9 @@ int		init_free_all_and_exit(t_input *input);
 int		free_str_and_null(char *str);
 int 	only_nbr(t_input *input);
 int		only_path(t_input *input);
+char	*ft_strndup(const char *str, int isize);
+int		not_enough_commas(char *str);
+int		other_than_digit(char *str);
+int		init_separe_colours(t_input *input);
 
 #endif
