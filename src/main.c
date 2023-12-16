@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 12:39:16 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/15 12:40:42 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/15 19:39:16 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/15 19:39:23 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,15 @@ static t_data	*init_game(void)
 	data->xpos = 205;
 	data->ypos = 205;
 	data->look = 0;
-	data->mlx_win = mlx_new_window(data->mlx, 1920, 950, "so_long");
+	data->mlx_win = mlx_new_window(data->mlx, 420, 420, "so_long");
 	return (data);
 }
 
 int	main(void)
 {
 	t_data	*data;
-	int		i;
 
-	// loadImage(ptr, tw, th, "../pics/barrel.png");
 	data = init_game();
-	i = 0;
-	while (data->map[i])
-	{
-		printf("map : %s\n", data->map[i ++]);
-	}
-	// data.input = ft
 	put_map(data);
 	put_player(data);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);

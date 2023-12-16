@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 12:39:02 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/15 12:39:02 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/16 22:55:17 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/16 22:55:20 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define MAP_SIZE 70
 # define DEPLACEMENT 1.5
 # define ANGLE 5
+# define PI 3.141592653589793
 # define DEBUG printf("\033[1;31m%s:%d\n\033[0;37m", __FILE__, __LINE__);
 
 typedef struct s_list

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 16:13:02 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/15 17:55:22 by pudry            ###   ########.fr       */
+/*   Created: 2023/12/15 19:35:51 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/15 19:35:51 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	put_player(t_data *data)
 {
 	int	i;
 	int	j;
-	int	x;
-	int	y;
-
-	x = (int)(data->xpos * 70);
-	y = (int)(data->ypos * 70);
 
 	i = 0;
 	while (i < 10)

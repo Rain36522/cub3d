@@ -6,7 +6,7 @@
 #    By: csil <csil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/16 13:37:32 by csil             ###   ########.fr        #
+#    Updated: 2023/12/16 22:23:12 by csil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ GREY = \\033[1;30m
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
 SRC = src/main.c src/input_in_list.c src/input_in_list_3.c src/input_in_list_2.c \
-	src/put_map.c src/key_hook.c convert_colours_to_int.c convert_colours_to_int_2.c
+	src/put_map.c src/key_hook.c src/convert_colours_to_int.c src/convert_colours_to_int_2.c
 
 UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c
 
