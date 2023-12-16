@@ -3,29 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/15 16:31:33 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/16 09:12:10 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/cub3d.h"
 
-int		len_tab(t_list *list)
-{
-	int		len;
-
-	len = 0;
-	while (list->next != NULL)
-	{
-		list = list->next;
-		len++;
-	}
-	return (len);
-}
-
-void	put_map_int_tab(t_input *input)
+static int	put_map_int_tab(t_input *input)
 {
 	int		i;
 	int		len;
@@ -36,8 +23,8 @@ void	put_map_int_tab(t_input *input)
 	input->tab_map = malloc(sizeof(char *) * (len + 1));
 	if (!input->tab_map)
 	{
-		// exit error func
-		return ;
+		init_print_error("Error tab map allocation\n");
+		return (init_free_all_and_exit(input));
 	}
 	i = 0;
 	while (tmp->next != NULL)
@@ -48,67 +35,45 @@ void	put_map_int_tab(t_input *input)
 	}
 	input->tab_map[i] = tmp->str;
 	input->tab_map[i + 1] = NULL;
+	return (0);
 }
 
-t_list	*ptr_last_node(t_list *list)
+static int	create_linked_list(t_input *input, int fd, char	*line)
 {
-	if (!list)
-		return (NULL);
-	while (list->next)
-	{
-		list = list->next;
-	}
-	return (list);
-}
-
-void	add_end(t_list **list, char *line)
-{
-	t_list	*tmp;
-	t_list	*new_node;
-
-	new_node = malloc(sizeof(t_list));
-	if (!new_node)
-	{
-		printf ("Error list allocation\n");
-		return ;
-	}
-	new_node->str = line;
-	new_node->next = NULL;
-	if (!*list)
-	{
-		*list = new_node;
-		return ;
-	}
-	tmp = ptr_last_node(*list);
-	tmp->next = new_node;
-}
-
-void	create_linked_list(t_input *input, int fd, char	*line)
-{
+	if (only_path(input) == 1)
+		return (1);
+	if (only_nbr(input) == 1)
+		return (1);
 	while (1)
 	{
 		if (line == NULL)
 		{
 			free(line);
-			break;
+			break ;
 		}
-		add_end(&input->map, line);
+		add_end(&input->map, line, input);
 		line = get_next_line(fd);
 	}
+	return (0);
 }
 
-void	input_in_list(t_input *input, int fd)
+int	free_str_and_null(char *str)
 {
-	char	*line;
+	if (str)
+	{
+		free(str);
+		str = NULL;
+	}
+	return (0);
+}
 
+static int	input_in_list(t_input *input, int fd, char *line)
+{
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (line[0] == '\n' && line[1] == '\0')
-		{
-			free (line);
-			line = NULL;
-		}
+			free_str_and_null(line);
 		else if (!input->no)
 			input->no = line;
 		else if (!input->so)
@@ -123,41 +88,43 @@ void	input_in_list(t_input *input, int fd)
 			input->c = line;
 		else
 		{
-			create_linked_list(input, fd, line);
+			if (create_linked_list(input, fd, line) == 1)
+				return (init_free_all_and_exit(input));
 			break ;
 		}
 	}
-	if (line)
-	{
-		free (line);
-		line = NULL;
-	}
+	return (free_str_and_null(line));
 }
 
-void	init_list(char **argv)
+// If fuction return NULL => Error was declared
+// list has been freed
+// And program should be stopped.
+t_input	*init_list(char **argv)
 {
-	t_input	input;
+	t_input	*input;
+	char	*line;
 	int		fd;
 
-	input = (t_input){};
+	line = NULL;
+	input = malloc(sizeof(t_input));
 	fd = open(argv[1], O_RDWR);
-	// put an exit error func
 	if (fd < 0)
 	{
-		printf ("error map opening\n");
-		return ;
+		init_print_error("Error map opening\n");
+		return (NULL);
 	}
-	input_in_list(&input, fd);
-	put_map_int_tab(&input);
-	print_list(input.map);
-	print_tab(input.tab_map);
+	if (input_in_list(input, fd, line) == 1)
+		return (NULL);
+	if (put_map_int_tab(input) == 1)
+		return (NULL);
 	close(fd);
+	return (input);
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	(void) argc;
-// 	(void) argv;
-// 	init_list(argv);
-// 	return (0);
-// }
+/*int	main(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
+	init_list(argv);
+	return (0);
+}*/

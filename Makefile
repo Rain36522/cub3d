@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
+#    By: csil <csil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/15 18:11:26 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/16 09:11:15 by csil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ GREY = \\033[1;30m
 #utils/ft_check_map.c utils/ft_stock_map.c
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
-SRC = src/main.c src/input_in_list.c src/put_map.c src/key_hook.c
+SRC = src/main.c src/input_in_list.c src/input_in_list_3.c src/input_in_list_2.c \
+	src/put_map.c src/key_hook.c
 
 UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c
 

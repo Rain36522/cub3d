@@ -79,7 +79,22 @@ double	ft_calc_depl_y(int iangl);
 int		ft_calcul_ang(int iangl, int iofset);
 
 // key_hook
-int	key_hook(int keycode, t_data *data);
-int	ft_press_cross(void);
+int		key_hook(int keycode, t_data *data);
+int		ft_press_cross(void);
+
+// Init part
+void	print_list(t_list *list);
+void	print_tab(char **tab);
+void	add_end(t_list **list, char *line, t_input *input);
+t_list	*ptr_last_node(t_list *list);
+int		len_tab(t_list *list);
+char	*ft_strdup_free(const char *str);
+int		only_path(t_input *input);
+int		only_nbr(t_input *input);
+int		init_print_error(char *str);
+int		init_free_all_and_exit(t_input *input);
+int		free_str_and_null(char *str);
+int 	only_nbr(t_input *input);
+int		only_path(t_input *input);
 
 #endif
