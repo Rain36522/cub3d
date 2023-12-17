@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 22:55:17 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/16 22:55:20 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 11:02:02 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 11:05:19 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ char	*ft_strndup(const char *str, int isize);
 int		not_enough_commas(char *str);
 int		other_than_digit(char *str);
 int		init_separe_colours(t_input *input);
+t_data 	*t_input_to_t_data(t_input *input);
 
 #endif

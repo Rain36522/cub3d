@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   convert_colours_to_int.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 09:28:38 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 20:47:37 by csil             ###   ########.fr       */
+/*   Created: 2023/12/17 11:05:47 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 11:05:47 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "../../Includes/cub3d.h"
 
 // Check if the nbr is to big.
 // If it is too big : return 1

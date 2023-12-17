@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/17 09:06:45 by csil             ###   ########.fr       */
+/*   Created: 2023/12/17 11:05:51 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 11:05:51 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "../../Includes/cub3d.h"
 
 t_list	*ptr_last_node(t_list *list)
 {

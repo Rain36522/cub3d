@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "../../Includes/cub3d.h"
 
 static char	*ft_change_size_line(char *line, int ilen)
 {

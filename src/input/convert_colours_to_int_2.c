@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   convert_colours_to_int_2.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 09:28:38 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 20:51:08 by csil             ###   ########.fr       */
+/*   Created: 2023/12/17 11:05:38 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 11:05:43 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "../../Includes/cub3d.h"
 
 // return 1: if the number of commas is incorrect
 // return 0: if there is the right number of commas

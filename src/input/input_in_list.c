@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 10:46:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 10:46:33 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 11:06:10 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 11:06:27 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "../../Includes/cub3d.h"
 
 static int	put_map_int_tab(t_input *input)
 {
@@ -120,7 +120,9 @@ t_data	*init_list(char **argv)
 		return (NULL);
 	close(fd);
 	data = t_input_to_t_data(input);
-	ft_free_input(input);
+	DEBUG
+	printf("a free\n");
+	// ft_free_input(input);
 	return (data);
 }
 
