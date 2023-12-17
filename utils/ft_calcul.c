@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 22:56:18 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/16 23:00:59 by pudry            ###   ########.ch       */
+/*   Updated: 2023/12/17 09:06:39 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ double	ft_calc_depl_y(int iangl)
 		imv = cos(deg_to_rad(iangl)) * DEPLACEMENT;
 	else
 		imv = sin(deg_to_rad(iangl)) * DEPLACEMENT;
-	printf("ymv : %f\n", imv);
 	if (icadran == 0 || icadran == 3)
 		return (imv * -1);
-	printf("ymv : %f\n", imv);
 	return (imv);
 }
 

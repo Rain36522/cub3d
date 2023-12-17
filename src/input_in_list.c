@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 20:49:56 by csil             ###   ########.fr       */
+/*   Created: 2023/12/17 09:18:45 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 09:18:45 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ t_input	*init_list(char **argv)
 	if (put_map_int_tab(input) == 1)
 		return (NULL);
 	close(fd);
+	DEBUG
+	printf("free t_input\n");
 	return (input);
 }
 
