@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 09:18:45 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 09:18:45 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 10:46:33 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 10:46:33 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ static int	input_in_list(t_input *input, int fd, char *line)
 // If fuction return NULL => Error was declared
 // list has been freed
 // And program should be stopped.
-t_input	*init_list(char **argv)
+t_data	*init_list(char **argv)
 {
 	t_input	*input;
+	t_data	*data;
 	char	*line;
 	int		fd;
 
@@ -118,9 +119,9 @@ t_input	*init_list(char **argv)
 	if (put_map_int_tab(input) == 1)
 		return (NULL);
 	close(fd);
-	DEBUG
-	printf("free t_input\n");
-	return (input);
+	data = t_input_to_t_data(input);
+	ft_free_input(input);
+	return (data);
 }
 
 /*int	main(int argc, char **argv)

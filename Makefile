@@ -6,7 +6,7 @@
 #    By: csil <csil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/16 22:23:12 by csil             ###   ########.fr        #
+#    Updated: 2023/12/17 10:58:49 by csil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,11 @@ OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
 all : lib $(NAME)
 	./cub3d
+
+push :
+	git add *
+	git commit -m "Auto push"
+	git push
 
 .c.o:
 	$(CC) $(FLAGS) -c -o $@ $< $(INCLUDES)
