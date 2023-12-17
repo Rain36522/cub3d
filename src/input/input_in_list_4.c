@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 10:28:51 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 10:44:05 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 20:00:25 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 20:06:42 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static char	*ft_change_size_line(char *line, int ilen)
 	return (new_line);
 }
 
-static char	**ft_map_equal_line(char **map)
+static t_data	*ft_map_equal_line(char **map, t_data *data)
 {
-	int	i;
-	int	ilen;
+	int		i;
+	int		ilen;
 
 	i = 0;
 	ilen = 0;
 	while (map[i])
 	{
-		if (ft_strlen(map[i]) > ilen)
+		if ((int)ft_strlen(map[i]) > ilen)
 			ilen = (ft_strlen(map[i]));
 		i ++;
 	}
@@ -52,6 +52,10 @@ static char	**ft_map_equal_line(char **map)
 		map[i] = ft_change_size_line(map[i], ilen);
 		i ++;
 	}
+	data->map = map;
+	data->ix = ilen;
+	data->iy = i;
+	return (data);
 }
 
 t_data *t_input_to_t_data(t_input *input)
@@ -61,7 +65,7 @@ t_data *t_input_to_t_data(t_input *input)
 	data = (t_data *) malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
-	data->map = ft_map_equal_line(input->map);
+	data = ft_map_equal_line(input->tab_map, data);
 	data->no = input->no;
 	data->so = input->so;
 	data->ea = input->ea;

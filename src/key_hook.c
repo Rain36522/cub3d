@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 22:24:07 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 11:37:46 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 20:08:43 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 20:08:43 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	key_hook(int keycode, t_data *data)
 	if (keycode == 53)
 		exit(0);
 	else if (keycode == 2)
-		iangl = ft_calcul_ang(data->look, -90);
-	else if (keycode == 0)
 		iangl = ft_calcul_ang(data->look, 90);
+	else if (keycode == 0)
+		iangl = ft_calcul_ang(data->look, -90);
 	else if (keycode == 126 || keycode == 13)
 		iangl = data->look;
 	else if (keycode == 125 || keycode == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/17 15:14:00 by csil             ###   ########.fr       */
+/*   Created: 2023/12/17 20:07:10 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 20:07:10 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,10 @@ t_data	*init_list(char **argv)
 	return (data);
 }
 
-int	main(int argc, char **argv)
-{
-	(void) argc;
-	(void) argv;
-	init_list(argv);
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	(void) argc;
+// 	(void) argv;
+// 	init_list(argv);
+// 	return (0);
+// }
