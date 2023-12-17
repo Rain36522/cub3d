@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 11:05:51 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 11:05:51 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
+/*   Updated: 2023/12/17 14:49:37 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ char	*ft_strdup_free(const char *str)
 int	only_path(t_input *input)
 {
 	if (input->no[0] == 'N' && input->no[1] == 'O' && input->no[2] == ' ')
-		input->no = ft_strdup_free(input->no + 3);
+		input->no = relay_only(input->no, 2);
 	else
 		return (init_print_error("Error\nNO is not valid.\n"));
 	if (input->so[0] == 'S' && input->so[1] == 'O' && input->so[2] == ' ')
-		input->so = ft_strdup_free(input->so + 3);
+		input->so = relay_only(input->so, 2);
 	else
 		return (init_print_error("Error\nSO is not valid.\n"));
 	if (input->we[0] == 'W' && input->we[1] == 'E' && input->we[2] == ' ')
-		input->we = ft_strdup_free(input->we + 3);
+		input->we = relay_only(input->we, 2);
 	else
 		return (init_print_error("Error\nWE is not valid.\n"));
 	if (input->ea[0] == 'E' && input->ea[1] == 'A' && input->ea[2] == ' ')
-		input->ea = ft_strdup_free(input->ea + 3);
+		input->ea = relay_only(input->ea, 2);
 	else
 		return (init_print_error("Error\nEA is not valid.\n"));
 	return (0);
@@ -80,11 +80,11 @@ int	only_path(t_input *input)
 int only_nbr(t_input *input)
 {
 	if (input->f[0] == 'F' && input->f[1] == ' ')
-		input->f = ft_strdup_free(input->f + 2);
+		input->f = relay_only(input->f, 1);
 	else
 		return (init_print_error("Error\nF is not valid.\n"));
 	if (input->c[0] == 'C' && input->c[1] == ' ')
-		input->c = ft_strdup_free(input->c + 2);
+		input->c = relay_only(input->c, 1);
 	else
 		return (init_print_error("Error\nC is not valid.\n"));
 	return (0);

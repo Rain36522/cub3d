@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/16 20:49:22 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/17 13:56:35 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,21 @@ void	free_tab(char **tab)
 	}
 }
 
-static void	clean_list(t_list *list)
+void	clean_list(t_list *list)
 {
 	t_list	*tmp;
 
-	while (list)
+	if (list)
 	{
-		tmp = list->next;
-		free (list);
+		while (list)
+		{
+			tmp = list->next;
+			free (list);
+			list = NULL;
+			list = tmp;
+		}
+		free(list);
 		list = NULL;
-		list = tmp;
 	}
 }
 

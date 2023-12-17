@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 11:06:10 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 11:16:26 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
+/*   Updated: 2023/12/17 15:14:00 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 		return (1);
 	if (only_nbr(input) == 1)
 		return (1);
+	init_separe_colours(input);
+	get_trgb(input);
 	while (1)
 	{
 		if (line == NULL)
@@ -72,19 +74,19 @@ static int	input_in_list(t_input *input, int fd, char *line)
 	while (1)
 	{
 		line = get_next_line(fd);
-		if (line[0] == '\n' && line[1] == '\0')
+		if (line[0] && line[0] == '\n' && line[1] == '\0')
 			free_str_and_null(line);
-		else if (!input->no)
+		else if (ft_strnstr(line, "NO", 2) != NULL)
 			input->no = line;
-		else if (!input->so)
+		else if (ft_strnstr(line, "SO", 2) != NULL)
 			input->so = line;
-		else if (!input->we)
+		else if (ft_strnstr(line, "WE", 2) != NULL)
 			input->we = line;
-		else if (!input->ea)
+		else if (ft_strnstr(line, "EA", 2) != NULL)
 			input->ea = line;
-		else if (!input->f)
+		else if (ft_strnstr(line, "F", 1) != NULL)
 			input->f = line;
-		else if (!input->c)
+		else if (ft_strnstr(line, "C", 1) != NULL)
 			input->c = line;
 		else
 		{
@@ -120,16 +122,14 @@ t_data	*init_list(char **argv)
 		return (NULL);
 	close(fd);
 	data = t_input_to_t_data(input);
-	DEBUG
-	printf("a free\n");
-	// ft_free_input(input);
+	clean_list(input->map);
 	return (data);
 }
 
-/*int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	(void) argc;
 	(void) argv;
 	init_list(argv);
 	return (0);
-}*/
+}

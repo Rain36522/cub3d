@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:01:18 by pudry             #+#    #+#             */
-/*   Updated: 2023/10/23 09:08:53 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/17 13:29:54 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strchr_endl(char *ptr)
 	return (0);
 }
 
-char	*ft_strdup(const char *str)
+char	*ft_strdup_gnl(const char *str)
 {
 	int		isize;
 	int		i;
@@ -32,7 +32,7 @@ char	*ft_strdup(const char *str)
 	isize = 0;
 	while (str[isize])
 		isize ++;
-	dup = (char *) ft_calloc(isize + 1, sizeof(char));
+	dup = (char *) ft_calloc_gnl(isize + 1, sizeof(char));
 	if (! dup)
 		return (NULL);
 	dup[isize] = '\0';
@@ -45,7 +45,7 @@ char	*ft_strdup(const char *str)
 	return (dup);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc_gnl(size_t count, size_t size)
 {
 	char	*str;
 	size_t	i;
@@ -67,7 +67,7 @@ char	*get_next_line(int fd)
 
 	if (!ptr)
 		ptr = 0;
-	file = (char *) ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	file = (char *) ft_calloc_gnl(BUFFER_SIZE + 1, sizeof(char));
 	if (!file)
 		return (NULL);
 	file[BUFFER_SIZE] = '\0';

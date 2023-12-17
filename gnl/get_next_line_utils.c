@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:22:12 by pudry             #+#    #+#             */
-/*   Updated: 2023/10/23 09:13:45 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/17 13:28:56 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strcat(char *s1, char *s2, int is2)
 	i = 0;
 	while (s1[is1])
 		is1 ++;
-	ptr = (char *) ft_calloc(is1 + is2 + 1, sizeof(char));
+	ptr = (char *) ft_calloc_gnl(is1 + is2 + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
 	ptr[is1 + is2] = '\0';
@@ -47,7 +47,7 @@ char	*ft_get_ptr_line(char *ptr, char *file, int fd)
 	i = BUFFER_SIZE;
 	if (!ptr)
 	{
-		ptr = (char *) ft_calloc(1, sizeof(char));
+		ptr = (char *) ft_calloc_gnl(1, sizeof(char));
 		ptr[0] = '\0';
 	}
 	while (i >= BUFFER_SIZE && !ft_strchr_endl(file))
@@ -77,7 +77,7 @@ char	*ft_give_line(char *str)
 		isize ++;
 	if (str[isize] == '\n')
 		isize ++;
-	dup = (char *) ft_calloc(isize + 1, sizeof(char));
+	dup = (char *) ft_calloc_gnl(isize + 1, sizeof(char));
 	if (! dup)
 		return (NULL);
 	dup[isize] = '\0';
@@ -105,7 +105,7 @@ char	*ft_remove_line(char *s)
 	}
 	if (*s == '\n')
 		s ++;
-	ptr = ft_strdup(s);
+	ptr = ft_strdup_gnl(s);
 	free(mem_s);
 	return (ptr);
 }

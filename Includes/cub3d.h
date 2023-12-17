@@ -51,6 +51,8 @@ typedef struct s_input
 	int		c_r;
 	int		c_g;
 	int		c_b;
+	int		color_ceiling;
+	int		color_floor;
 }				t_input;
 
 typedef struct s_data
@@ -101,12 +103,21 @@ int		only_nbr(t_input *input);
 int		init_print_error(char *str);
 int		init_free_all_and_exit(t_input *input);
 int		free_str_and_null(char *str);
-int 	only_nbr(t_input *input);
+int		only_nbr(t_input *input);
 int		only_path(t_input *input);
 char	*ft_strndup(const char *str, int isize);
 int		not_enough_commas(char *str);
 int		other_than_digit(char *str);
 int		init_separe_colours(t_input *input);
-t_data 	*t_input_to_t_data(t_input *input);
+t_data	*t_input_to_t_data(t_input *input);
+char	*relay_only(char *str, int i);
+void	clean_list(t_list *list);
+
+// RGB part
+int		get_t(int trgb);
+int		get_r(int trgb);
+int		get_g(int trgb);
+int		get_b(int trgb);
+void	get_trgb(t_input *input);
 
 #endif
