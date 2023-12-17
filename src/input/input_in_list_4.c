@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 20:00:25 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 20:06:42 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 20:31:43 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 20:36:00 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,40 @@ static t_data	*ft_map_equal_line(char **map, t_data *data)
 	return (data);
 }
 
+static int	ft_check_player(char c)
+{
+	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
+}
+
+static t_data	*ft_put_player(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 1;
+	while (data->map[i] && !ft_check_player(data->map[i][j]))
+	{
+		j = 1;
+		while (data->map[i][j] && !ft_check_player(data->map[i][j]))
+			j ++;
+		i ++;
+	}
+	DEBUG
+	printf("char : %c\n", data->map[i][j]);
+	if (data->map[i][j] == 'N')
+		data->look = 0;
+	else if (data->map[i][j] == 'S')
+		data->look = 180;
+	else if (data->map[i][j] == 'E')
+		data->look = 270;
+	else if (data->map[i][j] == 'W')
+		data->look = 90;
+	data->xpos = (double)j;
+	data->ypos = (double)i;
+	return (data);
+}
+
 t_data *t_input_to_t_data(t_input *input)
 {
 	t_data	*data;
@@ -66,6 +100,11 @@ t_data *t_input_to_t_data(t_input *input)
 	if (!data)
 		return (NULL);
 	data = ft_map_equal_line(input->tab_map, data);
+	DEBUG
+	if (!ft_check_map(data->map))
+		return (NULL);
+	DEBUG
+	data = ft_put_player(data);
 	data->no = input->no;
 	data->so = input->so;
 	data->ea = input->ea;

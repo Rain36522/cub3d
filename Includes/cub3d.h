@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 11:02:02 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 11:05:19 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 20:36:18 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 20:36:18 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,15 @@ t_data	*t_input_to_t_data(t_input *input);
 char	*relay_only(char *str, int i);
 void	clean_list(t_list *list);
 
+t_data	*init_list(char **argv);
+
 // RGB part
 int		get_t(int trgb);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 void	get_trgb(t_input *input);
+
+int		ft_check_map(char **map);
 
 #endif

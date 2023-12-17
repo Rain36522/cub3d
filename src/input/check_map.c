@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 12:05:17 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 19:56:42 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/17 20:37:13 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/17 20:37:13 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_check_map(char **map)
 		return (0);
 	else if (!ft_check_extern_line(map, 0, 1))
 		return (0);
-	while (map[i + 1]);
+	while (map[i + 1])
 	{
 		if (!ft_check_middle_line(map, i))
 			return (0);
