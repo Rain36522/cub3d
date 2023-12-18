@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 16:21:18 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/18 18:07:05 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ void	ft_put_square(t_data *data, int x, int y, int icolor)
 	int	j;
 	int	iy;
 
-	i =  x * MAP_SIZE - MAP_SIZE / 2;
-	j = y * MAP_SIZE - MAP_SIZE / 2;
+	i = (x * MAP_SIZE);
+	j = (y * MAP_SIZE);
 	iy = j;
+	printf("i : %i, j : %i\n", i, j);
 	while (iy - j < MAP_SIZE)
 	{
 		ix = i;

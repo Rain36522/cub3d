@@ -23,10 +23,10 @@
 
 # define WIDTH 1920
 # define HEIGHT 980
-# define MAP_SIZE 70
-# define PLAYER_SIZE 5
-# define DEPLACEMENT 1.5
-# define ANGLE 5
+# define MAP_SIZE 100
+# define PLAYER_SIZE 20
+# define DEPLACEMENT 0.4
+# define ANGLE 15
 # define PI 3.141592653589793
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
 

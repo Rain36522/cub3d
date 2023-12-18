@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 	data = init_game(argv);
 	if (!data)
 		return (0);
+	printf("player pos : %f, %f\n", data->xpos, data->ypos);
 	ft_make_moov(data, data->xpos, data->ypos);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);

@@ -72,14 +72,15 @@ static t_data	*ft_put_player(t_data *data)
 
 	i = 1;
 	j = 1;
-	while (data->map[i] && !ft_check_player(data->map[i][j]))
+	while (data->map[i])
 	{
 		j = 1;
 		while (data->map[i][j] && !ft_check_player(data->map[i][j]))
 			j ++;
+		if (ft_check_player(data->map[i][j]))
+			break ;
 		i ++;
 	}
-	i --;
 	if (data->map[i][j] == 'N')
 		data->look = 0;
 	else if (data->map[i][j] == 'S')

@@ -19,15 +19,15 @@ static void	put_player(t_data *data)
 	double	x;
 	double	y;
 
-	x = data->xpos * MAP_SIZE - PLAYER_SIZE;
-	y = data->ypos * MAP_SIZE - PLAYER_SIZE;
+	x = data->xpos * MAP_SIZE;
+	y = data->ypos * MAP_SIZE;
 
 	j = y;
 	while (j - y < PLAYER_SIZE)
 	{
 		i = x;
 		while (i - x < PLAYER_SIZE)
-			put_pixel_img(data, i ++, j, 0x00FFFF00);
+			put_pixel_img(data, i ++, j, 0x00FF00FF);
 		j ++;
 	}
 }
@@ -43,6 +43,7 @@ void	put_map(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
+			DEBUG
 			if (data->map[i][j] == ' ')
 				ft_put_square(data, j, i, 0x00000000);
 			else if (data->map[i][j] == '1')
@@ -50,6 +51,7 @@ void	put_map(t_data *data)
 			else
 				ft_put_square(data, j, i, 0x00FFFFFF);
 			j ++;
+			DEBUG
 		}
 		i ++;
 	}
@@ -61,7 +63,10 @@ void	ft_make_moov(t_data *data, double x, double y)
 	data->ypos = y;
 
 	ft_new_img(data);
+	DEBUG
 	put_map(data);
+	DEBUG
 	put_player(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
+	DEBUG
 }
