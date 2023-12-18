@@ -112,6 +112,7 @@ t_data	*init_list(char **argv)
 	line = NULL;
 	input = malloc(sizeof(t_input));
 	input->map = NULL;
+	input->tab_map = NULL;
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0)
 	{
