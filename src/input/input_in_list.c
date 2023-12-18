@@ -44,7 +44,8 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 		return (1);
 	if (only_nbr(input) == 1)
 		return (1);
-	init_separe_colours(input);
+	if (init_separe_colours(input) == 1)
+		return (1);
 	get_trgb(input);
 	while (1)
 	{
@@ -104,12 +105,13 @@ static int	input_in_list(t_input *input, int fd, char *line)
 t_data	*init_list(char **argv)
 {
 	t_input	*input;
-	t_data	*data;
+	t_data	*data = NULL;
 	char	*line;
 	int		fd;
 
 	line = NULL;
 	input = malloc(sizeof(t_input));
+	input->map = NULL;
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0)
 	{
