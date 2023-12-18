@@ -97,7 +97,7 @@ void	print_tab(char **tab);
 void	add_end(t_list **list, char *line, t_input *input);
 t_list	*ptr_last_node(t_list *list);
 int		len_tab(t_list *list);
-char	*ft_strdup_free(const char *str);
+char	*ft_strdup_free(char *str);
 int		only_path(t_input *input);
 int		only_nbr(t_input *input);
 int		init_print_error(char *str);
@@ -110,6 +110,7 @@ int		not_enough_commas(char *str);
 int		other_than_digit(char *str);
 int		init_separe_colours(t_input *input);
 t_data	*t_input_to_t_data(t_input *input);
+void	free_tab(char **tab);
 char	*relay_only(char *str, int i);
 void	clean_list(t_list *list);
 
@@ -122,8 +123,14 @@ int		get_g(int trgb);
 int		get_b(int trgb);
 void	get_trgb(t_input *input);
 
+
 int		ft_check_map(char **map);
 
+// Err
 void	ft_error_quit(t_data *data, int icode);
+
+// Utils
+char	*ft_strdup_endl(char *str);
+void	ft_put_array(char **a);
 
 #endif

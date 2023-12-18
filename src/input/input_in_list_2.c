@@ -36,7 +36,7 @@ int	len_tab(t_list *list)
 	return (len);
 }
 
-char	*ft_strdup_free(const char *str)
+char	*ft_strdup_free(char *str)
 {
 	int		isize;
 	int		i;
@@ -44,7 +44,7 @@ char	*ft_strdup_free(const char *str)
 
 	isize = ft_strlen(str);
 	dup = (char *) malloc(isize + 1);
-	if (! dup)
+	if (!dup)
 		return (NULL);
 	dup[isize --] = '\0';
 	i = 0;

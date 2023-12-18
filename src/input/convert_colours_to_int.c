@@ -44,7 +44,6 @@ static int	is_size_nbr_valid(char *str)
 // Return 0 if everything was fine.
 static int	convert_colours_to_int(char *str, int *colour)
 {
-	(void) colour;
 	if (other_than_digit(str) == 1)
 	{
 		printf ("Error\nonly numbers are allowed for colours value\n");
@@ -58,8 +57,6 @@ static int	convert_colours_to_int(char *str, int *colour)
 		return (1);
 	}
 	*colour = ft_atoi(str);
-	free(str);
-	str = NULL;
 	return (0);
 }
 
@@ -70,58 +67,58 @@ static int	convert_colours_to_int(char *str, int *colour)
 static int	separe_colours_in_str_f(char *str, t_input *input)
 {
 	int		i;
-	int		step;
-
-	step = 0;
+	char	**tab;
 	i = 0;
-	while (str[i])
+
+	tab = ft_split(str, ',');
+	if (!tab)
 	{
-		i = 0;
-		while (str[i] && str[i] != ',')
-			i++;
-		if (step == 0
-			&& (convert_colours_to_int(ft_strndup(str, i), &input->f_r) == 1))
-			return (1);
-		else if (step == 1
-			&& (convert_colours_to_int(ft_strndup(str, i), &input->f_g) == 1))
-			return (1);
-		else if (step == 2
-			&& (convert_colours_to_int(ft_strndup(str, i), &input->f_b) == 1))
-			return (1);
-		step++;
-		str += i;
-		if (*str && *str == ',')
-			str++;
+		printf ("Error\nallocation failed\n");
+		return (1);
 	}
+	while (tab[i])
+	{
+		if (i == 0
+			&& (convert_colours_to_int(tab[i], &input->f_r) == 1))
+			return (1);
+		else if (i == 1
+			&& (convert_colours_to_int(tab[i], &input->f_g) == 1))
+			return (1);
+		else if (i == 2
+			&& (convert_colours_to_int(tab[i], &input->f_b) == 1))
+			return (1);
+		i++;
+	}
+	free_tab(tab);
 	return (0);
 }
 
 static int	separe_colours_in_str_c(char *str, t_input *input)
 {
 	int		i;
-	int		step;
-
-	step = 0;
+	char	**tab;
 	i = 0;
-	while (str[i])
+
+	tab = ft_split(str, ',');
+	if (!tab)
 	{
-		i = 0;
-		while (str[i] && str[i] != ',')
-			i++;
-		if (step == 0
-			&& (convert_colours_to_int(ft_strndup(str, i), &input->c_r) == 1))
-			return (1);
-		else if (step == 1
-			&& (convert_colours_to_int(ft_strndup(str, i), &input->c_g) == 1))
-			return (1);
-		else if (step == 2
-			&& (convert_colours_to_int(ft_strndup(str, i), &input->c_b) == 1))
-			return (1);
-		step++;
-		str += i;
-		if (*str && *str == ',')
-			str++;
+		printf ("Error\nallocation failed\n");
+		return (1);
 	}
+	while (tab[i])
+	{
+		if (i == 0
+			&& (convert_colours_to_int(tab[i], &input->c_r) == 1))
+			return (1);
+		else if (i == 1
+			&& (convert_colours_to_int(tab[i], &input->c_g) == 1))
+			return (1);
+		else if (i == 2
+			&& (convert_colours_to_int(tab[i], &input->c_b) == 1))
+			return (1);
+		i++;
+	}
+	free_tab(tab);
 	return (0);
 }
 

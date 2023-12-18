@@ -17,6 +17,9 @@ char	*relay_only(char *str, int i)
 {
 	while (str[i] && str[i] == 32)
 		i++;
-	str = ft_strdup_free(str + i);
+	if (str[i])
+	{
+		str = ft_strdup(str + i);
+	}
 	return (str);
 }

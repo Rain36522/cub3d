@@ -12,6 +12,20 @@
 
 #include "../../Includes/cub3d.h"
 
+// static void	ft_putstr_endl(char *str)
+// {
+// 	printf("put line : ");
+// 	while (*str)
+// 	{
+// 		if (*str == '\n')
+// 			ft_putchar_fd('?', 1);
+// 		else
+// 			ft_putchar_fd(*str, 1);
+// 		str ++;
+// 	}
+// 	ft_putchar_fd('\n', 1);
+// }
+
 static int	put_map_int_tab(t_input *input)
 {
 	int		i;
@@ -47,13 +61,11 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 	if (init_separe_colours(input) == 1)
 		return (1);
 	get_trgb(input);
-	while (1)
+	while (line)
 	{
-		if (line == NULL)
-		{
-			free(line);
-			break ;
-		}
+		if (!*line || (line[0] == '\n' && line[1] == '\0'))
+			free_str_and_null(line);
+		printf ("line: %s\n", line);
 		add_end(&input->map, line, input);
 		line = get_next_line(fd);
 	}
@@ -74,7 +86,7 @@ static int	input_in_list(t_input *input, int fd, char *line)
 {
 	while (1)
 	{
-		line = get_next_line(fd);
+		line = ft_strdup_endl(get_next_line(fd));
 		if (line[0] && line[0] == '\n' && line[1] == '\0')
 			free_str_and_null(line);
 		else if (ft_strnstr(line, "NO", 2) != NULL)

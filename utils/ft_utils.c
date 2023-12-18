@@ -26,15 +26,19 @@ void	ft_put_array(char **a)
 		printf("array : %s\n", a[i ++]);
 }
 
-char	*ft_strdup_endl(const char *str)
-{
+char	*ft_strdup_endl(char *str)
+{ 
 	int		isize;
 	int		i;
 	char	*dup;
 
+	if (!str)
+		return (NULL);
 	isize = ft_strlen(str);
 	if (ft_strchr(str, '\n'))
 		isize --;
+	if (str[0] == '\n' && str[1] == '\0')
+		return (str);
 	dup = (char *) malloc(isize + 1);
 	if (! dup)
 		return (NULL);
@@ -45,5 +49,7 @@ char	*ft_strdup_endl(const char *str)
 		dup[i] = str[i];
 		i ++;
 	}
+	free (str);
+	str = NULL;
 	return (dup);
 }

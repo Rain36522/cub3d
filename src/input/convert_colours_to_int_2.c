@@ -62,12 +62,12 @@ int	other_than_digit(char *str)
 	int		i;
 
 	i = 0;
-	if (str[0] == '+')
-		i = 1;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
+		{
 			return (1);
+		}
 		i++;
 	}
 	return (0);
