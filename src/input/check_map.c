@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 20:37:13 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 20:37:13 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/18 11:35:29 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/18 11:35:29 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static int	ft_check_char(char **map)
 		while (map[i][j])
 		{
 			c = map[i][j];
+			printf ("char : \'%c\'\n", c);
 			if (c != '0' || c != ' ' || c != 'N' || c != 'S'|| c != 'E' || \
 				c != 'W' || c != '1')
 				return (0);
@@ -91,16 +92,16 @@ int	ft_check_map(char **map)
 
 	i = 1;
 	if (!ft_check_char(map))
-		return (0);
-	else if (!ft_check_extern_line(map, 0, 1))
-		return (0);
+		return (102);
+	if (!ft_check_extern_line(map, 0, 1))
+		return (100);
 	while (map[i + 1])
 	{
 		if (!ft_check_middle_line(map, i))
-			return (0);
+			return (100);
 		i ++;
 	}
 	if (!ft_check_extern_line(map, i, i - 1))
-		return (0);
-	return (1);
+		return (100);
+	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 20:36:18 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 20:36:18 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/18 11:24:50 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/18 11:24:50 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,7 @@ int		get_b(int trgb);
 void	get_trgb(t_input *input);
 
 int		ft_check_map(char **map);
+
+void	ft_error_quit(t_data *data, int icode);
 
 #endif

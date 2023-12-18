@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 20:31:43 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 20:36:00 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/18 11:34:47 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/18 11:34:47 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static t_data	*ft_map_equal_line(char **map, t_data *data)
 	while (map[i])
 	{
 		map[i] = ft_change_size_line(map[i], ilen);
+		if (!map[i])
+			ft_error_quit(data, 12);
 		i ++;
 	}
 	data->map = map;
@@ -77,8 +79,6 @@ static t_data	*ft_put_player(t_data *data)
 			j ++;
 		i ++;
 	}
-	DEBUG
-	printf("char : %c\n", data->map[i][j]);
 	if (data->map[i][j] == 'N')
 		data->look = 0;
 	else if (data->map[i][j] == 'S')
@@ -98,12 +98,11 @@ t_data *t_input_to_t_data(t_input *input)
 
 	data = (t_data *) malloc(sizeof(t_data));
 	if (!data)
-		return (NULL);
+		ft_error_quit(NULL, 12);
+	data->mlx = NULL;
 	data = ft_map_equal_line(input->tab_map, data);
-	DEBUG
-	if (!ft_check_map(data->map))
-		return (NULL);
-	DEBUG
+	if (ft_check_map(data->map))
+		ft_error_quit(data, ft_check_map(data->map));
 	data = ft_put_player(data);
 	data->no = input->no;
 	data->so = input->so;
