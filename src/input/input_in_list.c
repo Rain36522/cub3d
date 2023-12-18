@@ -65,7 +65,6 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 	{
 		if (!*line || (line[0] == '\n' && line[1] == '\0'))
 			free_str_and_null(line);
-		printf ("line: %s\n", line);
 		add_end(&input->map, line, input);
 		line = get_next_line(fd);
 	}

@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:24:06 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 14:33:00 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/18 15:45:29 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_put_array(char **a)
 	}
 	i = 0;
 	while (a[i])
-		printf("array : %s\n", a[i ++]);
+		printf("array : %s|\n", a[i ++]);
 }
 
 char	*ft_strdup_endl(char *str)

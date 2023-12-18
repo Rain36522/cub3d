@@ -32,7 +32,7 @@ static t_data	*init_game(char **argv)
 	if (!data)
 		return (NULL);
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, 420, 420, "so_long");
+	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "so_long");
 	return (data);
 }
 
@@ -45,8 +45,7 @@ int	main(int argc, char **argv)
 	data = init_game(argv);
 	if (!data)
 		return (0);
-	put_map(data);
-	put_player(data);
+	ft_make_moov(data, data->xpos, data->ypos);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
 	mlx_loop(data->mlx);

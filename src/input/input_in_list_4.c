@@ -17,19 +17,16 @@ static char	*ft_change_size_line(char *line, int ilen)
 	int		i;
 	char	*new_line;
 
-	DEBUG
 	new_line = (char *) malloc(sizeof(char) * (ilen + 1));
 	if (!new_line)
 		return (NULL);
 	new_line[ilen] = '\0';
 	i = 0;
-	DEBUG
 	while (line[i] && line[i] != '\n' && i < ilen)
 	{
 		new_line[i] = line[i];
 		i ++;
 	}
-	DEBUG
 	while (i < ilen)
 		new_line[i ++] = ' ';
 
@@ -43,8 +40,6 @@ static t_data	*ft_map_equal_line(char **map, t_data *data)
 
 	i = 0;
 	ilen = 0;
-	DEBUG
-	ft_put_array(map);
 	while (map[i])
 	{
 		if ((int)ft_strlen(map[i]) > ilen)
@@ -54,13 +49,11 @@ static t_data	*ft_map_equal_line(char **map, t_data *data)
 	i = 0;
 	while (map[i])
 	{
-		DEBUG
 		map[i] = ft_change_size_line(map[i], ilen);
 		if (!map[i])
 			ft_error_quit(data, 12);
 		i ++;
 	}
-	DEBUG
 	data->map = map;
 	data->ix = ilen;
 	data->iy = i;
@@ -86,6 +79,7 @@ static t_data	*ft_put_player(t_data *data)
 			j ++;
 		i ++;
 	}
+	i --;
 	if (data->map[i][j] == 'N')
 		data->look = 0;
 	else if (data->map[i][j] == 'S')
@@ -107,12 +101,9 @@ t_data *t_input_to_t_data(t_input *input)
 	if (!data)
 		ft_error_quit(NULL, 12);
 	data->mlx = NULL;
-	DEBUG
 	data = ft_map_equal_line(input->tab_map, data);
-	DEBUG
 	if (ft_check_map(data->map))
 		ft_error_quit(data, ft_check_map(data->map));
-	DEBUG
 	data = ft_put_player(data);
 	data->no = input->no;
 	data->so = input->so;

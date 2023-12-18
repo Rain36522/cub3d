@@ -27,10 +27,9 @@ static int	ft_check_char(char **map)
 		while (map[i][j])
 		{
 			c = map[i][j];
-			printf ("char : \'%c\'\n", c);
-			if (c != '0' || c != ' ' || c != 'N' || c != 'S'|| c != 'E' || \
-				c != 'W' || c != '1')
-				return (0);
+			if (c != '0' && c != ' ' && c != 'N' && c != 'S'&& c != 'E' && \
+				c != 'W' && c != '1')
+				return (102);
 			if (c == 'N' || c == 'S'|| c == 'E' || c == 'W')
 				iplayer ++;
 			j ++;
@@ -38,7 +37,7 @@ static int	ft_check_char(char **map)
 		i ++;
 	}
 	if (iplayer != 1)
-		return (0);
+		return (101);
 	return (1);
 }
 
@@ -54,7 +53,7 @@ static int	ft_check_extern_line(char **map, int il1, int il2)
 	i = 0;
 	while (map[il1][i])
 	{
-		if (map[il1][i] != ' ' || map[il1][i] != '1')
+		if (map[il1][i] != ' ' && map[il1][i] != '1')
 			return (0);
 		else if (map[il1][i] == ' ' && map[il2][i] != '1' && map[il2][i] != ' ' )
 			return (0);
@@ -68,7 +67,7 @@ static int ft_check_middle_line(char **map, int j)
 	int	i;
 
 	i = 1;
-	if (map[j][0] != '0' || map[j][0]!= '1')
+	if (map[j][0] != ' ' && map[j][0]!= '1')
 		return (0);
 	while (map[j][i + 1])
 	{
@@ -90,9 +89,10 @@ int	ft_check_map(char **map)
 {
 	int	i;
 
-	i = 1;
-	if (!ft_check_char(map))
-		return (102);
+	i = ft_check_char(map);
+	ft_put_array(map);
+	if (i != 1)
+		return (i);
 	if (!ft_check_extern_line(map, 0, 1))
 		return (100);
 	while (map[i + 1])

@@ -6,32 +6,48 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 13:56:35 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/18 16:21:18 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/cub3d.h"
 
+// Attention a bien generer l image avant.
 void	ft_put_square(t_data *data, int x, int y, int icolor)
 {
 	int	i;
+	int	ix;
 	int	j;
+	int	iy;
 
-	x *= MAP_SIZE;
-	y *= MAP_SIZE;
-	x -= MAP_SIZE / 2;
-	y -= MAP_SIZE / 2;
-	j = 0;
-	while (j <= MAP_SIZE && j < HEIGHT)
+	i =  x * MAP_SIZE - MAP_SIZE / 2;
+	j = y * MAP_SIZE - MAP_SIZE / 2;
+	iy = j;
+	while (iy - j < MAP_SIZE)
 	{
-		i = 0;
-		while (i <= MAP_SIZE && i < WIDTH)
-		{
-			// printf("put pixel : %i, %i\n", x + i, j + y);
-			mlx_pixel_put(data->mlx, data->mlx_win, x + i, y + j, icolor);
-			i ++;
-		}
-		j ++;
+		ix = i;
+		while (ix - i < MAP_SIZE)
+			put_pixel_img(data, ix ++, iy, icolor);
+		iy ++;
 	}
 }
 
+void	ft_new_img(t_data *data)
+{
+	t_pixput	*img;
+
+	img = &data->img;
+	img->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	img->addr = mlx_get_data_addr(img->img, &img->bit_pp, \
+				&img->line_len, &img->endian);
+}
+
+void	put_pixel_img(t_data *data, int x, int y, int icolor)
+{
+	char		*dst;
+	t_pixput	*img;
+
+	img =&data->img;
+	dst = img->addr + (y * img->line_len + x * (img->bit_pp / 8));
+	*(unsigned int*)dst = icolor;
+}

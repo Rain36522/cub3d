@@ -6,13 +6,13 @@
 #    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/18 13:30:57 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/18 14:25:34 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra
 LIBFT = libft/libft.a
 
 MLX = mlx/libmlx.a
@@ -41,7 +41,7 @@ ERR = erreurs/ft_erreur.c
 
 SRC = $(addprefix src/,$(INPUT) $(MAIN) $(ERR))
 
-UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c
+UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c utils/ft_colision.c
 
 # $(GNL:.c=.o)
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)

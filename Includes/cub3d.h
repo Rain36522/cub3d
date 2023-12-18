@@ -24,16 +24,26 @@
 # define WIDTH 1920
 # define HEIGHT 980
 # define MAP_SIZE 70
+# define PLAYER_SIZE 5
 # define DEPLACEMENT 1.5
 # define ANGLE 5
 # define PI 3.141592653589793
-# define DEBUG printf("\033[1;31m%s:%d\n\033[0;37m", __FILE__, __LINE__);
+# define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
 
 typedef struct s_list
 {
 	char			*str;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_pixput
+{
+	void	*img;
+	char	*addr;
+	int		bit_pp;
+	int		line_len;
+	int		endian;
+}	t_pixput;
 
 typedef struct s_input
 {
@@ -53,24 +63,25 @@ typedef struct s_input
 	int		c_b;
 	int		color_ceiling;
 	int		color_floor;
-}				t_input;
+}			t_input;
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*mlx_win;
-	double	xpos;
-	double	ypos;
-	int		look;
-	char	**map;
-	int		ix;
-	int		iy;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	int		f;
-	int		c;
+	void		*mlx;
+	void		*mlx_win;
+	double		xpos;
+	double		ypos;
+	int			look;
+	char		**map;
+	int			ix;
+	int			iy;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	int			f;
+	int			c;
+	t_pixput	img;
 }	t_data;
 
 void	print_list(t_list *list);
@@ -78,14 +89,16 @@ void	print_tab(char **tab);
 
 // utils mlx
 void	ft_put_square(t_data *data, int x, int y, int icolor);
-void	put_map(t_data *data);
-void	put_player(t_data *data);
+void	ft_make_moov(t_data *data, double x, double y);
+void	ft_new_img(t_data *data);
+void	put_pixel_img(t_data *data, int x, int y, int icolor);
 
 
 // utils calcul
 double	ft_calc_depl_x(int iangl);
 double	ft_calc_depl_y(int iangl);
 int		ft_calcul_ang(int iangl, int iofset);
+int		ft_check_colision(t_data *data, double x, double y);
 
 // key_hook
 int		key_hook(int keycode, t_data *data);
