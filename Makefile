@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: csil <csil@student.42.fr>                  +#+  +:+       +#+         #
+#    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/18 11:30:03 by csil             ###   ########.fr        #
+#    Updated: 2023/12/18 12:42:44 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ lib :
 clean :
 	@rm -f $(OBJ)
 	@make clean -C libft/
+# @make clean -C mlx/
 
 fclean : clean
 	@rm -f $(NAME)
