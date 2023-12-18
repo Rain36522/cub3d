@@ -6,7 +6,7 @@
 #    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/18 12:42:44 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/18 13:30:57 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,17 @@ GREY = \\033[1;30m
 #utils/ft_check_map.c utils/ft_stock_map.c
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
-SRC = src/main.c src/input/input_in_list.c src/input/input_in_list_3.c src/input/input_in_list_2.c \
-	src/put_map.c src/key_hook.c src/input/convert_colours_to_int.c src/input/convert_colours_to_int_2.c \
-	src/input/create_trgb.c src/input/get_from_trgb.c src/input/input_in_list_4.c src/input/input_in_list_5.c \
-	src/input/check_map.c src/erreurs/ft_erreur.c
+INPUT = input/convert_colours_to_int.c input/convert_colours_to_int_2.c \
+	input/create_trgb.c input/get_from_trgb.c input/input_in_list_4.c input/input_in_list_5.c \
+	input/check_map.c input/input_in_list.c input/input_in_list_3.c input/input_in_list_2.c
 
-UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c
+MAIN = main.c put_map.c key_hook.c
+
+ERR = erreurs/ft_erreur.c
+
+SRC = $(addprefix src/,$(INPUT) $(MAIN) $(ERR))
+
+UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c
 
 # $(GNL:.c=.o)
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
