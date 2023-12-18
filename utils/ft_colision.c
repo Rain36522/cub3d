@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_mlx.c                                     :+:      :+:    :+:   */
+/*   ft_colision.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 13:56:35 by pudry            ###   ########.fr       */
+/*   Created: 2023/12/18 14:05:36 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/18 14:15:22 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/cub3d.h"
 
-void	ft_put_square(t_data *data, int x, int y, int icolor)
+int	ft_check_colision(t_data *data, double x, double y)
 {
-	int	i;
-	int	j;
+	int	ix;
+	int	iy;
 
-	x *= MAP_SIZE;
-	y *= MAP_SIZE;
-	x -= MAP_SIZE / 2;
-	y -= MAP_SIZE / 2;
-	j = 0;
-	while (j <= MAP_SIZE && j < HEIGHT)
-	{
-		i = 0;
-		while (i <= MAP_SIZE && i < WIDTH)
-		{
-			// printf("put pixel : %i, %i\n", x + i, j + y);
-			mlx_pixel_put(data->mlx, data->mlx_win, x + i, y + j, icolor);
-			i ++;
-		}
-		j ++;
-	}
+	ix = (int)x;
+	iy = (int)y;
+	if (data->map[ix][iy] == '1')
+		return (1);
+	return (0);
 }
-
