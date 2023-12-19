@@ -40,10 +40,7 @@ void	ft_raycasting(t_data *data)
 	i = 0;
 	// calcul langle du rayon par rapport a la dir du player
 	while (i < WIDTH)
-	{
-		raycast.angle = ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)) + i * (LOOK_ANGLE / WIDTH);
-		i++;
-	}
+		raycast.angle = ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)) + i ++ * (LOOK_ANGLE / (WIDTH / RESOLUTION));
 	// init list raycast
 	init_raycasting(&raycast, data, raycast.angle);
 	// throw the ray
