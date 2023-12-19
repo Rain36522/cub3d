@@ -19,13 +19,13 @@ void	init_raycasting(t_raycast *raycast, t_data *data, double angle)
 	raycast->y = data->ypos;
 	raycast->cos_x = cos(angle);
 	raycast->sin_y = sin(angle);
-	raycast->max_dist = 20.0;
-	raycast->distance = 0;	
+	raycast->max_dist = RENDER_DIST;
+	raycast->distance = 0;
 }
 
 // function to throw the rays
 // "stop when it hits the wall"
-void	ft_raycasting(t_data *data, int map[WIDTH][HEIGHT])
+void	ft_raycasting(t_data *data)
 {
 	int			i;
 	double		angle;
@@ -50,7 +50,7 @@ void	ft_raycasting(t_data *data, int map[WIDTH][HEIGHT])
 			|| raycast.y < 0 || raycast.y > HEIGHT)
 			break ;
 		// the ray incouneter a wall
-		if (map[(int)raycast.x][(int)raycast.y] == 1)
+		if (ft_check_colision(data, raycast.x, raycast.y))
 			break ;
 		// dislay the ray on the screen
 		printf("Ray at angle %.2f hit point (%.2f, %.2f)\n", angle, raycast.x, raycast.y);
@@ -66,5 +66,5 @@ int	main(void)
 	data.xpos = 2;
 	data.ypos = 4;
 
-	ft_raycasting(&data, map);
+	ft_raycasting(&data);
 }
