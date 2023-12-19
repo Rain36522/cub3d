@@ -78,6 +78,7 @@ typedef struct s_raycast
 	double	distance;
 	double	distance_to_wall;
 	double	wall_height;
+	double		angle;
 }	t_raycast;
 
 typedef struct s_data

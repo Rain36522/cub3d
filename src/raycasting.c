@@ -35,18 +35,17 @@ double	distance(double posx, double posy, double hitx, double hity)
 void	ft_raycasting(t_data *data)
 {
 	int			i;
-	double		angle;
 	t_raycast	raycast;
 
 	i = 0;
 	// calcul langle du rayon par rapport a la dir du player
 	while (i < WIDTH)
 	{
-		angle = ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)) + i * (LOOK_ANGLE / WIDTH);
+		raycast.angle = ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)) + i * (LOOK_ANGLE / WIDTH);
 		i++;
 	}
 	// init list raycast
-	init_raycasting(&raycast, data, angle);
+	init_raycasting(&raycast, data, raycast.angle);
 	// throw the ray
 	while (raycast.distance < raycast.max_dist)
 	{
@@ -68,7 +67,7 @@ void	ft_raycasting(t_data *data)
 			break ;
 		}
 		// dislay the ray on the screen
-		printf("Ray at angle %.2f hit point (%.2f, %.2f)\n", angle, raycast.x, raycast.y);
+		printf("Ray at angle %.2f hit point (%.2f, %.2f)\n", raycast.angle, raycast.x, raycast.y);
 		raycast.distance += DEPLACEMENT;
 	}
 }
