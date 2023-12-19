@@ -26,6 +26,9 @@
 # define MAP_SIZE 100
 # define PLAYER_SIZE 20
 # define DEPLACEMENT 0.4
+# define RENDER_DIST 20.0
+# define LOOK_ANGLE 15
+# define WALL_SIZE 200
 # define ANGLE 15
 # define PI 3.141592653589793
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
@@ -64,6 +67,18 @@ typedef struct s_input
 	int		color_ceiling;
 	int		color_floor;
 }			t_input;
+
+typedef struct s_raycast
+{
+	double	x;
+	double	y;
+	double	cos_x;
+	double	sin_y;
+	double	max_dist;
+	double	distance;
+	double	distance_to_wall;
+	double	wall_height;
+}	t_raycast;
 
 typedef struct s_data
 {
@@ -145,5 +160,8 @@ void	ft_error_quit(t_data *data, int icode);
 // Utils
 char	*ft_strdup_endl(char *str);
 void	ft_put_array(char **a);
+
+// raycasting
+void	ft_raycasting(t_data *data);
 
 #endif
