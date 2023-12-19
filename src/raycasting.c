@@ -24,6 +24,7 @@ void	init_raycasting(t_raycast *raycast, t_data *data, double angle)
 }
 
 // function to throw the rays
+// "stop when it hits the wall"
 void	ft_raycasting(t_data *data, int map[WIDTH][HEIGHT])
 {
 	int			i;
