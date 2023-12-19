@@ -14,3 +14,15 @@
 #include "../Includes/cub3d.h"
 
 // function to throw the rays
+void	ft_raycasting(t_data data, int map[WIDTH][HEIGHT])
+{
+	int		i;
+	double	angle;
+	i = 0;
+	// calcul langle du rayon par rapport a la dir du player
+	while (i < WIDTH)
+	{
+		angle = data.look - ANGLE / 2 + i * (ANGLE / WIDTH);
+		i++;
+	}
+}
