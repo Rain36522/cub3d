@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:39:27 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/20 16:24:04 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/20 18:55:05 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 			ray->mapy += ray->stepy;
 			ray->side = 1;
 		}
-		// printf("x : %i, y : %i\n", ray->mapx, ray->mapy);
 	}
 	if (ray->side == 0)
 		ray->prpwalldist = (ray->sidedistx - ray->deltadistx);
@@ -95,9 +94,8 @@ void	ft_raycasting(t_data *data)
 	t_ray	*ray;
 
 	ray = &data->raystruct;
-	ray->posx = data->xpos; // ici
+	ray->posx = data->xpos;
 	ray->posy = data->ypos;
 	ray->side = 0;
-	DEBUG
 	ft_launch_ray(data, ray);
 }

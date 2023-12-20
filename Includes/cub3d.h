@@ -106,17 +106,28 @@ typedef struct s_data
 	int			f;
 	int			c;
 	t_pixput	img;
+	t_pixput	texture;
 	t_ray		raystruct;
 }	t_data;
+
+enum	img
+{
+	NO,
+	SO,
+	WE,
+	EA
+};
 
 void	print_list(t_list *list);
 void	print_tab(char **tab);
 
 // utils mlx
-void	ft_put_square(t_data *data, int x, int y, int icolor);
-void	ft_make_moov(t_data *data, double x, double y);
-void	ft_new_img(t_data *data);
-void	put_pixel_img(t_data *data, int x, int y, int icolor);
+void			ft_put_square(t_data *data, int x, int y, int icolor);
+void			ft_make_moov(t_data *data, double x, double y);
+void			ft_new_img(t_data *data);
+void			put_pixel_img(t_data *data, int x, int y, int icolor);
+unsigned int	get_color_pixel(t_pixput *img, int x, int y);
+void			get_img(t_data *data, int img);
 
 
 // utils calcul

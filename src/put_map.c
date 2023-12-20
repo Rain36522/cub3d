@@ -66,4 +66,5 @@ void	ft_make_moov(t_data *data, double x, double y)
 	put_map(data);
 	put_player(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
+	mlx_destroy_image(data->mlx, data->img.img);
 }

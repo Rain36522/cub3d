@@ -39,15 +39,25 @@ static t_data	*init_game(char **argv)
 int	main(int argc, char **argv)
 {
 	t_data	*data;
+	int		width;
+	int		height;
 
+	width = 736;
+	height = 736;
 	if (argc != 2)
 		return (0);
 	data = init_game(argv);
 	if (!data)
 		return (0);
 	printf("player pos : %f, %f\n", data->xpos, data->ypos);
-	ft_make_moov(data, data->xpos, data->ypos);
-	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
+	get_img(data, NO);
+	DEBUG
+	printf("color : %u\n", get_color_pixel(&data->texture, 10, 10));
+	
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->texture.img, 0, 0);
+	// ft_make_moov(data, data->xpos, data->ypos);
+	// mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
+	DEBUG
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
 	mlx_loop(data->mlx);
 }

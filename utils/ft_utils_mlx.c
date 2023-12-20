@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/20 13:41:23 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/20 18:09:08 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,34 @@ void	put_pixel_img(t_data *data, int x, int y, int icolor)
 	dst = img->addr + (y * img->line_len + x * (img->bit_pp / 8));
 	*(unsigned int*)dst = icolor;
 }
+
+void	get_img(t_data *data, int img)
+{
+	int			width;
+	int			heigth;
+	t_pixput	*text;
+	char		*filename;
+
+	text = &data->texture;
+	if (img == NO)
+		filename = data->no;
+	else if (img == SO)
+		filename = data->so;
+	else if (img == WE)
+		filename = data->we;
+	else
+		filename = data->ea;
+	printf("path : %s\n", filename);
+	text->img = mlx_xpm_file_to_image(data->mlx, filename, &width, &heigth);
+	text->line_len = width;
+	text->addr = mlx_get_data_addr(text->img, &text->bit_pp, \
+				&text->line_len, &text->endian);
+}
+
+unsigned int	get_color_pixel(t_pixput *img, int x, int y)
+{
+	char	*dst;
+	dst = img->addr + (y * img->line_len + x);
+	return ((unsigned int)(*dst));
+}
+
