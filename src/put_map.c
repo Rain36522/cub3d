@@ -27,7 +27,7 @@ static void	put_player(t_data *data)
 	{
 		i = x;
 		while (i - x < PLAYER_SIZE)
-			mlx_pixel_put(data->mlx, data->mlx_win, i ++, j, 0x00FF00FF);
+			put_pixel_img(data, i ++, j, 0x00FF00FF);
 		j ++;
 	}
 }
@@ -43,15 +43,13 @@ void	put_map(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			DEBUG
 			if (data->map[i][j] == ' ')
-				ft_put_square(data, j, i, 0x00000000);
+				ft_put_square(data, j, i, 0xFF000000);
 			else if (data->map[i][j] == '1')
 				ft_put_square(data, j, i, 0x00808080);
 			else
 				ft_put_square(data, j, i, 0x00FFFFFF);
 			j ++;
-			DEBUG
 		}
 		i ++;
 	}
@@ -62,7 +60,10 @@ void	ft_make_moov(t_data *data, double x, double y)
 	data->xpos = x;
 	data->ypos = y;
 
+	DEBUG
+	ft_new_img(data);
 	ft_raycasting(data);
 	put_map(data);
 	put_player(data);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 }

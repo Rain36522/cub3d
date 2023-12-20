@@ -12,22 +12,22 @@
 
 #include "../Includes/cub3d.h"
 
-double	deg_to_rad(int deg)
+double	deg_to_rad(double deg)
 {
 	return (((double)deg * 2 * PI) / 360);	
 }
 
-double	ft_calc_depl_x(int iangl)
+double	ft_calc_depl_x(double iangl)
 {
 	return (cos(deg_to_rad(iangl)) * DEPLACEMENT);
 }
 
-double	ft_calc_depl_y(int iangl)
+double	ft_calc_depl_y(double iangl)
 {
 	return (sin(deg_to_rad(iangl)) * DEPLACEMENT);
 }
 
-int	ft_calcul_ang(int iangl, int iofset)
+double	ft_calcul_ang(double iangl, double iofset)
 {
 	iangl += iofset;
 	if (iangl < 0)

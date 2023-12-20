@@ -32,7 +32,7 @@ static t_data	*init_game(char **argv)
 	if (!data)
 		return (NULL);
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "so_long");
+	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "CUBE3D");
 	return (data);
 }
 
@@ -43,7 +43,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	data = init_game(argv);
-	data->look = 45;
 	if (!data)
 		return (0);
 	printf("player pos : %f, %f\n", data->xpos, data->ypos);

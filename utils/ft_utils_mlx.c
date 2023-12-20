@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 18:07:05 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/20 13:41:23 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_put_square(t_data *data, int x, int y, int icolor)
 	{
 		ix = i;
 		while (ix - i < MAP_SIZE)
-			mlx_pixel_put(data->mlx, data->mlx_win, ix ++, iy, icolor);
+			put_pixel_img(data, ix ++, iy, icolor);
 		iy ++;
 	}
 }

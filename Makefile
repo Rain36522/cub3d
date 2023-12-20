@@ -6,7 +6,7 @@
 #    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/18 14:25:34 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/20 13:14:54 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,13 @@ INPUT = input/convert_colours_to_int.c input/convert_colours_to_int_2.c \
 	input/create_trgb.c input/get_from_trgb.c input/input_in_list_4.c input/input_in_list_5.c \
 	input/check_map.c input/input_in_list.c input/input_in_list_3.c input/input_in_list_2.c
 
-MAIN = main.c put_map.c key_hook.c raycasting.c put_wall.c
+RAY_CAST = raycasting/put_wall.c raycasting/raycasting.c
+
+MAIN = main.c put_map.c key_hook.c
 
 ERR = erreurs/ft_erreur.c
 
-SRC = $(addprefix src/,$(INPUT) $(MAIN) $(ERR))
+SRC = $(addprefix src/,$(INPUT) $(MAIN) $(ERR) $(RAY_CAST))
 
 UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c utils/ft_colision.c
 

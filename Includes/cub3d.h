@@ -21,16 +21,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 500
-# define HEIGHT 980
+# define WIDTH 2560
+# define HEIGHT 1200
 # define MAP_SIZE 10
 # define PLAYER_SIZE 2
-# define DEPLACEMENT 0.000005
+# define DEPLACEMENT 0.05
 # define RENDER_DIST 50.0
-# define LOOK_ANGLE 15
-# define WALL_SIZE 900
+# define LOOK_ANGLE 66
+# define WALL_SIZE 1200
 # define RESOLUTION 1
-# define ANGLE 1
+# define ANGLE 30
 # define PI 3.141592653589793
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
 
@@ -69,18 +69,25 @@ typedef struct s_input
 	int		color_floor;
 }			t_input;
 
-typedef struct s_raycast
+typedef struct s_ray
 {
-	double	x;
-	double	y;
-	double	cos_x;
-	double	sin_y;
-	double	max_dist;
-	double	distance;
-	double	distance_to_wall;
-	double	wall_height;
-	double		angle;
-}	t_raycast;
+	int		mapx;
+	int		mapy;
+	double	sidedistx;
+	double	sidedisty;
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	prpwalldist;
+	double	deltadistx;
+	double	deltadisty;
+	double	angle;
+	int		stepx;
+	int		stepy;
+	int		side;
+	int		wall_height;
+}	t_ray;
 
 typedef struct s_data
 {
@@ -88,7 +95,7 @@ typedef struct s_data
 	void		*mlx_win;
 	double		xpos;
 	double		ypos;
-	int			look;
+	double		look;
 	char		**map;
 	int			ix;
 	int			iy;
@@ -99,6 +106,7 @@ typedef struct s_data
 	int			f;
 	int			c;
 	t_pixput	img;
+	t_ray		raystruct;
 }	t_data;
 
 void	print_list(t_list *list);
@@ -112,11 +120,11 @@ void	put_pixel_img(t_data *data, int x, int y, int icolor);
 
 
 // utils calcul
-double	ft_calc_depl_x(int iangl);
-double	ft_calc_depl_y(int iangl);
-int		ft_calcul_ang(int iangl, int iofset);
+double	ft_calc_depl_x(double iangl);
+double	ft_calc_depl_y(double iangl);
+double	ft_calcul_ang(double iangl, double iofset);
 int		ft_check_colision(t_data *data, double x, double y);
-double	deg_to_rad(int deg);
+double	deg_to_rad(double deg);
 
 // key_hook
 int		key_hook(int keycode, t_data *data);
@@ -153,7 +161,7 @@ int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 void	get_trgb(t_input *input);
-
+int		create_trgb(int t, int r, int g, int b);
 
 int		ft_check_map(char **map);
 
@@ -166,6 +174,6 @@ void	ft_put_array(char **a);
 
 // raycasting
 void	ft_raycasting(t_data *data);
-void	put_wall(t_data *data, double wall, int iframe);
+void	put_wall(t_data *data, t_ray *ray, int iframe);
 
 #endif

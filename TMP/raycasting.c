@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:10:56 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/19 11:10:59 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/20 09:34:24 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void	ft_raycasting_one_ray(t_data *data, int iframe)
 	iangl = (double)(ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)));
 	i = ((double)LOOK_ANGLE / ((WIDTH / RESOLUTION)) * iframe);
 	iangl = ft_calcul_ang_dbl(iangl, i);
-	printf("iangl : %f\n", iangl);
 	ilen = 0;
 	x = data->xpos;
 	y = data->ypos;
@@ -110,7 +109,6 @@ void	ft_raycasting_one_ray(t_data *data, int iframe)
 			break ;
 		ilen += DEPLACEMENT;
 	}
-	printf("wall_size : %f, ilen : %f\n\n", (double)WALL_SIZE / ilen, ilen);
 	put_wall(data, WALL_SIZE / ilen, iframe);
 	
 }

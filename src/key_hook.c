@@ -14,14 +14,14 @@
 
 static int	ft_check_angle(t_data *data, int keycode)
 {
-	if (keycode == 124)
-		data->look = ft_calcul_ang(data->look, ANGLE);
-	else if (keycode == 123)
+	if (keycode == 123)
 		data->look = ft_calcul_ang(data->look, ANGLE * -1);
+	else if (keycode == 124)
+		data->look = ft_calcul_ang(data->look, ANGLE);
 	else
 		return (0);
 	ft_make_moov(data, data->xpos, data->ypos);
-	printf("iangl : %i\n", data->look);
+	printf("iangl : %2f\n", data->look);
 	return (0);
 }
 
@@ -32,27 +32,29 @@ static int	ft_check_angle(t_data *data, int keycode)
 // 123 / 124 change angle
 int	key_hook(int keycode, t_data *data)
 {
-	int		iangl;
+	double	iangl;
 	double	x;
 	double	y;
 
+	printf("keycode : %i\n", keycode);
 	if (keycode == 53)
 		exit(0);
-	else if (keycode == 2)
-		iangl = ft_calcul_ang(data->look, -90);
-	else if (keycode == 0)
-		iangl = ft_calcul_ang(data->look, 90);
-	else if (keycode == 126 || keycode == 13)
+	else if (keycode == 13 || keycode == 126)
 		iangl = data->look;
-	else if (keycode == 125 || keycode == 1)
-		iangl = ft_calcul_ang(data->look, -180);
+	else if (keycode == 1 || keycode ==  125)
+		iangl = ft_calcul_ang(data->look, 180);
+	else if (keycode == 0)
+		iangl = ft_calcul_ang(data->look, -90);
+	else if (keycode == 2)
+		iangl = ft_calcul_ang(data->look, 90);
 	else
 		return (ft_check_angle(data, keycode));
 	x = ft_calc_depl_x(iangl) + data->xpos;
-	y = ft_calc_depl_y(iangl) + data->ypos;
+	y = (ft_calc_depl_y(iangl) + data->ypos);
 	if (ft_check_colision(data, x, y))
 		return (0);
 	ft_make_moov(data, x, y);
+	printf("iangl : %2f\n", data->look);
 	return (0);
 }
 

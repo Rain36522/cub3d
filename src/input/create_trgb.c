@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_trgb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/17 15:10:53 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/20 13:08:09 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // function that return in int
 // the value of trgb in one
-static int	create_trgb(int t, int r, int g, int b)
+int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
 }
