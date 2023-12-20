@@ -23,12 +23,12 @@ void	ft_put_square(t_data *data, int x, int y, int icolor)
 	i = (x * MAP_SIZE);
 	j = (y * MAP_SIZE);
 	iy = j;
-	printf("i : %i, j : %i\n", i, j);
+	// printf("i : %i, j : %i\n", i, j);
 	while (iy - j < MAP_SIZE)
 	{
 		ix = i;
 		while (ix - i < MAP_SIZE)
-			put_pixel_img(data, ix ++, iy, icolor);
+			mlx_pixel_put(data->mlx, data->mlx_win, ix ++, iy, icolor);
 		iy ++;
 	}
 }

@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	data = init_game(argv);
+	data->look = 45;
 	if (!data)
 		return (0);
 	printf("player pos : %f, %f\n", data->xpos, data->ypos);

@@ -27,7 +27,7 @@ static void	put_player(t_data *data)
 	{
 		i = x;
 		while (i - x < PLAYER_SIZE)
-			put_pixel_img(data, i ++, j, 0x00FF00FF);
+			mlx_pixel_put(data->mlx, data->mlx_win, i ++, j, 0x00FF00FF);
 		j ++;
 	}
 }
@@ -62,11 +62,7 @@ void	ft_make_moov(t_data *data, double x, double y)
 	data->xpos = x;
 	data->ypos = y;
 
-	ft_new_img(data);
-	DEBUG
+	ft_raycasting(data);
 	put_map(data);
-	DEBUG
 	put_player(data);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
-	DEBUG
 }

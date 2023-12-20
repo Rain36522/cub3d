@@ -18,6 +18,9 @@ static int	ft_check_angle(t_data *data, int keycode)
 		data->look = ft_calcul_ang(data->look, ANGLE);
 	else if (keycode == 123)
 		data->look = ft_calcul_ang(data->look, ANGLE * -1);
+	else
+		return (0);
+	ft_make_moov(data, data->xpos, data->ypos);
 	printf("iangl : %i\n", data->look);
 	return (0);
 }

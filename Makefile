@@ -35,7 +35,7 @@ INPUT = input/convert_colours_to_int.c input/convert_colours_to_int_2.c \
 	input/create_trgb.c input/get_from_trgb.c input/input_in_list_4.c input/input_in_list_5.c \
 	input/check_map.c input/input_in_list.c input/input_in_list_3.c input/input_in_list_2.c
 
-MAIN = main.c put_map.c key_hook.c
+MAIN = main.c put_map.c key_hook.c raycasting.c put_wall.c
 
 ERR = erreurs/ft_erreur.c
 

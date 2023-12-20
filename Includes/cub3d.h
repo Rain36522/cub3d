@@ -21,16 +21,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 1920
+# define WIDTH 500
 # define HEIGHT 980
-# define MAP_SIZE 100
-# define PLAYER_SIZE 20
-# define DEPLACEMENT 0.4
-# define RENDER_DIST 20.0
+# define MAP_SIZE 10
+# define PLAYER_SIZE 2
+# define DEPLACEMENT 0.000005
+# define RENDER_DIST 50.0
 # define LOOK_ANGLE 15
-# define WALL_SIZE 200
+# define WALL_SIZE 900
 # define RESOLUTION 1
-# define ANGLE 15
+# define ANGLE 1
 # define PI 3.141592653589793
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
 
@@ -116,6 +116,7 @@ double	ft_calc_depl_x(int iangl);
 double	ft_calc_depl_y(int iangl);
 int		ft_calcul_ang(int iangl, int iofset);
 int		ft_check_colision(t_data *data, double x, double y);
+double	deg_to_rad(int deg);
 
 // key_hook
 int		key_hook(int keycode, t_data *data);
@@ -165,5 +166,6 @@ void	ft_put_array(char **a);
 
 // raycasting
 void	ft_raycasting(t_data *data);
+void	put_wall(t_data *data, double wall, int iframe);
 
 #endif

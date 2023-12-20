@@ -19,11 +19,7 @@ int	ft_check_colision(t_data *data, double x, double y)
 
 	ix = (int)x;
 	iy = (int)y;
-	printf("player pos int : %i, %i\n", ix, iy);
-	printf("player pos flt : %f, %f\n", x, y);
-	printf("init play pos  : %f, %f\n", data->xpos, data->ypos);
-	ft_put_array(data->map);
-	if (data->map[iy][ix] == '1')
+	if (data->map[iy][ix] == '1' || data->map[iy][ix] == ' ')
 		return (1);
 	return (0);
 }
