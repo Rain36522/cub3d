@@ -29,7 +29,7 @@ static char	*ft_change_size_line(char *line, int ilen)
 	}
 	while (i < ilen)
 		new_line[i ++] = ' ';
-
+	free(line);
 	return (new_line);
 }
 
@@ -98,6 +98,8 @@ t_data *t_input_to_t_data(t_input *input)
 {
 	t_data	*data;
 
+	if (all_texture_in_data(input) == 1)
+		return (NULL);
 	data = (t_data *) malloc(sizeof(t_data));
 	if (!data)
 		ft_error_quit(NULL, 12);
@@ -106,13 +108,14 @@ t_data *t_input_to_t_data(t_input *input)
 	if (ft_check_map(data->map))
 		ft_error_quit(data, ft_check_map(data->map));
 	data = ft_put_player(data);
-	if (all_texture_in_data(input) == 1);
-		init_free_all_and_exit(input);
 	data->no = input->t_no;
 	data->so = input->t_so;
 	data->ea = input->t_ea;
 	data->we = input->t_we;
 	data->f = input->color_floor;
 	data->c = input->color_ceiling;
+	DEBUG
+	printf("c : %i\n", data->c);
+	printf("f : %i\n", data->f);
 	return (data);
 }

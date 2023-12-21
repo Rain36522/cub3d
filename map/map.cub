@@ -1,9 +1,9 @@
 NO ./img/text_rock.xpm
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-F 220,100,0
-C 225,30,0
+SO ./img/crane.xpm
+WE ./img/earth.xpm
+EA ./img/wood.xpm
+F 220,0,0
+C 250,30,0
 
 
 11111111111

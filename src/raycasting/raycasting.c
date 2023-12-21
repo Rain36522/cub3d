@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:39:27 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/20 18:55:05 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/21 14:34:33 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static void init_raytracer(t_ray *ray, t_data *data, int iframe)
 	ray->angle = (double)(ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)));
 	ray->angle = ft_calcul_ang(ray->angle, \
 				(double)LOOK_ANGLE / ((WIDTH / RESOLUTION)) * iframe);
-	// ray->angle = ft_calcul_ang(ray->angle, 180);
 	ray->dirx = cos(deg_to_rad(ray->angle));
 	ray->diry = sin(deg_to_rad(ray->angle));
 	if (ray->dirx == 0)
@@ -74,7 +73,6 @@ static void	ft_launch_ray(t_data *data, t_ray *ray)
 	while (iframe * RESOLUTION < WIDTH)
 	{
 		init_raytracer(ray, data, iframe);
-		// printf("iangle : %f\n", ray->angle);
 		if (ray->dirx < 0)
 			ray->sidedistx = (ray->posx - ray->mapx) * ray->deltadistx;
 		else

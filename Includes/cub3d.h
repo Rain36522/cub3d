@@ -51,6 +51,17 @@ typedef struct s_pixput
 	int		heigth;
 }	t_pixput;
 
+typedef struct s_wall
+{
+	t_pixput	*texutre;
+	int			img_xstrt;
+	int			iystrt;
+	int			ixstrt;
+	int			iyend;
+	int			ixend;
+	double		iscale;
+}	t_wall;
+
 typedef struct s_input
 {
 	char		*no;
@@ -170,6 +181,7 @@ void	free_tab(char **tab);
 char	*relay_only(char *str, int i);
 void	clean_list(t_list *list);
 void	destroy_img_texture(t_input *input);
+void	init_to_null(t_input *input);
 
 int	all_texture_in_data(t_input *input);
 t_data	*init_list(char **argv);

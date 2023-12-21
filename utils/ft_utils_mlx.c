@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_mlx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/21 11:10:08 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:35:56 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,32 +53,10 @@ void	put_pixel_img(t_data *data, int x, int y, int icolor)
 	*(unsigned int*)dst = icolor;
 }
 
-void	get_img(t_data *data, int img)
-{
-	int			width;
-	int			heigth;
-	t_pixput	*text;
-	char		*filename;
-
-	text = &data->texture;
-	if (img == NO)
-		filename = data->no;
-	else if (img == SO)
-		filename = data->so;
-	else if (img == WE)
-		filename = data->we;
-	else
-		filename = data->ea;
-	printf("path : %s\n", filename);
-	text->img = mlx_xpm_file_to_image(data->mlx, filename, &width, &heigth);
-	text->addr = mlx_get_data_addr(text->img, &text->bit_pp, \
-				&text->line_len, &text->endian);
-}
-
 unsigned int	get_color_pixel(t_pixput *img, int x, int y)
 {
 	char	*dst;
 	dst = img->addr + (y * img->line_len + x * (img->bit_pp / 8));
-	return ((unsigned int)(*dst));
+	return (*(unsigned int*)dst);
 }
 

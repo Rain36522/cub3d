@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:24:06 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 15:45:29 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/21 13:25:19 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,17 @@ char	*ft_strdup_endl(char *str)
 		isize --;
 	if (str[0] == '\n' && str[1] == '\0')
 		return (str);
-	dup = (char *) malloc(isize + 1);
+	dup = (char *) malloc(sizeof(char) *(isize + 1));
 	if (! dup)
 		return (NULL);
-	dup[isize --] = '\0';
+	dup[isize] = '\0';
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
 		dup[i] = str[i];
 		i ++;
 	}
+	dup[i] = '\0';
 	free (str);
 	str = NULL;
 	return (dup);

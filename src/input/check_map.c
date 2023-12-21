@@ -90,7 +90,6 @@ int	ft_check_map(char **map)
 	int	i;
 
 	i = ft_check_char(map);
-	ft_put_array(map);
 	if (i != 1)
 		return (i);
 	if (!ft_check_extern_line(map, 0, 1))

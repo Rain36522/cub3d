@@ -62,6 +62,7 @@ void	ft_make_moov(t_data *data, double x, double y)
 
 	DEBUG
 	ft_new_img(data);
+	ft_background(data);
 	ft_raycasting(data);
 	put_map(data);
 	put_player(data);

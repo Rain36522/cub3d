@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 11:05:28 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/21 11:12:42 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:45:23 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	destroy_img_texture(t_input *input)
 {
 	if (input->t_no.addr)
-		mlx_destroy_image(input->t_no.addr, input->t_no.img);
+		mlx_destroy_image(input->mlx, input->t_no.img);
 	if (input->t_so.addr)
-		mlx_destroy_image(input->t_so.addr, input->t_so.img);
+		mlx_destroy_image(input->mlx, input->t_so.img);
 	if (input->t_we.addr)
-		mlx_destroy_image(input->t_we.addr, input->t_we.img);
+		mlx_destroy_image(input->mlx, input->t_we.img);
 	if (input->t_ea.addr)
-		mlx_destroy_image(input->t_ea.addr, input->t_ea.img);
+		mlx_destroy_image(input->mlx, input->t_ea.img);
 }

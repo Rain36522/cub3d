@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/21 11:17:55 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:00:55 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	clean_list(t_list *list)
 
 int	init_free_all_and_exit(t_input *input)
 {
+	if (!input)
+		return (1);
 	if (input->no)
 		free_str_and_null(input->no);
 	if (input->so)
@@ -58,10 +60,10 @@ int	init_free_all_and_exit(t_input *input)
 		free_str_and_null(input->we);
 	if (input->ea)
 		free_str_and_null(input->ea);
-	if (input->f)
-		free_str_and_null(input->f);
-	if (input->c)
-		free_str_and_null(input->c);
+	// if (input->f)
+	// 	free_str_and_null(input->f);
+	// if (input->c)
+	// 	free_str_and_null(input->c);
 	destroy_img_texture(input);
 	clean_list(input->map);
 	free_tab(input->tab_map);
@@ -70,6 +72,7 @@ int	init_free_all_and_exit(t_input *input)
 		free (input);
 		input = NULL;
 	}
+	printf("free all and exit\n");
 	return (1);
 }
 
