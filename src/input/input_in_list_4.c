@@ -112,5 +112,7 @@ t_data *t_input_to_t_data(t_input *input)
 	data->so = input->t_so;
 	data->ea = input->t_ea;
 	data->we = input->t_we;
+	data->f = input->color_floor;
+	data->c = input->color_ceiling;
 	return (data);
 }
