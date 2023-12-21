@@ -194,5 +194,6 @@ void	ft_put_array(char **a);
 // raycasting
 void	ft_raycasting(t_data *data);
 void	put_wall(t_data *data, t_ray *ray, int iframe);
+void	ft_background(t_data *data);
 
 #endif
