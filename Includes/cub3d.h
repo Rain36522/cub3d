@@ -47,6 +47,8 @@ typedef struct s_pixput
 	int		bit_pp;
 	int		line_len;
 	int		endian;
+	int		width;
+	int		heigth;
 }	t_pixput;
 
 typedef struct s_input
@@ -99,6 +101,10 @@ typedef struct s_data
 	char		**map;
 	int			ix;
 	int			iy;
+	t_pixput		*t_no;
+	t_pixput		*t_so;
+	t_pixput		*t_we;
+	t_pixput		*t_ea;
 	char		*no;
 	char		*so;
 	char		*we;
@@ -164,6 +170,7 @@ void	free_tab(char **tab);
 char	*relay_only(char *str, int i);
 void	clean_list(t_list *list);
 
+void	all_texture_in_data(t_data *data);
 t_data	*init_list(char **argv);
 
 // RGB part

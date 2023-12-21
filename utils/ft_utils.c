@@ -27,7 +27,7 @@ void	ft_put_array(char **a)
 }
 
 char	*ft_strdup_endl(char *str)
-{ 
+{
 	int		isize;
 	int		i;
 	char	*dup;

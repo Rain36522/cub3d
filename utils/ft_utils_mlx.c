@@ -71,7 +71,6 @@ void	get_img(t_data *data, int img)
 		filename = data->ea;
 	printf("path : %s\n", filename);
 	text->img = mlx_xpm_file_to_image(data->mlx, filename, &width, &heigth);
-	text->line_len = width;
 	text->addr = mlx_get_data_addr(text->img, &text->bit_pp, \
 				&text->line_len, &text->endian);
 }
@@ -79,7 +78,7 @@ void	get_img(t_data *data, int img)
 unsigned int	get_color_pixel(t_pixput *img, int x, int y)
 {
 	char	*dst;
-	dst = img->addr + (y * img->line_len + x);
+	dst = img->addr + (y * img->line_len + x * (img->bit_pp / 8));
 	return ((unsigned int)(*dst));
 }
 

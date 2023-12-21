@@ -50,7 +50,8 @@ int	main(int argc, char **argv)
 	if (!data)
 		return (0);
 	printf("player pos : %f, %f\n", data->xpos, data->ypos);
-	get_img(data, NO);
+	//get_img(data, NO);
+	all_texture_in_data(data);
 	DEBUG
 	printf("color : %u\n", get_color_pixel(&data->texture, 10, 10));
 	
