@@ -171,7 +171,7 @@ char	*relay_only(char *str, int i);
 void	clean_list(t_list *list);
 void	destroy_img_texture(t_input *input);
 
-void	all_texture_in_data(t_input *input);
+int	all_texture_in_data(t_input *input);
 t_data	*init_list(char **argv);
 
 // RGB part

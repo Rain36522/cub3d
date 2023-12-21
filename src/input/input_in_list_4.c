@@ -106,7 +106,8 @@ t_data *t_input_to_t_data(t_input *input)
 	if (ft_check_map(data->map))
 		ft_error_quit(data, ft_check_map(data->map));
 	data = ft_put_player(data);
-	all_texture_in_data(input);
+	if (all_texture_in_data(input) == 1);
+		init_free_all_and_exit(input);
 	data->no = input->t_no;
 	data->so = input->t_so;
 	data->ea = input->t_ea;
