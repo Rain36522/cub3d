@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/21 16:00:55 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/21 16:01:26 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ int	init_free_all_and_exit(t_input *input)
 		free_str_and_null(input->we);
 	if (input->ea)
 		free_str_and_null(input->ea);
-	// if (input->f)
-	// 	free_str_and_null(input->f);
-	// if (input->c)
-	// 	free_str_and_null(input->c);
+	if (input->f)
+		free_str_and_null(input->f);
+	if (input->c)
+		free_str_and_null(input->c);
 	destroy_img_texture(input);
 	clean_list(input->map);
-	free_tab(input->tab_map);
+	// free_tab(input->tab_map);
 	if (input)
 	{
 		free (input);
