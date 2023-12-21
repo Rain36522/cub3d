@@ -101,10 +101,10 @@ typedef struct s_data
 	char		**map;
 	int			ix;
 	int			iy;
-	t_pixput		*t_no;
-	t_pixput		*t_so;
-	t_pixput		*t_we;
-	t_pixput		*t_ea;
+	t_pixput	t_no;
+	t_pixput	t_so;
+	t_pixput	t_we;
+	t_pixput	t_ea;
 	char		*no;
 	char		*so;
 	char		*we;

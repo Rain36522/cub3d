@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
+#    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/20 13:14:54 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/21 10:28:08 by cduffaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ INPUT = input/convert_colours_to_int.c input/convert_colours_to_int_2.c \
 
 RAY_CAST = raycasting/put_wall.c raycasting/raycasting.c
 
-MAIN = main.c put_map.c key_hook.c
+MAIN = main.c put_map.c key_hook.c texture_in_data.c
 
 ERR = erreurs/ft_erreur.c
 
