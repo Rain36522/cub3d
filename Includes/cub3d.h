@@ -168,7 +168,7 @@ char	*ft_strdup_free(char *str);
 int		only_path(t_input *input);
 int		only_nbr(t_input *input);
 int		init_print_error(char *str);
-int		init_free_all_and_exit(t_input *input);
+int		init_free_all_and_exit(t_input *input, int exit);
 int		free_str_and_null(char *str);
 int		only_nbr(t_input *input);
 int		only_path(t_input *input);

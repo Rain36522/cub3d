@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/21 16:01:26 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/21 16:20:48 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	clean_list(t_list *list)
 	}
 }
 
-int	init_free_all_and_exit(t_input *input)
+int	init_free_all_and_exit(t_input *input, int exit)
 {
 	if (!input)
 		return (1);
@@ -66,7 +66,8 @@ int	init_free_all_and_exit(t_input *input)
 		free_str_and_null(input->c);
 	destroy_img_texture(input);
 	clean_list(input->map);
-	// free_tab(input->tab_map);
+	if (exit)
+		free_tab(input->tab_map);
 	if (input)
 	{
 		free (input);
@@ -85,7 +86,7 @@ void	add_end(t_list **list, char *line, t_input *input)
 	if (!new_node)
 	{
 		printf ("Error\nlist allocation failed\n");
-		init_free_all_and_exit(input);
+		init_free_all_and_exit(input, 1);
 	}
 	new_node->str = line;
 	new_node->next = NULL;

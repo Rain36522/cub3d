@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_in_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:19:15 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/21 14:00:46 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/21 16:19:08 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ static int	put_texture_in_node(t_pixput *texture, t_input *input, char *name)
 int	all_texture_in_data(t_input *input)
 {
 	if (put_texture_in_node(&input->t_no, input, input->no) == 1)
-		return (init_free_all_and_exit(input));
+		return (init_free_all_and_exit(input, 1));
 	if (put_texture_in_node(&input->t_so, input, input->so) == 1)
-		return (init_free_all_and_exit(input));
+		return (init_free_all_and_exit(input, 1));
 	if (put_texture_in_node(&input->t_we, input, input->we) == 1)
-		return (init_free_all_and_exit(input));
+		return (init_free_all_and_exit(input, 1));
 	if (put_texture_in_node(&input->t_ea, input, input->ea) == 1)
-		return (init_free_all_and_exit(input));
+		return (init_free_all_and_exit(input, 1));
 	return (0);
 }

@@ -38,7 +38,7 @@ static int	put_map_int_tab(t_input *input)
 	if (!input->tab_map)
 	{
 		init_print_error("Error\ntab map allocation failed\n");
-		return (init_free_all_and_exit(input));
+		return (init_free_all_and_exit(input, 1));
 	}
 	input->tab_map[len] = NULL;
 	i = 0;
@@ -103,7 +103,7 @@ static int	input_in_list(t_input *input, int fd, char *line)
 		else
 		{
 			if (create_linked_list(input, fd, line) == 1)
-				return (init_free_all_and_exit(input));
+				return (init_free_all_and_exit(input), 1);
 			break ;
 		}
 	}
@@ -139,8 +139,7 @@ t_data	*init_list(char **argv)
 	close(fd);
 	ft_put_array(input->tab_map);
 	data = t_input_to_t_data(input);
-	init_free_all_and_exit(input);
-	printf("end parsing\n");
+	init_free_all_and_exit(input, 0);
 	return (data);
 }
 
