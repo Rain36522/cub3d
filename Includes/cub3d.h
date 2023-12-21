@@ -53,22 +53,27 @@ typedef struct s_pixput
 
 typedef struct s_input
 {
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	char	*f;
-	char	*c;
-	t_list	*map;
-	char	**tab_map;
-	int		f_r;
-	int		f_g;
-	int		f_b;
-	int		c_r;
-	int		c_g;
-	int		c_b;
-	int		color_ceiling;
-	int		color_floor;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+	void		*mlx;
+	t_pixput	t_no;
+	t_pixput	t_so;
+	t_pixput	t_ea;
+	t_pixput	t_we;
+	char		*f;
+	char		*c;
+	t_list		*map;
+	char		**tab_map;
+	int			f_r;
+	int			f_g;
+	int			f_b;
+	int			c_r;
+	int			c_g;
+	int			c_b;
+	int			color_ceiling;
+	int			color_floor;
 }			t_input;
 
 typedef struct s_ray
@@ -105,10 +110,6 @@ typedef struct s_data
 	t_pixput	so;
 	t_pixput	we;
 	t_pixput	ea;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
 	int			f;
 	int			c;
 	t_pixput	img;
@@ -168,8 +169,9 @@ t_data	*t_input_to_t_data(t_input *input);
 void	free_tab(char **tab);
 char	*relay_only(char *str, int i);
 void	clean_list(t_list *list);
+void	destroy_img_texture(t_input *input);
 
-void	all_texture_in_data(t_data *data);
+void	all_texture_in_data(t_input *input);
 t_data	*init_list(char **argv);
 
 // RGB part

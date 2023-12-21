@@ -101,14 +101,15 @@ t_data *t_input_to_t_data(t_input *input)
 	data = (t_data *) malloc(sizeof(t_data));
 	if (!data)
 		ft_error_quit(NULL, 12);
-	data->mlx = NULL;
+	data->mlx = input->mlx;
 	data = ft_map_equal_line(input->tab_map, data);
 	if (ft_check_map(data->map))
 		ft_error_quit(data, ft_check_map(data->map));
 	data = ft_put_player(data);
-	data->no = input->no;
-	data->so = input->so;
-	data->ea = input->ea;
-	data->we = input->we;
+	all_texture_in_data(input);
+	data->no = input->t_no;
+	data->so = input->t_so;
+	data->ea = input->t_ea;
+	data->we = input->t_we;
 	return (data);
 }

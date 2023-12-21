@@ -122,8 +122,8 @@ t_data	*init_list(char **argv)
 
 	line = NULL;
 	input = malloc(sizeof(t_input));
-	input->map = NULL;
-	input->tab_map = NULL;
+	input->mlx = mlx_init();
+	init_to_null(input);
 	fd = open(argv[1], O_RDWR);
 	if (fd < 0)
 	{
@@ -136,7 +136,7 @@ t_data	*init_list(char **argv)
 		return (NULL);
 	close(fd);
 	data = t_input_to_t_data(input);
-	clean_list(input->map);
+	init_free_all_and_exit(input);
 	return (data);
 }
 

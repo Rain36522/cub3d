@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/17 14:50:53 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/21 11:18:03 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,18 @@ char	*relay_only(char *str, int i)
 		str = ft_strdup(str + i);
 	}
 	return (str);
+}
+
+void	init_to_null(t_input *input)
+{
+	input->map = NULL;
+	input->tab_map = NULL;
+	input->t_we.addr = NULL;
+	input->t_ea.addr = NULL;
+	input->t_no.addr = NULL;
+	input->t_no.addr = NULL;
+	input->t_so.img = NULL;
+	input->t_we.img = NULL;
+	input->t_ea.img = NULL;
+	input->t_no.img = NULL;
 }

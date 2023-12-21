@@ -31,7 +31,6 @@ static t_data	*init_game(char **argv)
 	data = init_list(argv);
 	if (!data)
 		return (NULL);
-	data->mlx = mlx_init();
 	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "CUBE3D");
 	return (data);
 }
