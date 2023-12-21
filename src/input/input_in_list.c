@@ -103,7 +103,7 @@ static int	input_in_list(t_input *input, int fd, char *line)
 		else
 		{
 			if (create_linked_list(input, fd, line) == 1)
-				return (init_free_all_and_exit(input), 1);
+				return (init_free_all_and_exit(input, 1));
 			break ;
 		}
 	}
