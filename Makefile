@@ -6,7 +6,7 @@
 #    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/21 15:37:00 by cduffaut         ###   ########.fr        #
+#    Updated: 2023/12/21 16:46:32 by cduffaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ lib :
 clean :
 	@rm -f $(OBJ)
 	@make clean -C libft/
-# @make clean -C mlx/
+	@make clean -C mlx/
 
 fclean : clean
 	@rm -f $(NAME)

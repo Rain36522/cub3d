@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 20:08:43 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 20:25:58 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/22 09:30:58 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/22 09:30:58 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	ft_check_angle(t_data *data, int keycode)
 	else
 		return (0);
 	ft_make_moov(data, data->xpos, data->ypos);
-	printf("iangl : %2f\n", data->look);
 	return (0);
 }
 
@@ -36,7 +35,6 @@ int	key_hook(int keycode, t_data *data)
 	double	x;
 	double	y;
 
-	printf("keycode : %i\n", keycode);
 	if (keycode == 53)
 		exit(0);
 	else if (keycode == 13 || keycode == 126)

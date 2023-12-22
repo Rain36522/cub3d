@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_wall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 14:18:30 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/21 15:39:37 by pudry            ###   ########.fr       */
+/*   Created: 2023/12/22 09:31:52 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/22 09:41:59 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ static void ft_put_line_wall(t_wall *twall, t_data *data, int iy)
 	{
 		iyscale = iy * twall->iscale;
 		ixscale = ix * twall->iscale;
-		if (iyscale >= twall->texutre->heigth)
-			iyscale = twall->texutre->heigth - 1;
-		if (ixscale >= twall->texutre->width)
-			ixscale = twall->texutre->width - 1;
+		while (iyscale >= twall->texutre->heigth)
+			iyscale -= twall->texutre->heigth;
+		while (ixscale >= twall->texutre->width)
+			ixscale -= twall->texutre->width;
+		// printf("read img, x : %i, y : %i\n", ixscale, iyscale);
 		ipixel_color = get_color_pixel(twall->texutre, ixscale, iyscale);
 		put_pixel_img(data, ix, iy, ipixel_color);
 		ix ++;
@@ -84,18 +85,23 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 
 	// DEBUG
 	twall.texutre = ft_get_texture(ray,data);
-	twall.iscale = ray->wall_height / twall.texutre->heigth ;
+	twall.iscale = (double)ray->wall_height / twall.texutre->heigth;
+	// printf("iscale : %f, wall_size : %i, texture_size : %i\n", twall.iscale, ray->wall_height, twall.texutre->heigth);
 	if (twall.texutre != img)
 		img_frame = 0;
 	if ((img_frame + RESOLUTION) * twall.iscale >= twall.texutre->width)
+	{
 		img_frame = 0;
+		printf("reset img frame\n");
+	}
+	// printf("img_frame : %i, res : %i, scale : %f\n", img_frame, RESOLUTION, twall.iscale);
 	twall.img_xstrt = img_frame;
 	twall.ixstrt = iframe * RESOLUTION;
 	twall.ixend = twall.ixstrt + RESOLUTION;
 	if (twall.ixend >= WIDTH)
 		twall.ixend = WIDTH - 1;
 	ft_put_wall(&twall, ray, data);
-	img_frame ++;
+	img_frame += twall.iscale;
 	img = twall.texutre;
 	
 }
