@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 09:39:27 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/21 16:22:07 by cduffaut         ###   ########.fr       */
+/*   Created: 2023/12/22 10:05:08 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/22 10:05:08 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 {
 	while (data->map[ray->mapy][ray->mapx] != '1')
 	{
+		if (ray->mapx < 0  || ray->mapx >= data->ix)
+			break ;
+		else if (ray->mapy < 0  || ray->mapy >= data->iy)
+			break ;
 		if (ray->sidedistx < ray->sidedisty)
 		{
 			ray->sidedistx += ray->deltadistx;
@@ -35,7 +39,9 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 	else
 		ray->prpwalldist = (ray->sidedisty - ray->deltadisty);
 	ray->wall_height = (int)(WALL_SIZE / ray->prpwalldist);
+	DEBUG
 	put_wall(data, ray, iframe);
+	DEBUG
 }
 
 static void init_raytracer(t_ray *ray, t_data *data, int iframe)

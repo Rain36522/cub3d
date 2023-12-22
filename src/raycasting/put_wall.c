@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 09:31:52 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/22 09:41:59 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/22 10:06:19 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/22 10:07:52 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void ft_put_line_wall(t_wall *twall, t_data *data, int iy)
 	unsigned int	ipixel_color;
 
 	ix = twall->ixstrt;
+	// printf("iscale : %i\n", twall->iscale);
 	while (ix < twall->ixend)
 	{
 		iyscale = iy * twall->iscale;
@@ -62,8 +63,9 @@ static void	ft_put_wall(t_wall *twall, t_ray *ray, t_data *data)
 {
 	int		iy;
 
-	twall->iscale = twall->texutre->heigth / ray->wall_height;
 	twall->iystrt = (HEIGHT / 2) - (ray->wall_height / 2);
+	if (twall->iystrt < 0)
+		twall->iystrt = 0;
 	iy = twall->iystrt;
 	twall->iyend = (HEIGHT / 2) + (ray->wall_height / 2);
 	if (twall->iyend >= HEIGHT)
@@ -85,8 +87,7 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 
 	// DEBUG
 	twall.texutre = ft_get_texture(ray,data);
-	twall.iscale = (double)ray->wall_height / twall.texutre->heigth;
-	// printf("iscale : %f, wall_size : %i, texture_size : %i\n", twall.iscale, ray->wall_height, twall.texutre->heigth);
+	twall.iscale = twall.texutre->heigth / (double)ray->wall_height;
 	if (twall.texutre != img)
 		img_frame = 0;
 	if ((img_frame + RESOLUTION) * twall.iscale >= twall.texutre->width)
@@ -100,8 +101,10 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	twall.ixend = twall.ixstrt + RESOLUTION;
 	if (twall.ixend >= WIDTH)
 		twall.ixend = WIDTH - 1;
+	DEBUG
 	ft_put_wall(&twall, ray, data);
-	img_frame += twall.iscale;
+	DEBUG
+	img_frame ++;
 	img = twall.texutre;
 	
 }
