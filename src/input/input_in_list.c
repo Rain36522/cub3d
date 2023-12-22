@@ -62,7 +62,7 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 	get_trgb(input);
 	while (line)
 	{
-		line = ft_strdup_free(line);
+		//line = ft_strdup_free(line);
 		if (!*line || (line[0] == '\n' && line[1] == '\0'))
 			free_str_and_null(line);
 		add_end(&input->map, line, input);
@@ -107,7 +107,8 @@ static int	input_in_list(t_input *input, int fd, char *line)
 			break ;
 		}
 	}
-	return (free_str_and_null(line));
+	//return (free_str_and_null(line));
+	return (0);
 }
 
 // If fuction return NULL => Error was declared
@@ -140,7 +141,6 @@ t_data	*init_list(char **argv)
 	ft_put_array(input->tab_map);
 	data = t_input_to_t_data(input);
 	init_free_all_and_exit(input, 0);
-	exit (0);
 	return (data);
 }
 

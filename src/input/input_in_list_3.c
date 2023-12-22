@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/22 14:45:43 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:22:09 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	add_end(t_list **list, char *line, t_input *input)
 		printf ("Error\nlist allocation failed\n");
 		init_free_all_and_exit(input, 1);
 	}
+	//new_node->str = ft_strdup_free(line);
 	new_node->str = line;
 	new_node->next = NULL;
 	if (!*list)
