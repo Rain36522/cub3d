@@ -208,4 +208,7 @@ void	ft_raycasting(t_data *data);
 void	put_wall(t_data *data, t_ray *ray, int iframe);
 void	ft_background(t_data *data);
 
+// Free and exit
+void	free_and_exit_prog(t_data *data);
+
 #endif

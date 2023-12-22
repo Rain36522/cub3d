@@ -6,7 +6,7 @@
 #    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/21 16:46:32 by cduffaut         ###   ########.fr        #
+#    Updated: 2023/12/22 14:06:04 by cduffaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ INPUT = input/convert_colours_to_int.c input/convert_colours_to_int_2.c \
 
 RAY_CAST = raycasting/put_wall.c raycasting/raycasting.c raycasting/ft_background.c
 
-MAIN = main.c put_map.c key_hook.c
+MAIN = main.c put_map.c key_hook.c free_and_exit_prog.c
 
 ERR = erreurs/ft_erreur.c
 
@@ -50,7 +50,7 @@ UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c 
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
 all : lib $(NAME)
-	./cub3d map/map.cub
+	leaks --atExit -- ./cub3d map/map.cub
 
 push : clean
 	git add *
@@ -59,7 +59,10 @@ push : clean
 
 .c.o:
 	$(CC) $(FLAGS) -c -o $@ $< $(INCLUDES)
-	
+
+leaks: $(NAME)
+	leaks --atExit -- ./$(NAME)
+
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
 

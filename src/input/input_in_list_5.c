@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/21 11:18:03 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/22 14:51:28 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 // skip the spaces before dup the str
 char	*relay_only(char *str, int i)
 {
+	char	*dup;
+
 	while (str[i] && str[i] == 32)
 		i++;
 	if (str[i])
 	{
-		str = ft_strdup(str + i);
+		dup = ft_strdup(str + i);
+		free(str);
+		str = NULL;
 	}
-	return (str);
+	return (dup);
 }
 
 void	init_to_null(t_input *input)

@@ -38,11 +38,11 @@ static t_data	*init_game(char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_data	*data;
-	int		width;
-	int		height;
+	t_data		*data;
+	int			width;
+	int			height;
 	t_pixput	txt;
-	char	*dst;
+	char		*dst;
 
 	width = 736;
 	height = 736;
@@ -55,4 +55,5 @@ int	main(int argc, char **argv)
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
 	mlx_loop(data->mlx);
+	free_and_exit_prog(data);
 }
