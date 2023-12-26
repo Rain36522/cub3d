@@ -138,7 +138,6 @@ t_data	*init_list(char **argv)
 	if (put_map_int_tab(input) == 1)
 		return (NULL);
 	close(fd);
-	ft_put_array(input->tab_map);
 	data = t_input_to_t_data(input);
 	init_free_all_and_exit(input, 0);
 	return (data);

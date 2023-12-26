@@ -36,6 +36,16 @@ static t_data	*init_game(char **argv)
 	return (data);
 }
 
+static int	ft_loop(t_data *data)
+{
+	if (data->make_moov == '1')
+	{
+		ft_make_moov(data, data->x, data->y);
+		data->make_moov = '0';
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data		*data;
@@ -49,9 +59,9 @@ int	main(int argc, char **argv)
 	data = init_game(argv);
 	if (!data)
 		return (0);
-	ft_make_moov(data, data->xpos, data->ypos);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
+	mlx_loop_hook(data->mlx, ft_loop, data);
 	mlx_loop(data->mlx);
 	free_and_exit_prog(data);
 }

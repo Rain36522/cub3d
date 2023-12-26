@@ -90,7 +90,7 @@ static t_data	*ft_put_player(t_data *data)
 	else if (data->map[i][j] == 'W')
 		data->look = 90;
 	data->xpos = (double)j + 0.5;
-	data->ypos = (double)i + -0.5;
+	data->ypos = (double)i + +0.5;
 	return (data);
 }
 

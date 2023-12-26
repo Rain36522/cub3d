@@ -59,7 +59,7 @@ static void	ft_wall_biger(t_wall *wall, t_pixput *img, int wall_height)
 {
 	int	istart;
 
-	istart = (HEIGHT - wall_height) / 2;
+	istart = (wall_height - HEIGHT) / 2;
 	wall->iy = (img->heigth * istart) / (double)wall_height;
 	wall->iystrt = 0;
 }
@@ -84,7 +84,6 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	wall.iy = 0.0;
 	if (wall.iystrt < 0)
 		ft_wall_biger(&wall, img, ray->wall_height);
-	printf("wall.iy : %2.f\n", wall.iy);
 	wall.iyend = (HEIGHT - wall.iystrt) * wall.iscale;
 	put_wall_2(data, wall, ray, iframe);
 }

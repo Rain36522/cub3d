@@ -24,8 +24,8 @@
 # define WIDTH 2560
 # define HEIGHT 1200
 # define MAP_SIZE 10
-# define PLAYER_SIZE 2
-# define DEPLACEMENT 0.05
+# define PLAYER_SIZE 3
+# define DEPLACEMENT 0.2
 # define RENDER_DIST 50.0
 # define LOOK_ANGLE 66
 # define WALL_SIZE 1200
@@ -119,6 +119,8 @@ typedef struct s_data
 	double		xpos;
 	double		ypos;
 	double		look;
+	double		x;
+	double		y;
 	char		**map;
 	int			ix;
 	int			iy;
@@ -130,6 +132,7 @@ typedef struct s_data
 	int			c;
 	t_pixput	img;
 	t_ray		raystruct;
+	char		make_moov;
 }	t_data;
 
 enum	img

@@ -32,8 +32,6 @@ static int	ft_check_angle(t_data *data, int keycode)
 int	key_hook(int keycode, t_data *data)
 {
 	double	iangl;
-	double	x;
-	double	y;
 
 	if (keycode == 53)
 		exit(0);
@@ -47,12 +45,13 @@ int	key_hook(int keycode, t_data *data)
 		iangl = ft_calcul_ang(data->look, 90);
 	else
 		return (ft_check_angle(data, keycode));
-	x = ft_calc_depl_x(iangl) + data->xpos;
-	y = (ft_calc_depl_y(iangl) + data->ypos);
-	if (ft_check_colision(data, x, y))
+	data->x = ft_calc_depl_x(iangl) + data->xpos;
+	data->y = (ft_calc_depl_y(iangl) + data->ypos);
+	if (ft_check_colision(data, data->x, data->y))
 		return (0);
-	ft_make_moov(data, x, y);
-	printf("iangl : %2f\n", data->look);
+	while (data->make_moov == '1')
+		continue ;
+	data->make_moov = '1';
 	return (0);
 }
 
