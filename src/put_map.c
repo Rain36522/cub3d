@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 09:24:14 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 09:26:19 by pudry            ###   ########.ch       */
+/*   Updated: 2023/12/26 23:17:48 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	put_map(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] == ' ')
-				ft_put_square(data, j, i, 0xFF000000);
-			else if (data->map[i][j] == '1')
+			if (data->map[i][j] == '1')
 				ft_put_square(data, j, i, 0x00808080);
-			else
+			else if (data->map[i][j] == 'D')
+				ft_put_square(data, j, i, 0x00996600);
+			else if (data->map[i][j] != ' ')
 				ft_put_square(data, j, i, 0x00FFFFFF);
 			j ++;
 		}
