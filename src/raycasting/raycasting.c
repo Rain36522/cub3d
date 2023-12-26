@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 10:05:08 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/22 10:05:08 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 22:55:46 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 22:55:46 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 {
-	while (data->map[ray->mapy][ray->mapx] != '1')
+	while (data->map[ray->mapy][ray->mapx] != '1' && \
+									data->map[ray->mapy][ray->mapx] != 'D')
 	{
 		if (ray->mapx < 0  || ray->mapx >= data->ix)
 			break ;
@@ -38,7 +39,6 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 		ray->prpwalldist = (ray->sidedistx - ray->deltadistx);
 	else
 		ray->prpwalldist = (ray->sidedisty - ray->deltadisty);
-	ray->wall_height = (int)(WALL_SIZE / ray->prpwalldist);
 	put_wall(data, ray, iframe);
 }
 

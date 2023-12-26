@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_in_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 10:19:15 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/26 17:59:42 by pudry            ###   ########.fr       */
+/*   Created: 2023/12/26 21:10:05 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 21:10:05 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int		put_texture_in_data_2(t_data *data, t_pixput *texture)
 		&texture->line_len, &texture->endian);
 	if (!texture->addr)
 		return (1);
+	return (0);
 }
 
 // To launch the textures !

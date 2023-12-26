@@ -5,36 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 09:30:58 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/22 09:30:58 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 23:08:05 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 23:08:42 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/cub3d.h"
 
-static int	ft_check_dir_door(int look, t_data *data)
+static void	ft_door(t_data *data, int y, int x)
 {
-	return 0;
+	printf("check char : %c pos : %i, %i\n", data->map[y][x], y, x);
+	if (data->map[y][x] == 'D')
+		data->map[y][x] = 'E';
+	else if (data->map[y][x] == 'E')
+		data->map[y][x] = 'D';
 }
 static void	ft_change_door(t_data *data)
 {
 	int	l;
 	int	r;
 
+	DEBUG
 	r = (int)ft_calcul_ang(data->look, LOOK_ANGLE / 2);
 	l = (int)ft_calcul_ang(data->look, -(LOOK_ANGLE / 2));
 	if ((l > 315 || l < 45) || (r > 315 || r < 45))
-		if (data->map[(int)data->ypos][(int)data->xpos + 1] == 'D')
-			data->map[(int)data->ypos][(int)data->xpos + 1] = '0';
-	else if ((l > 45 && l < 135) || (r > 45 && r < 135))
-		if (data->map[(int)data->ypos + 1][(int)data->xpos] == 'D')
-			data->map[(int)data->ypos + 1][(int)data->xpos] = '0';
-	else if ((l > 135 && l < 225) || (r > 135 && r < 225))
-		if (data->map[(int)data->ypos][(int)data->xpos - 1] == 'D')
-			data->map[(int)data->ypos][(int)data->xpos - 1] = '0';
-	else
-		if (data->map[(int)data->ypos - 1][(int)data->xpos] == 'D')
-			data->map[(int)data->ypos - 1][(int)data->xpos] = '0';
+		ft_door(data, (int)data->ypos, (int)data->xpos + 1);
+	if ((l > 45 && l < 135) || (r > 45 && r < 135))
+		ft_door(data, (int)data->ypos + 1, (int)data->xpos);
+	if ((l > 135 && l < 225) || (r > 135 && r < 225))
+		ft_door(data, (int)data->ypos, (int)data->xpos - 1);
+	if ((l > 225 && l < 315) || (r > 135 && r < 225))
+		ft_door(data, (int)data->ypos - 1, (int)data->xpos);
 }
 
 static int	ft_check_angle(t_data *data, int keycode)
@@ -60,7 +61,6 @@ int	key_hook(int keycode, t_data *data)
 {
 	double	iangl;
 	
-	printf("keycode : %i\n", keycode);
 	if (keycode == 53)
 		exit(0);
 	else if (keycode == 13 || keycode == 126)

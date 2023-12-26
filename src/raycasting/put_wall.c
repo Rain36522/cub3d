@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_wall.c                                         :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 11:05:47 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 11:10:59 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 22:55:04 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 22:55:04 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 {
+	if (data->map[ray->mapy][ray->mapx] == 'D')
+		return (&data->so);
 	if (ray->side == 0)
 	{
 		if (ray->dirx >= 0 && ray->diry >= 0)
@@ -69,6 +71,7 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	t_pixput		*img;
 	t_wall			wall;
 
+	ray->wall_height = (int)(WALL_SIZE / ray->prpwalldist);
 	img = ft_get_texture(ray, data);
 	if (ray->side == 0)
 		ray->wallx = ray->posy + ray->prpwalldist * ray->diry;

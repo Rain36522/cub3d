@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 11:03:45 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 11:03:45 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 21:12:36 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 21:15:51 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 2560
-# define HEIGHT 1200
+# define WIDTH 1710
+# define HEIGHT 1000
 # define MAP_SIZE 10
 # define PLAYER_SIZE 3
 # define DEPLACEMENT 0.2

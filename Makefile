@@ -6,7 +6,7 @@
 #    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/26 18:02:01 by pudry            ###   ########.fr        #
+#    Updated: 2023/12/26 21:11:12 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,12 +68,12 @@ $(NAME): $(OBJ)
 
 lib :
 	@make -C libft/
-#	@make -C mlx/
+	@make -C mlx/
 
 clean :
 	@rm -f $(OBJ)
 	@make clean -C libft/
-#	@make clean -C mlx/
+	@make clean -C mlx/
 
 fclean : clean
 	@rm -f $(NAME)

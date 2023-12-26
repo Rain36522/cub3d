@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 20:37:49 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/17 20:37:54 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 23:03:26 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 23:03:26 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,7 @@ static int	ft_loop(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data		*data;
-	int			width;
-	int			height;
 
-	width = 736;
-	height = 736;
 	if (argc != 2)
 		return (0);
 	data = init_game(argv);
