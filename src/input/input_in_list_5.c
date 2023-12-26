@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/22 14:51:28 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/26 13:44:45 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 char	*relay_only(char *str, int i)
 {
 	char	*dup;
-
 	while (str[i] && str[i] == 32)
 		i++;
 	if (str[i])
@@ -24,8 +23,9 @@ char	*relay_only(char *str, int i)
 		dup = ft_strdup(str + i);
 		free(str);
 		str = NULL;
+		return (dup);
 	}
-	return (dup);
+	return (str);
 }
 
 void	init_to_null(t_input *input)

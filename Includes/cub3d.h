@@ -57,10 +57,11 @@ typedef struct s_wall
 	int			img_xstrt;
 	int			iystrt;
 	int			ixstrt;
-	int			iyend;
+	double		iyend;
 	int			ixend;
 	double		iscale;
 	double		texpos;
+	double		iy;
 }	t_wall;
 
 typedef struct s_input

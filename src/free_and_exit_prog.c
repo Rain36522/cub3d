@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_and_exit_prog.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 13:31:20 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/22 14:09:22 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/26 13:43:34 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	free_and_exit_prog(t_data *data)
 		if (data->map)
 			free_tab(data->map);
 		free_pixput(data);
-		if (data->f)
-			free_str_and_null(data->f);
-		if (data->c)
-			free_str_and_null(data->c);
+		// if (data->f)
+		// 	free_str_and_null(data->f);
+		// if (data->c)
+		// 	free_str_and_null(data->c);
 		if (data->img.addr)
 			free_str_and_null(data->img.addr);
 		free (data);

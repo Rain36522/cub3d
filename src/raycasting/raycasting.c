@@ -39,10 +39,7 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 	else
 		ray->prpwalldist = (ray->sidedisty - ray->deltadisty);
 	ray->wall_height = (int)(WALL_SIZE / ray->prpwalldist);
-	printf("ray hit pos : %f, %f\n", ray->sidedistx, ray->sidedisty);
-	// DEBUG
-	// put_wall(data, ray, iframe);
-	// DEBUG
+	put_wall(data, ray, iframe);
 }
 
 static void init_raytracer(t_ray *ray, t_data *data, int iframe)

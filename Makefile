@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
+#    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/22 14:06:04 by cduffaut         ###   ########.fr        #
+#    Updated: 2023/12/26 13:39:53 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c 
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
 all : lib $(NAME)
-	leaks --atExit -- ./cub3d map/map.cub
+#	leaks --atExit -- ./cub3d map/map.cub
 
 push : clean
 	git add *
@@ -68,12 +68,12 @@ $(NAME): $(OBJ)
 
 lib :
 	@make -C libft/
-	@make -C mlx/
+#	@make -C mlx/
 
 clean :
 	@rm -f $(OBJ)
 	@make clean -C libft/
-	@make clean -C mlx/
+#	@make clean -C mlx/
 
 fclean : clean
 	@rm -f $(NAME)

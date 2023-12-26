@@ -41,8 +41,6 @@ int	main(int argc, char **argv)
 	t_data		*data;
 	int			width;
 	int			height;
-	t_pixput	txt;
-	char		*dst;
 
 	width = 736;
 	height = 736;
