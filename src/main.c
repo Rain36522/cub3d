@@ -63,5 +63,6 @@ int	main(int argc, char **argv)
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
 	mlx_loop_hook(data->mlx, ft_loop, data);
 	mlx_loop(data->mlx);
+	// free also the paths !!
 	free_and_exit_prog(data);
 }

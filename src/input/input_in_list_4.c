@@ -94,6 +94,14 @@ static t_data	*ft_put_player(t_data *data)
 	return (data);
 }
 
+static void put_paths_in_data(t_data *data, t_input *input)
+{
+	data->no.path = ft_strdup(input->no);
+	data->so.path = ft_strdup(input->so);
+	data->ea.path = ft_strdup(input->ea);
+	data->we.path = ft_strdup(input->we);
+}
+
 t_data *t_input_to_t_data(t_input *input)
 {
 	t_data	*data;
@@ -108,14 +116,12 @@ t_data *t_input_to_t_data(t_input *input)
 	if (ft_check_map(data->map))
 		ft_error_quit(data, ft_check_map(data->map));
 	data = ft_put_player(data);
-	data->no = input->t_no;
-	data->so = input->t_so;
-	data->ea = input->t_ea;
-	data->we = input->t_we;
+	data->no.img = NULL;
+	data->so.img = NULL;
+	data->ea.img = NULL;
+	data->we.img = NULL;
+	put_paths_in_data(data, input);
 	data->f = input->color_floor;
 	data->c = input->color_ceiling;
-	DEBUG
-	printf("c : %i\n", data->c);
-	printf("f : %i\n", data->f);
 	return (data);
 }

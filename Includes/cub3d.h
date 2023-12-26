@@ -49,6 +49,7 @@ typedef struct s_pixput
 	int		endian;
 	int		width;
 	int		heigth;
+	char	*path;
 }	t_pixput;
 
 typedef struct s_wall
@@ -220,6 +221,6 @@ void	ft_background(t_data *data);
 void	free_and_exit_prog(t_data *data);
 
 // Refresh texture
-int		refresh_texture(t_pixput *texture, t_data *data, char *filename);
+int		put_texture_in_data(t_data *data);
 
 #endif
