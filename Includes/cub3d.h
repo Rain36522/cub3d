@@ -216,4 +216,7 @@ void	ft_background(t_data *data);
 // Free and exit
 void	free_and_exit_prog(t_data *data);
 
+// Refresh texture
+int		refresh_texture(t_pixput *texture, t_data *data, char *filename);
+
 #endif
