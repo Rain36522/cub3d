@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 10:06:19 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/22 10:07:52 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 11:05:47 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 11:10:59 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,53 @@ static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 		return (&data->so);
 }
 
-static void ft_put_line_wall(t_wall *twall, t_data *data, int iy)
+static void ft_put_line_wall(t_wall *twall, t_data *data, int iy, t_ray *ray)
 {
-	int				ix;
-	int				iyscale;
-	int				ixscale;
-	unsigned int	ipixel_color;
+	double	texpos;
 
-	ix = twall->ixstrt;
-	// printf("iscale : %i\n", twall->iscale);
-	while (ix < twall->ixend)
-	{
-		iyscale = iy * twall->iscale;
-		ixscale = ix * twall->iscale;
-		while (iyscale >= twall->texutre->heigth)
-			iyscale -= twall->texutre->heigth;
-		while (ixscale >= twall->texutre->width)
-			ixscale -= twall->texutre->width;
-		// printf("read img, x : %i, y : %i\n", ixscale, iyscale);
-		ipixel_color = get_color_pixel(twall->texutre, ixscale, iyscale);
-		put_pixel_img(data, ix, iy, ipixel_color);
-		ix ++;
-	}
+	
 }
+
+// static void ft_put_line_wall(t_wall *twall, t_data *data, int iy, t_ray *ray)
+// {
+// 	int				ix;
+// 	int				iyscale;
+// 	int				ixscale;
+// 	unsigned int	ipixel_color;
+
+// 	ix = twall->ixstrt;
+// 	printf("iscale : %i\n", twall->iscale);
+// 	iyscale = iy * twall->iscale;
+// 	while (ix < twall->ixend)
+// 	{
+// 		// ixscale = ix * twall->iscale;
+// 		ixscale = ray->wallx * twall->iscale;
+// 		while (iyscale >= twall->text->heigth)
+// 			iyscale -= twall->text->heigth;
+// 		printf("get pos : %i, %i\n", ixscale, iyscale);
+// 		// while (ixscale >= twall->texutre->width)
+// 		// 	ixscale -= twall->texutre->width;
+// 		// printf("read img, x : %i, y : %i\n", ixscale, iyscale);
+// 		ipixel_color = get_color_pixel(twall->text, ixscale, iyscale);
+// 		put_pixel_img(data, ix, iy, ipixel_color);
+// 		ix ++;
+// 	}
+// }
 
 static void	ft_put_wall(t_wall *twall, t_ray *ray, t_data *data)
 {
 	int		iy;
 
 	twall->iystrt = (HEIGHT / 2) - (ray->wall_height / 2);
+	if (ray->side == 0)
+		ray->wallx = ray->posy + ray->prpwalldist * ray->diry;
+	else
+		ray->wallx = ray->posx + ray->prpwalldist * ray->diry;
+	ray->wallx -= floor(ray->wallx);
+	ray->texx = int(ray->wallx * double(twall->text->width));
+	if ((ray->side == 0 && ray->dirx > 0) || \
+							(ray->side == 1 && ray->diry < 0))
+		ray->texx = twall->text->width - ray->texx - 1;
 	if (twall->iystrt < 0)
 		twall->iystrt = 0;
 	iy = twall->iystrt;
@@ -72,12 +90,11 @@ static void	ft_put_wall(t_wall *twall, t_ray *ray, t_data *data)
 		twall->iyend = HEIGHT- 1;
 	while (iy <= twall->iyend)
 	{
-		ft_put_line_wall(twall, data, iy);
+		ft_put_line_wall(twall, data, iy, ray);
 		iy ++;
 	}
 
 }
-
 
 void	put_wall(t_data *data, t_ray *ray, int iframe)
 {
@@ -86,11 +103,11 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	t_wall				twall;
 
 	// DEBUG
-	twall.texutre = ft_get_texture(ray,data);
-	twall.iscale = twall.texutre->heigth / (double)ray->wall_height;
-	if (twall.texutre != img)
+	twall.text = ft_get_texture(ray,data);
+	twall.iscale = twall.text->heigth / (double)ray->wall_height;
+	if (twall.text != img)
 		img_frame = 0;
-	if ((img_frame + RESOLUTION) * twall.iscale >= twall.texutre->width)
+	if ((img_frame + RESOLUTION) * twall.iscale >= twall.text->width)
 	{
 		img_frame = 0;
 		printf("reset img frame\n");
@@ -105,7 +122,7 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	ft_put_wall(&twall, ray, data);
 	DEBUG
 	img_frame ++;
-	img = twall.texutre;
+	img = twall.text;
 	
 }
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 11:24:50 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 11:24:50 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/26 11:03:45 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/26 11:03:45 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_pixput
 
 typedef struct s_wall
 {
-	t_pixput	*texutre;
+	t_pixput	*text;
 	int			img_xstrt;
 	int			iystrt;
 	int			ixstrt;
@@ -97,6 +97,9 @@ typedef struct s_ray
 	double	posy;
 	double	dirx;
 	double	diry;
+	double	wallx;
+	int		texx;
+	int		texy;
 	double	prpwalldist;
 	double	deltadistx;
 	double	deltadisty;
