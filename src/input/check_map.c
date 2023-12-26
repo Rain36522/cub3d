@@ -28,7 +28,7 @@ static int	ft_check_char(char **map)
 		{
 			c = map[i][j];
 			if (c != '0' && c != ' ' && c != 'N' && c != 'S'&& c != 'E' && \
-				c != 'W' && c != '1')
+				c != 'W' && c != '1' && c != 'D')
 				return (102);
 			if (c == 'N' || c == 'S'|| c == 'E' || c == 'W')
 				iplayer ++;

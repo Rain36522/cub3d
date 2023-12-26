@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_in_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:19:15 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/26 17:48:23 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:59:42 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		put_texture_in_data_2(t_data *data, t_pixput *texture)
 {
-	texture->img =  mlx_xpm_file_to_image(data->mlx, data->so.path, &texture->width, \
+	texture->img =  mlx_xpm_file_to_image(data->mlx,texture->path, &texture->width, \
 		&texture->heigth);
 	if (!texture->img)
 		return (1);

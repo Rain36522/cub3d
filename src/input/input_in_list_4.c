@@ -82,13 +82,13 @@ static t_data	*ft_put_player(t_data *data)
 		i ++;
 	}
 	if (data->map[i][j] == 'N')
-		data->look = 0;
-	else if (data->map[i][j] == 'S')
-		data->look = 180;
-	else if (data->map[i][j] == 'E')
 		data->look = 270;
-	else if (data->map[i][j] == 'W')
+	else if (data->map[i][j] == 'S')
 		data->look = 90;
+	else if (data->map[i][j] == 'E')
+		data->look = 0;
+	else if (data->map[i][j] == 'W')
+		data->look = 180;
 	data->xpos = (double)j + 0.5;
 	data->ypos = (double)i + +0.5;
 	return (data);

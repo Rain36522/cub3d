@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 14:05:36 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 16:06:44 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/26 18:10:44 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	ft_check_colision(t_data *data, double x, double y)
 		iy = (int)(y - 0.1);
 	else
 		iy = (int)(y + 0.1);
-	if (data->map[iy][ix] == '1' || data->map[iy][ix] == ' ')
+	if (data->map[iy][ix] == '1' || data->map[iy][ix] == ' ' || \
+												data->map[iy][ix] == 'D')
 		return (1);
 	return (0);
 }
