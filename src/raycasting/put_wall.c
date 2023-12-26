@@ -62,8 +62,6 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	DEBUG
 	while (iy <= HEIGHT - wall.iystrt)
 	{
-		// printf("img read : %i, %i\n", ray->texx, (int)wall.iy);
-		// printf("pixput : %i, %i\n", iframe * RESOLUTION, iy);
 		icolor = get_color_pixel(img, ray->texx, (int)wall.iy);
 		put_pixel_img(data, iframe * RESOLUTION, iy, icolor);
 		wall.iy += wall.iscale;
