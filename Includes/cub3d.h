@@ -60,6 +60,7 @@ typedef struct s_wall
 	int			iyend;
 	int			ixend;
 	double		iscale;
+	double		texpos;
 }	t_wall;
 
 typedef struct s_input
