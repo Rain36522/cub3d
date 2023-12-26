@@ -35,12 +35,39 @@ static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 		return (&data->so);
 }
 
+static void	put_wall_2(t_data *data, t_wall wall, t_ray *ray, int iframe)
+{
+	int			iy;
+	int			icolor;
+	t_pixput	*img;
+
+	img = wall.text;
+	iy = wall.iystrt;
+	while (iy <= HEIGHT - wall.iystrt && iy < HEIGHT)
+	{
+		// printf("img read : %i, %i\n", ray->texx, (int)wall.iy);
+		// printf("pix put : %i, %i\n", iframe * RESOLUTION, iy);
+		icolor = get_color_pixel(img, ray->texx, (int)wall.iy);
+		put_pixel_img(data, iframe * RESOLUTION, iy, icolor);
+		// DEBUG
+		wall.iy += wall.iscale;
+		iy ++;
+	}
+}
+
+static void	ft_wall_biger(t_wall *wall, t_pixput *img, int wall_height)
+{
+	int	istart;
+
+	istart = (HEIGHT - wall_height) / 2;
+	wall->iy = (img->heigth * istart) / (double)wall_height;
+	wall->iystrt = 0;
+}
+
 void	put_wall(t_data *data, t_ray *ray, int iframe)
 {
-	static t_pixput		*img;
-	t_wall				wall;
-	int					icolor;
-	int					iy;
+	t_pixput		*img;
+	t_wall			wall;
 
 	img = ft_get_texture(ray, data);
 	if (ray->side == 0)
@@ -54,18 +81,10 @@ void	put_wall(t_data *data, t_ray *ray, int iframe)
 	wall.text = img;
 	wall.iscale = 1.0 * img->heigth / ray->wall_height;
 	wall.iystrt = HEIGHT / 2 - ray->wall_height / 2;
-	if (wall.iystrt < 0)
-		wall.iystrt = 0;
-	iy = wall.iystrt;
 	wall.iy = 0.0;
+	if (wall.iystrt < 0)
+		ft_wall_biger(&wall, img, ray->wall_height);
+	printf("wall.iy : %2.f\n", wall.iy);
 	wall.iyend = (HEIGHT - wall.iystrt) * wall.iscale;
-	DEBUG
-	while (iy <= HEIGHT - wall.iystrt)
-	{
-		icolor = get_color_pixel(img, ray->texx, (int)wall.iy);
-		put_pixel_img(data, iframe * RESOLUTION, iy, icolor);
-		wall.iy += wall.iscale;
-		iy ++;
-	}
-	DEBUG
+	put_wall_2(data, wall, ray, iframe);
 }
