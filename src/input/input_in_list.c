@@ -60,7 +60,7 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 	if (init_separe_colours(input) == 1)
 		return (1);
 	get_trgb(input);
-	input->door.path = ft_strdup("./img/ghetto_door.xpm");
+	input->door.path = ft_strdup("./img/2.xpm");
 	while (line)
 	{
 		//line = ft_strdup_free(line);

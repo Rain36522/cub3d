@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/27 15:30:55 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:14:04 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	init_free_all_and_exit(t_input *input, int exit)
 		free_str_and_null(input->f);
 	if (input->c)
 		free_str_and_null(input->c);
+	init_free_all_and_exit_2(input);
 	destroy_img_texture(input);
 	clean_list(input->map);
 	if (exit)
@@ -79,8 +80,6 @@ int	init_free_all_and_exit(t_input *input, int exit)
 		free (input);
 		input = NULL;
 	}
-	init_free_all_and_exit_2(input);
-	printf("free all and exit\n");
 	return (1);
 }
 

@@ -108,7 +108,10 @@ t_data *t_input_to_t_data(t_input *input)
 	t_data	*data;
 
 	if (all_texture_in_data(input) == 1)
+	{
+		printf ("Error\nFailed to open img.\n");
 		return (NULL);
+	}
 	data = (t_data *) malloc(sizeof(t_data));
 	if (!data)
 		ft_error_quit(NULL, 12);

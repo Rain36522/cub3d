@@ -15,7 +15,7 @@
 static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 {
 	if (data->map[ray->mapy][ray->mapx] == 'D')
-		return (&data->so);
+        return (&data->door);
 	if (ray->side == 0)
 	{
 		if (ray->dirx >= 0 && ray->diry >= 0)
