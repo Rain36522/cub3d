@@ -76,6 +76,7 @@ typedef struct s_input
 	t_pixput	t_so;
 	t_pixput	t_ea;
 	t_pixput	t_we;
+	t_pixput	door;
 	char		*f;
 	char		*c;
 	t_list		*map;
@@ -129,6 +130,7 @@ typedef struct s_data
 	t_pixput	so;
 	t_pixput	we;
 	t_pixput	ea;
+	t_pixput	door;
 	int			f;
 	int			c;
 	t_pixput	img;

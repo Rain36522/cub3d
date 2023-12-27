@@ -48,6 +48,7 @@ static int	ft_loop(t_data *data)
 		free(data->so.path);
 		free(data->ea.path);
 		free(data->we.path);
+		free(data->door.path);
 	}
 	if (data->make_moov == '1')
 	{

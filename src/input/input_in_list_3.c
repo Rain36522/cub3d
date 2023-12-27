@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/26 17:25:23 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/27 15:30:55 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ void	clean_list(t_list *list)
 	}
 }
 
+static void init_free_all_and_exit_2(t_input *input)
+{
+	if (input->door.path)
+		free_str_and_null(input->door.path);
+}
+
 int	init_free_all_and_exit(t_input *input, int exit)
 {
 	if (!input)
@@ -73,6 +79,7 @@ int	init_free_all_and_exit(t_input *input, int exit)
 		free (input);
 		input = NULL;
 	}
+	init_free_all_and_exit_2(input);
 	printf("free all and exit\n");
 	return (1);
 }

@@ -100,6 +100,7 @@ static void put_paths_in_data(t_data *data, t_input *input)
 	data->so.path = ft_strdup(input->so);
 	data->ea.path = ft_strdup(input->ea);
 	data->we.path = ft_strdup(input->we);
+	data->door.path = ft_strdup(input->door.path);
 }
 
 t_data *t_input_to_t_data(t_input *input)
@@ -120,6 +121,7 @@ t_data *t_input_to_t_data(t_input *input)
 	data->so.img = NULL;
 	data->ea.img = NULL;
 	data->we.img = NULL;
+	data->door.img = NULL;
 	put_paths_in_data(data, input);
 	data->f = input->color_floor;
 	data->c = input->color_ceiling;

@@ -36,6 +36,8 @@ int		put_texture_in_data(t_data *data)
 		return (1);
 	if (put_texture_in_data_2(data, &data->ea) == 1)
 		return (1);
+	if (put_texture_in_data_2(data, &data->door) == 1)
+		return (1);
 	return (0);
 }
 
@@ -63,6 +65,8 @@ int	all_texture_in_data(t_input *input)
 	if (put_texture_in_node(&input->t_we, input, input->we) == 1)
 		return (init_free_all_and_exit(input, 1));
 	if (put_texture_in_node(&input->t_ea, input, input->ea) == 1)
+		return (init_free_all_and_exit(input, 1));
+	if (put_texture_in_node(&input->door, input, input->door.path) == 1)
 		return (init_free_all_and_exit(input, 1));
 	return (0);
 }
