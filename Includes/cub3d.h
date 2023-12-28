@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 21:12:36 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 21:15:51 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:13:48 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:13:51 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,10 @@ typedef struct s_data
 	t_pixput	img;
 	t_ray		raystruct;
 	char		make_moov;
+	int			dstep;
+	int			dvalue;
+	char		cdvalue;
+	int			dchanged;
 }	t_data;
 
 enum	img
@@ -227,5 +231,9 @@ void	free_and_exit_prog(t_data *data);
 
 // Refresh texture
 int		put_texture_in_data(t_data *data);
+
+// door
+void	ft_change_door(t_data *data);
+void	ft_check_door(t_data *data);
 
 #endif

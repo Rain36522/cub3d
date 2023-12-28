@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   put_wall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 22:55:04 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 22:55:04 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:14:31 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:14:44 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ static void	put_wall_2(t_data *data, t_wall wall, t_ray *ray, int iframe)
 	iy = wall.iystrt;
 	while (iy <= HEIGHT - wall.iystrt && iy < HEIGHT)
 	{
-		// printf("img read : %i, %i\n", ray->texx, (int)wall.iy);
-		// printf("pix put : %i, %i\n", iframe * RESOLUTION, iy);
 		icolor = get_color_pixel(img, ray->texx, (int)wall.iy);
 		put_pixel_img(data, iframe * RESOLUTION, iy, icolor);
-		// DEBUG
 		wall.iy += wall.iscale;
 		iy ++;
 	}
+	if (data->dvalue <= (int)(ray->wallx * 100.0) \
+						&& data->map[ray->mapy][ray->mapx] != '1' && data->dchanged == 0)
+		ft_change_door(data);
 }
 
 static void	ft_wall_biger(t_wall *wall, t_pixput *img, int wall_height)

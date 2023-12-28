@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 23:03:26 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 23:03:26 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:15:54 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:15:54 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,28 @@ static t_data	*init_game(char **argv)
 	return (data);
 }
 
+static void	ft_moov_door(t_data *data)
+{
+	data->dvalue += data->dstep;
+	data->cdvalue = 'D';
+	ft_change_door(data);
+	data->make_moov = '1';
+	data->cdvalue = 'E';
+	data->dchanged = 0;
+	if (data->dvalue <= 2 || data->dvalue >= 98)
+	{
+		data->dchanged = 1;
+		if (data->dstep < 0)
+			data->cdvalue = 'E';
+		else
+			data->cdvalue = 'D';
+		data->dstep = 0;
+		ft_change_door(data);
+	}
+	else
+		printf("data : %c, %i\n", data->cdvalue, data->dvalue);
+}
+
 static int	ft_loop(t_data *data)
 {
 	if (!data->no.img)
@@ -50,6 +72,8 @@ static int	ft_loop(t_data *data)
 		free(data->we.path);
 		free(data->door.path);
 	}
+	if (data->dstep != 0)
+		ft_moov_door(data);
 	if (data->make_moov == '1')
 	{
 		ft_make_moov(data, data->x, data->y);
