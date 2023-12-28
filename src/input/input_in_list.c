@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 11:30:30 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 11:30:30 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:24:13 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:24:13 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 	if (init_separe_colours(input) == 1)
 		return (1);
 	get_trgb(input);
-	input->door.path = ft_strdup("./img/2.xpm");
+	input->door.path = ft_strdup(DOOR);
 	while (line)
 	{
 		//line = ft_strdup_free(line);
