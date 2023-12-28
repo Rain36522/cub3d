@@ -1,20 +1,13 @@
 #include "../Includes/cub3d.h"
 
-static int	ft_door(t_data *data, int y, int x)
+static void	ft_door(t_data *data, int y, int x)
 {
 	// printf("check char : %c pos : %i, %i\n", data->map[y][x], y, x);
 	if (data->map[y][x] == 'D' && data->cdvalue == 'E')
-	{
 		data->map[y][x] = 'E';
-		printf("change to E\n");
-	}
 	else if (data->map[y][x] == 'E' && data->cdvalue == 'D')
-	{
 		data->map[y][x] = 'D';
-		printf("change to D\n");
-	}
 	data->dchanged ++;
-	usleep(300);
 }
 void	ft_change_door(t_data *data)
 {
