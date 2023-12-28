@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:46:15 by csil              #+#    #+#             */
-/*   Updated: 2023/12/28 18:46:18 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/28 22:13:41 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ void	ft_change_door(t_data *data)
 
 void	ft_check_door2(t_data *data, int y, int x, int ineg)
 {
-	if ((data->map[y][x] == 'D' && !ineg) || \
-						(data->map[y][x] == 'E' && ineg))
+	if ((data->map[y][x] == 'D' && !ineg)
+		|| (data->map[y][x] == 'E' && ineg))
 	{
 		data->dstep = -2;
 		data->dvalue = 100;
 		data->drevers = ineg;
 	}
-	else if ((data->map[y][x] == 'E' && !ineg) || \
-								(data->map[y][x] == 'D' && ineg))
+	else if ((data->map[y][x] == 'E' && !ineg)
+		|| (data->map[y][x] == 'D' && ineg))
 	{
 		data->dstep = 2;
 		data->dvalue = 0;

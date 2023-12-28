@@ -26,7 +26,7 @@ int	ft_check_colision(t_data *data, double x, double y)
 	else
 		iy = (int)(y + 0.1);
 	if (data->map[iy][ix] == '1' || data->map[iy][ix] == ' ' || \
-												data->map[iy][ix] == 'D')
+		data->map[iy][ix] == 'D')
 	{
 		data->x = data->xpos;
 		data->y = data->ypos;

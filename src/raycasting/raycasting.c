@@ -12,7 +12,6 @@
 
 #include "../../Includes/cub3d.h"
 
-
 static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 {
 	while (data->map[ray->mapy][ray->mapx] != '1' && \
@@ -42,7 +41,7 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 	put_wall(data, ray, iframe);
 }
 
-static void init_raytracer(t_ray *ray, t_data *data, int iframe)
+static void	init_raytracer(t_ray *ray, t_data *data, int iframe)
 {
 	ray->mapx = (int)ray->posx;
 	ray->mapy = (int)ray->posy;
@@ -88,7 +87,6 @@ static void	ft_launch_ray(t_data *data, t_ray *ray)
 		ft_raytracer(ray, data, iframe);
 		iframe++;
 	}
-	// printf("data look : %f\n", data->look);
 }
 
 void	ft_raycasting(t_data *data)

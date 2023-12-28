@@ -21,7 +21,6 @@ static void	put_player(t_data *data)
 
 	x = data->xpos * MAP_SIZE - PLAYER_SIZE / 2;
 	y = data->ypos * MAP_SIZE - PLAYER_SIZE / 2;
-
 	j = y;
 	while (j - y < PLAYER_SIZE)
 	{
@@ -61,7 +60,6 @@ void	ft_make_moov(t_data *data, double x, double y)
 {
 	data->xpos = x;
 	data->ypos = y;
-
 	ft_new_img(data);
 	ft_background(data);
 	ft_raycasting(data);

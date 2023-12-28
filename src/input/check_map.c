@@ -27,10 +27,10 @@ static int	ft_check_char(char **map)
 		while (map[i][j])
 		{
 			c = map[i][j];
-			if (c != '0' && c != ' ' && c != 'N' && c != 'S'&& c != 'E'
+			if (c != '0' && c != ' ' && c != 'N' && c != 'S' && c != 'E' \
 				&& c != 'W' && c != '1' && c != 'D')
 				return (102);
-			if (c == 'N' || c == 'S'|| c == 'E' || c == 'W')
+			if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 				iplayer ++;
 			j ++;
 		}
@@ -55,19 +55,20 @@ static int	ft_check_extern_line(char **map, int il1, int il2)
 	{
 		if (map[il1][i] != ' ' && map[il1][i] != '1')
 			return (0);
-		else if (map[il1][i] == ' ' && map[il2][i] != '1' && map[il2][i] != ' ' )
+		else if (map[il1][i] == ' ' && map[il2][i] != '1' \
+			&& map[il2][i] != ' ' )
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-static int ft_check_middle_line(char **map, int j)
+static int	ft_check_middle_line(char **map, int j)
 {
 	int	i;
 
 	i = 1;
-	if (map[j][0] != ' ' && map[j][0]!= '1')
+	if (map[j][0] != ' ' && map[j][0] != '1')
 		return (0);
 	while (map[j][i + 1])
 	{
@@ -75,7 +76,8 @@ static int ft_check_middle_line(char **map, int j)
 		{
 			if (!ft_check_wall(map[j][i - 1]) || !ft_check_wall(map[j][i + 1]))
 				return (0);
-			else if (!ft_check_wall(map[j - 1][i]) || !ft_check_wall(map[j + 1][i]))
+			else if (!ft_check_wall(map[j - 1][i]) \
+				|| !ft_check_wall(map[j + 1][i]))
 				return (0);
 		}
 		i ++;

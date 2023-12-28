@@ -97,8 +97,8 @@ static int	separe_colours_in_str_c(char *str, t_input *input)
 {
 	int		i;
 	char	**tab;
-	i = 0;
 
+	i = 0;
 	tab = ft_split(str, ',');
 	if (!tab)
 	{
@@ -134,26 +134,3 @@ int	init_separe_colours(t_input *input)
 		return (1);
 	return (0);
 }
-
-/*int main(int argc, char **argv)
-{
-    t_input input;
-    (void) argc;
-    (void) argv;
-
-    input = (t_input){};
-    input.f = "23,346373,+353";
-    input.c = "1111111,22222,3333333";
-
-    printf("return value : %d\n", init_separe_colours(&input));
-
-    printf("input 1: %d\n", input.c_r);
-    printf("input 2: %d\n", input.c_g);
-    printf("input 3: %d\n", input.c_b);
-
-    printf("input 1: %d\n", input.f_r);
-    printf("input 2: %d\n", input.f_g);
-    printf("input 3: %d\n", input.f_b);
-
-    return (0);
-}*/

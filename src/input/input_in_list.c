@@ -63,7 +63,6 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 	input->door.path = ft_strdup(DOOR);
 	while (line)
 	{
-		//line = ft_strdup_free(line);
 		if (!*line || (line[0] == '\n' && line[1] == '\0'))
 			free_str_and_null(line);
 		add_end(&input->map, line, input);
@@ -142,11 +141,3 @@ t_data	*init_list(char **argv)
 	init_free_all_and_exit(input, 0);
 	return (data);
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	(void) argc;
-// 	(void) argv;
-// 	init_list(argv);
-// 	return (0);
-// }

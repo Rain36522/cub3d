@@ -228,6 +228,7 @@ void			ft_background(t_data *data);
 
 // Free and exit
 void			free_and_exit_prog(t_data *data);
+void			clean_list(t_list *list);
 
 // Refresh texture
 int				put_texture_in_data(t_data *data);
@@ -235,5 +236,8 @@ int				put_texture_in_data(t_data *data);
 // door
 void			ft_change_door(t_data *data);
 void			ft_check_door(t_data *data);
+
+// Put player
+int				ft_check_player(char c);
 
 #endif

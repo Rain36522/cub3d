@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_var.c                                        :+:      :+:    :+:   */
+/*   input_in_list_6.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 10:54:22 by csil              #+#    #+#             */
-/*   Updated: 2023/12/28 22:27:31 by csil             ###   ########.fr       */
+/*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
+/*   Updated: 2023/12/28 22:34:50 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "../../Includes/cub3d.h"
 
-void	print_list(t_list *list)
+int	ft_check_player(char c)
 {
-	int	i;
-
-	i = 0;
-	while (list->next)
-	{
-		printf("chaine %d: %s\n", i, list->str);
-		i++;
-		list = list->next;
-	}
-	printf("chaine %d: %s\n", i, list->str);
+	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
-void	print_tab(char **tab)
+void	clean_list(t_list *list)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (tab[i])
+	if (list)
 	{
-		printf("str %d: %s\n", i, tab[i]);
-		i++;
+		while (list)
+		{
+			tmp = list->next;
+			free (list);
+			list = NULL;
+			list = tmp;
+		}
+		free(list);
+		list = NULL;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/27 16:14:04 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/28 22:34:40 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,7 @@ void	free_tab(char **tab)
 	}
 }
 
-void	clean_list(t_list *list)
-{
-	t_list	*tmp;
-
-	if (list)
-	{
-		while (list)
-		{
-			tmp = list->next;
-			free (list);
-			list = NULL;
-			list = tmp;
-		}
-		free(list);
-		list = NULL;
-	}
-}
-
-static void init_free_all_and_exit_2(t_input *input)
+static void	init_free_all_and_exit_2(t_input *input)
 {
 	if (input->door.path)
 		free_str_and_null(input->door.path);
@@ -94,7 +76,6 @@ void	add_end(t_list **list, char *line, t_input *input)
 		printf ("Error\nlist allocation failed\n");
 		init_free_all_and_exit(input, 1);
 	}
-	//new_node->str = ft_strdup_free(line);
 	new_node->str = line;
 	new_node->next = NULL;
 	if (!*list)

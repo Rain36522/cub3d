@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/22 16:08:51 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/28 22:35:46 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ char	*ft_strdup_free(char *str)
 		dup[i] = str[i];
 		i ++;
 	}
-	//if (str)
-	//	free_str_and_null(str);
 	return (dup);
 }
 
@@ -79,7 +77,7 @@ int	only_path(t_input *input)
 	return (0);
 }
 
-int only_nbr(t_input *input)
+int	only_nbr(t_input *input)
 {
 	if (input->f[0] == 'F' && input->f[1] == ' ')
 		input->f = relay_only(input->f, 1);

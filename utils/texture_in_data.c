@@ -12,10 +12,10 @@
 
 #include "../Includes/cub3d.h"
 
-static int		put_texture_in_data_2(t_data *data, t_pixput *texture)
+static int	put_texture_in_data_2(t_data *data, t_pixput *texture)
 {
-	texture->img =  mlx_xpm_file_to_image(data->mlx,texture->path, &texture->width, \
-		&texture->heigth);
+	texture->img = mlx_xpm_file_to_image(data->mlx, texture->path, \
+		&texture->width, &texture->heigth);
 	if (!texture->img)
 		return (1);
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bit_pp, \
@@ -26,7 +26,7 @@ static int		put_texture_in_data_2(t_data *data, t_pixput *texture)
 }
 
 // To launch the textures !
-int		put_texture_in_data(t_data *data)
+int	put_texture_in_data(t_data *data)
 {
 	if (put_texture_in_data_2(data, &data->no) == 1)
 		return (1);

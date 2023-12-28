@@ -60,11 +60,6 @@ static t_data	*ft_map_equal_line(char **map, t_data *data)
 	return (data);
 }
 
-static int	ft_check_player(char c)
-{
-	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
-}
-
 static t_data	*ft_put_player(t_data *data)
 {
 	int	i;
@@ -95,7 +90,7 @@ static t_data	*ft_put_player(t_data *data)
 }
 
 // no et so are revers
-static void put_paths_in_data(t_data *data, t_input *input)
+static void	put_paths_in_data(t_data *data, t_input *input)
 {
 	data->no.path = ft_strdup(input->so);
 	data->so.path = ft_strdup(input->no);
@@ -105,7 +100,7 @@ static void put_paths_in_data(t_data *data, t_input *input)
 	data->mousex = 0;
 }
 
-t_data *t_input_to_t_data(t_input *input)
+t_data	*t_input_to_t_data(t_input *input)
 {
 	t_data	*data;
 
