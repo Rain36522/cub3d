@@ -58,6 +58,33 @@ static int	ft_loop(t_data *data)
 	return (0);
 }
 
+int	mouse_move(int x, int y, t_data *data)
+{
+	int			dx;
+	float		angle;
+	static int	ignore_event = 0;
+
+	// up to date the mouse pos
+	if (ignore_event)
+	{
+		ignore_event = 0;
+		return (0);
+	}
+	dx = x - data->mousex;
+	angle = dx * MOUSE_SENSIBILITY;
+	// ***PUT MAP CHANGING DIRECTION HERE***
+	data->mousex = x;
+	data->mousey = y;
+	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+	{
+		ignore_event = 1;
+		mlx_mouse_move(data->mlx_win, WIDTH / 2, HEIGHT / 2);
+		data->mousex = WIDTH / 2;
+		data->mousey = HEIGHT / 2;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data		*data;
@@ -69,6 +96,8 @@ int	main(int argc, char **argv)
 		return (0);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
+	// Mlx mouse position stock it in mouse x/y var send them to mouse moove var
+	mlx_hook(data->mlx_win, 6, 0, mouse_move, data);
 	mlx_loop_hook(data->mlx, ft_loop, data);
 	mlx_loop(data->mlx);
 	free_and_exit_prog(data);

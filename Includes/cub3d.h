@@ -32,6 +32,7 @@
 # define RESOLUTION 1
 # define ANGLE 30
 # define PI 3.141592653589793
+# define MOUSE_SENSIBILITY 0.5
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
 
 typedef struct s_list
@@ -123,6 +124,8 @@ typedef struct s_data
 	double		look;
 	double		x;
 	double		y;
+	int			mousex;
+	int			mousey;
 	char		**map;
 	int			ix;
 	int			iy;
