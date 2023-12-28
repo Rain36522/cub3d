@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 16:14:31 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:14:44 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:57:09 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:57:14 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ static void	put_wall_2(t_data *data, t_wall wall, t_ray *ray, int iframe)
 		wall.iy += wall.iscale;
 		iy ++;
 	}
-	if (data->dvalue <= (int)(ray->wallx * 100.0) \
+	if (((data->dvalue <= (int)(ray->wallx * 100.0) && !data->drevers) ||\
+		(data->dvalue >= (int)(ray->wallx * 100.0) && data->drevers)) \
 						&& data->map[ray->mapy][ray->mapx] != '1' && data->dchanged == 0)
 		ft_change_door(data);
 }

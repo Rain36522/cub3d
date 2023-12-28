@@ -144,6 +144,7 @@ typedef struct s_data
 	int			dvalue;
 	char		cdvalue;
 	int			dchanged;
+	int			drevers;
 }	t_data;
 
 enum	img

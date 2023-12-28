@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 16:16:28 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:16:28 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:59:16 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:59:16 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	key_hook(int keycode, t_data *data)
 	
 	if (keycode == 53)
 		exit(0);
+	else if (data->dstep || data->make_moov == '1')
+		return (0);
 	else if (keycode == 13 || keycode == 126)
 		iangl = data->look;
 	else if (keycode == 1 || keycode ==  125)

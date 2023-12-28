@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 16:15:54 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:15:54 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 16:45:23 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 16:45:23 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,23 @@ static void	ft_moov_door(t_data *data)
 	data->dvalue += data->dstep;
 	data->cdvalue = 'D';
 	ft_change_door(data);
-	data->make_moov = '1';
 	data->cdvalue = 'E';
 	data->dchanged = 0;
-	if (data->dvalue <= 2 || data->dvalue >= 98)
+	if (data->dvalue <= 0 || data->dvalue >= 100)
 	{
 		data->dchanged = 1;
-		if (data->dstep < 0)
+		if (data->dstep < 0 && !data->drevers)
 			data->cdvalue = 'E';
-		else
+		else if (data->dstep < 0 && data->drevers)
 			data->cdvalue = 'D';
+		else if (data->dstep > 0 && !data->drevers)
+			data->cdvalue = 'D';
+		else
+			data->cdvalue = 'E';
 		data->dstep = 0;
 		ft_change_door(data);
 	}
-	else
-		printf("data : %c, %i\n", data->cdvalue, data->dvalue);
+	data->make_moov = '1';
 }
 
 static int	ft_loop(t_data *data)
