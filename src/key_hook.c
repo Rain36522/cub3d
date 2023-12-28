@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 16:59:16 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:59:16 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:06:32 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:06:32 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	key_hook(int keycode, t_data *data)
 {
 	double	iangl;
 	
+	data->keyhook = 0;
 	if (keycode == 53)
 		exit(0);
 	else if (data->dstep || data->make_moov == '1')
@@ -53,8 +54,8 @@ int	key_hook(int keycode, t_data *data)
 	data->y = (ft_calc_depl_y(iangl) + data->ypos);
 	if (ft_check_colision(data, data->x, data->y))
 		return (0);
-	while (data->make_moov == '1')
-		continue ;
+	data->xpos = data->x;
+	data->ypos = data->y;
 	data->make_moov = '1';
 	return (0);
 }

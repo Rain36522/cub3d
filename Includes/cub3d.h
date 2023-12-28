@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 16:23:34 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:23:53 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 17:59:29 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 17:59:29 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <unistd.h>
 
 # define WIDTH 1710
-# define HEIGHT 1000
+# define HEIGHT 750
 # define MAP_SIZE 10
 # define PLAYER_SIZE 3
 # define DEPLACEMENT 0.2
@@ -32,9 +32,10 @@
 # define RESOLUTION 1
 # define ANGLE 30
 # define PI 3.141592653589793
-# define MOUSE_SENSIBILITY 0.5
+# define MOUSE_SENSIBILITY 1
 # define DOOR "./img/door5.xpm"
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
+# define MSE_LOCK 1
 
 typedef struct s_list
 {
@@ -145,6 +146,7 @@ typedef struct s_data
 	char		cdvalue;
 	int			dchanged;
 	int			drevers;
+	int			keyhook;
 }	t_data;
 
 enum	img

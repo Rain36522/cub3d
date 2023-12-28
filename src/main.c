@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 16:45:23 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:45:23 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:05:56 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:05:56 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	ft_moov_door(t_data *data)
 		else
 			data->cdvalue = 'E';
 		data->dstep = 0;
+		data->keyhook = 0;
 		ft_change_door(data);
 	}
 	data->make_moov = '1';
@@ -91,17 +92,18 @@ int	mouse_move(int x, int y, t_data *data)
 	static int	ignore_event = 0;
 
 	// up to date the mouse pos
-	if (ignore_event)
+	if (ignore_event || data->make_moov == '1' || data->dstep || data->keyhook)
 	{
 		ignore_event = 0;
 		return (0);
 	}
 	dx = x - data->mousex;
 	angle = dx * MOUSE_SENSIBILITY;
-	// ***PUT MAP CHANGING DIRECTION HERE***
 	data->mousex = x;
 	data->mousey = y;
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+	data->look += angle;
+	data->make_moov = '1';
+	if ((x < 10 || x >= WIDTH - 10 || y < 0 || y >= HEIGHT) && MSE_LOCK)
 	{
 		ignore_event = 1;
 		mlx_mouse_move(data->mlx_win, WIDTH / 2, HEIGHT / 2);
@@ -122,7 +124,8 @@ int	main(int argc, char **argv)
 		return (0);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, ft_press_cross, NULL);
-	// Mlx mouse position stock it in mouse x/y var send them to mouse moove var
+	if (MSE_LOCK)
+		mlx_mouse_hide();
 	mlx_hook(data->mlx_win, 6, 0, mouse_move, data);
 	mlx_loop_hook(data->mlx, ft_loop, data);
 	mlx_loop(data->mlx);
