@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 09:24:14 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/26 23:17:48 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:24:49 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:24:49 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	put_map(t_data *data)
 				ft_put_square(data, j, i, 0x00808080);
 			else if (data->map[i][j] == 'D')
 				ft_put_square(data, j, i, 0x00996600);
+			else if (data->map[i][j] == 'E')
+				ft_put_square(data, j, i, 0x00301000);
 			else if (data->map[i][j] != ' ')
 				ft_put_square(data, j, i, 0x00FFFFFF);
 			j ++;
