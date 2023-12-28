@@ -14,7 +14,7 @@
 
 double	deg_to_rad(double deg)
 {
-	return (((double)deg * 2 * PI) / 360);	
+	return (((double) deg * 2 * PI) / 360);
 }
 
 double	ft_calc_depl_x(double iangl)

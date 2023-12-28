@@ -34,14 +34,14 @@ static int	ft_check_angle(t_data *data, int keycode)
 int	key_hook(int keycode, t_data *data)
 {
 	double	iangl;
-	
+
 	if (keycode == 53)
 		exit(0);
 	else if (data->dstep || data->make_moov == '1')
 		return (0);
 	else if (keycode == 13 || keycode == 126)
 		iangl = data->look;
-	else if (keycode == 1 || keycode ==  125)
+	else if (keycode == 1 || keycode == 125)
 		iangl = ft_calcul_ang(data->look, 180);
 	else if (keycode == 0)
 		iangl = ft_calcul_ang(data->look, -90);
@@ -65,7 +65,6 @@ int	mouse_move(int x, int y, t_data *data)
 	float		angle;
 	static int	ignore_event = 0;
 
-	// up to date the mouse pos
 	if (ignore_event || data->make_moov == '1' || data->dstep)
 	{
 		ignore_event = 0;
@@ -74,7 +73,6 @@ int	mouse_move(int x, int y, t_data *data)
 	dx = x - data->mousex;
 	angle = dx * MOUSE_SENSIBILITY;
 	data->mousex = x;
-	data->mousey = y;
 	data->look += angle;
 	data->make_moov = '1';
 	if ((x < 10 || x >= WIDTH - 10 || y < 0 || y >= HEIGHT) && MSE_LOCK)
@@ -82,7 +80,6 @@ int	mouse_move(int x, int y, t_data *data)
 		ignore_event = 1;
 		mlx_mouse_move(data->mlx_win, WIDTH / 2, HEIGHT / 2);
 		data->mousex = WIDTH / 2;
-		data->mousey = HEIGHT / 2;
 	}
 	return (0);
 }

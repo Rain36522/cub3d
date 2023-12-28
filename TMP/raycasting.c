@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:10:56 by cduffaut          #+#    #+#             */
-/*   Updated: 2023/12/27 15:24:22 by cduffaut         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:42:04 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,53 +40,6 @@ static double	ft_calcul_ang_dbl(double iangl, double iofset)
 	return (iangl);
 }
 
-// function to throw the rays
-// "stop when it hits the wall"
-// void	ft_raycasting_one_ray(t_data *data, int iframe)
-// {
-// 	int			i;
-// 	t_raycast	raycast;
-
-// 	i = 0;
-
-// 	// calcul langle du rayon par rapport a la dir du player
-// 	raycast.angle = (double)(ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)));
-// 	i = ((double)LOOK_ANGLE / ((WIDTH / RESOLUTION)) * iframe);
-// 	raycast.angle = ft_calcul_ang_dbl(raycast.angle, i);
-// 	// init list raycast
-// 	init_raycasting(&raycast, data, raycast.angle);
-// 	// throw the ray
-// 	while (raycast.distance < raycast.max_dist)
-// 	{
-// 		raycast.x += raycast.cos_x * DEPLACEMENT;
-// 		raycast.y += raycast.sin_y * DEPLACEMENT;
-// 		// check if the ray is out of thes map
-// 		if (raycast.x < 0 || raycast.x > WIDTH
-// 			|| raycast.y < 0 || raycast.y > HEIGHT)
-// 		{
-// 			DEBUG
-// 			break ;
-// 		}
-// 		// the ray incouneter a wall
-// 		if (ft_check_colision(data, raycast.x, raycast.y))
-// 		{
-// 			// calcul euclidien
-// 			raycast.distance_to_wall = distance(data->xpos, data->ypos, raycast.x, raycast.y);
-// 			// modifier la taille du mur
-// 			raycast.wall_height = WALL_SIZE / raycast.distance_to_wall;
-// 			// "afficher le mur"
-// 			// printf ("wall height: %.2f, wall distance: %.2f\n", raycast.wall_height, raycast.distance_to_wall);
-// 			break ;
-// 		}
-// 		// dislay the ray on the screen
-// 		// printf("Ray at angle %.2f hit point (%.2f, %.2f)\n", raycast.angle, raycast.x, raycast.y);
-// 		raycast.distance += DEPLACEMENT;
-// 		// printf("wall height : %f\n", raycast.wall_height);
-// 	}
-// 	printf("wall height : %f\n", raycast.wall_height);
-// 	put_wall(data, raycast.wall_height, iframe);
-// }
-
 void	ft_raycasting_one_ray(t_data *data, int iframe)
 {
 	double	iangl;
@@ -110,19 +63,17 @@ void	ft_raycasting_one_ray(t_data *data, int iframe)
 		ilen += DEPLACEMENT;
 	}
 	put_wall(data, WALL_SIZE / ilen, iframe);
-	
 }
 
 void	ft_raycasting(t_data *data)
 {
 	int	iframe;
-	
+
 	iframe = 0;
 	ft_new_img(data);
 	while (iframe * RESOLUTION <= WIDTH)
 	{
 		ft_raycasting_one_ray(data, iframe);
-		DEBUG
 		iframe += 1;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);

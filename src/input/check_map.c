@@ -27,8 +27,8 @@ static int	ft_check_char(char **map)
 		while (map[i][j])
 		{
 			c = map[i][j];
-			if (c != '0' && c != ' ' && c != 'N' && c != 'S'&& c != 'E' && \
-				c != 'W' && c != '1' && c != 'D')
+			if (c != '0' && c != ' ' && c != 'N' && c != 'S'&& c != 'E'
+				&& c != 'W' && c != '1' && c != 'D')
 				return (102);
 			if (c == 'N' || c == 'S'|| c == 'E' || c == 'W')
 				iplayer ++;
@@ -57,7 +57,7 @@ static int	ft_check_extern_line(char **map, int il1, int il2)
 			return (0);
 		else if (map[il1][i] == ' ' && map[il2][i] != '1' && map[il2][i] != ' ' )
 			return (0);
-		i ++;
+		i++;
 	}
 	return (1);
 }

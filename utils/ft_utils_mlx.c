@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_mlx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/21 15:35:56 by pudry            ###   ########.fr       */
+/*   Updated: 2023/12/28 18:39:46 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_put_square(t_data *data, int x, int y, int icolor)
 	i = (x * MAP_SIZE);
 	j = (y * MAP_SIZE);
 	iy = j;
-	// printf("i : %i, j : %i\n", i, j);
 	while (iy - j < MAP_SIZE)
 	{
 		ix = i;

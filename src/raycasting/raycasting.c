@@ -18,9 +18,9 @@ static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 	while (data->map[ray->mapy][ray->mapx] != '1' && \
 									data->map[ray->mapy][ray->mapx] != 'D')
 	{
-		if (ray->mapx < 0  || ray->mapx >= data->ix)
+		if (ray->mapx < 0 || ray->mapx >= data->ix)
 			break ;
-		else if (ray->mapy < 0  || ray->mapy >= data->iy)
+		else if (ray->mapy < 0 || ray->mapy >= data->iy)
 			break ;
 		if (ray->sidedistx < ray->sidedisty)
 		{

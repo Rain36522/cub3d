@@ -43,9 +43,8 @@ int		put_texture_in_data(t_data *data)
 
 static int	put_texture_in_node(t_pixput *texture, t_input *input, char *name)
 {
-	texture->img =  mlx_xpm_file_to_image(input->mlx, name, &texture->width, \
+	texture->img = mlx_xpm_file_to_image(input->mlx, name, &texture->width, \
 		&texture->heigth);
-	DEBUG
 	ft_put_array(input->tab_map);
 	if (!texture->img)
 		return (1);

@@ -103,7 +103,6 @@ static void put_paths_in_data(t_data *data, t_input *input)
 	data->we.path = ft_strdup(input->we);
 	data->door.path = ft_strdup(input->door.path);
 	data->mousex = 0;
-	data->mousey = 0;
 }
 
 t_data *t_input_to_t_data(t_input *input)

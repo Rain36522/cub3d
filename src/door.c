@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   door.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/28 18:46:15 by csil              #+#    #+#             */
+/*   Updated: 2023/12/28 18:46:18 by csil             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Includes/cub3d.h"
 
 static void	ft_door(t_data *data, int y, int x)
 {
-	// printf("check char : %c pos : %i, %i\n", data->map[y][x], y, x);
 	if (data->map[y][x] == 'D' && data->cdvalue == 'E')
 		data->map[y][x] = 'E';
 	else if (data->map[y][x] == 'E' && data->cdvalue == 'D')
 		data->map[y][x] = 'D';
 	data->dchanged ++;
 }
+
 void	ft_change_door(t_data *data)
 {
 	int	l;
@@ -28,7 +40,6 @@ void	ft_change_door(t_data *data)
 
 void	ft_check_door2(t_data *data, int y, int x, int ineg)
 {
-	// printf("check cha r : %c pos : %i, %i\n", data->map[y][x], y, x);
 	if ((data->map[y][x] == 'D' && !ineg) || \
 						(data->map[y][x] == 'E' && ineg))
 	{
@@ -44,6 +55,7 @@ void	ft_check_door2(t_data *data, int y, int x, int ineg)
 		data->drevers = ineg;
 	}
 }
+
 void	ft_check_door(t_data *data)
 {
 	int	l;

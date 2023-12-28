@@ -68,8 +68,8 @@ static int	separe_colours_in_str_f(char *str, t_input *input)
 {
 	int		i;
 	char	**tab;
-	i = 0;
 
+	i = 0;
 	tab = ft_split(str, ',');
 	if (!tab)
 	{

@@ -27,9 +27,8 @@
 
 static t_data	*init_game(char **argv)
 {
-	t_data *data;
+	t_data	*data;
 	data = init_list(argv);
-	DEBUG
 	if (!data)
 		return (NULL);
 	data->x = data->xpos;

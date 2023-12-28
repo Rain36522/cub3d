@@ -108,7 +108,6 @@ static int	input_in_list(t_input *input, int fd, char *line)
 			break ;
 		}
 	}
-	//return (free_str_and_null(line));
 	return (0);
 }
 
@@ -118,7 +117,7 @@ static int	input_in_list(t_input *input, int fd, char *line)
 t_data	*init_list(char **argv)
 {
 	t_input	*input;
-	t_data	*data = NULL;
+	t_data	*data;
 	char	*line;
 	int		fd;
 

@@ -37,8 +37,6 @@ static void	ft_send_msg(int i)
 void	ft_error_quit(t_data *data, int icode)
 {
 	ft_free_array(data->map);
-	DEBUG
-	// penser a destroy img
 	if (data->mlx && data->mlx_win)
 		mlx_destroy_window(data->mlx, data->mlx_win);
 	free(data);

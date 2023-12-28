@@ -15,12 +15,12 @@
 static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 {
 	if (data->map[ray->mapy][ray->mapx] == 'D')
-        return (&data->door);
+		return (&data->door);
 	if (ray->side == 0)
 	{
 		if (ray->dirx >= 0 && ray->diry >= 0)
 			return (&data->ea);
-		else if (ray->dirx < 0 &&  ray->diry >= 0)
+		else if (ray->dirx < 0 && ray->diry >= 0)
 			return (&data->we);
 		else if (ray->dirx < 0 && ray->diry < 0)
 			return (&data->we);
@@ -29,7 +29,7 @@ static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 	}
 	if (ray->dirx >= 0 && ray->diry >= 0)
 		return (&data->no);
-	else if (ray->dirx < 0 &&  ray->diry >= 0)
+	else if (ray->dirx < 0 && ray->diry >= 0)
 		return (&data->no);
 	else if (ray->dirx < 0 && ray->diry < 0)
 		return (&data->so);
@@ -52,9 +52,9 @@ static void	put_wall_2(t_data *data, t_wall wall, t_ray *ray, int iframe)
 		wall.iy += wall.iscale;
 		iy ++;
 	}
-	if (((data->dvalue <= (int)(ray->wallx * 100.0) && !data->drevers) ||\
-		(data->dvalue >= (int)(ray->wallx * 100.0) && data->drevers)) \
-						&& data->map[ray->mapy][ray->mapx] != '1' && data->dchanged == 0)
+	if (((data->dvalue <= (int)(ray->wallx * 100.0) && !data->drevers)
+		|| (data->dvalue >= (int)(ray->wallx * 100.0) && data->drevers))
+			&& data->map[ray->mapy][ray->mapx] != '1' && data->dchanged == 0)
 		ft_change_door(data);
 }
 

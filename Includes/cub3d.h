@@ -127,7 +127,6 @@ typedef struct s_data
 	double		x;
 	double		y;
 	int			mousex;
-	int			mousey;
 	char		**map;
 	int			ix;
 	int			iy;
