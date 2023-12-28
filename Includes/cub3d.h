@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:10:24 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 18:10:24 by pudry            ###   ########.ch       */
+/*   Updated: 2023/12/28 19:23:58 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 # define PI 3.141592653589793
 # define MOUSE_SENSIBILITY 1
 # define DOOR "./img/door5.xpm"
-# define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
 # define MSE_LOCK 0
 
 typedef struct s_list
@@ -147,7 +146,7 @@ typedef struct s_data
 	int			drevers;
 }	t_data;
 
-enum	img
+enum	e_img
 {
 	NO,
 	SO,
@@ -155,88 +154,86 @@ enum	img
 	EA
 };
 
-void	print_list(t_list *list);
-void	print_tab(char **tab);
+unsigned int	get_color_pixel(t_pixput *img, int x, int y);
+void			print_list(t_list *list);
+void			print_tab(char **tab);
 
 // utils mlx
 void			ft_put_square(t_data *data, int x, int y, int icolor);
 void			ft_make_moov(t_data *data, double x, double y);
 void			ft_new_img(t_data *data);
 void			put_pixel_img(t_data *data, int x, int y, int icolor);
-unsigned int	get_color_pixel(t_pixput *img, int x, int y);
 void			get_img(t_data *data, int img);
 
-
 // utils calcul
-double	ft_calc_depl_x(double iangl);
-double	ft_calc_depl_y(double iangl);
-double	ft_calcul_ang(double iangl, double iofset);
-int		ft_check_colision(t_data *data, double x, double y);
-double	deg_to_rad(double deg);
+double			ft_calc_depl_x(double iangl);
+double			ft_calc_depl_y(double iangl);
+double			ft_calcul_ang(double iangl, double iofset);
+int				ft_check_colision(t_data *data, double x, double y);
+double			deg_to_rad(double deg);
 
 // key_hook
-int		key_hook(int keycode, t_data *data);
-int		ft_press_cross(void);
-int		mouse_move(int x, int y, t_data *data);
+int				key_hook(int keycode, t_data *data);
+int				ft_press_cross(void);
+int				mouse_move(int x, int y, t_data *data);
 
 // Init part
-void	print_list(t_list *list);
-void	print_tab(char **tab);
-void	add_end(t_list **list, char *line, t_input *input);
-t_list	*ptr_last_node(t_list *list);
-int		len_tab(t_list *list);
-char	*ft_strdup_free(char *str);
-int		only_path(t_input *input);
-int		only_nbr(t_input *input);
-int		init_print_error(char *str);
-int		init_free_all_and_exit(t_input *input, int exit);
-int		free_str_and_null(char *str);
-int		only_nbr(t_input *input);
-int		only_path(t_input *input);
-char	*ft_strndup(const char *str, int isize);
-int		not_enough_commas(char *str);
-int		other_than_digit(char *str);
-int		init_separe_colours(t_input *input);
-t_data	*t_input_to_t_data(t_input *input);
-void	free_tab(char **tab);
-char	*relay_only(char *str, int i);
-void	clean_list(t_list *list);
-void	destroy_img_texture(t_input *input);
-void	init_to_null(t_input *input);
-
-int	all_texture_in_data(t_input *input);
-t_data	*init_list(char **argv);
+void			print_list(t_list *list);
+void			print_tab(char **tab);
+void			add_end(t_list **list, char *line, t_input *input);
+t_list			*ptr_last_node(t_list *list);
+int				len_tab(t_list *list);
+char			*ft_strdup_free(char *str);
+int				only_path(t_input *input);
+int				only_nbr(t_input *input);
+int				init_print_error(char *str);
+int				init_free_all_and_exit(t_input *input, int exit);
+int				free_str_and_null(char *str);
+int				only_nbr(t_input *input);
+int				only_path(t_input *input);
+char			*ft_strndup(const char *str, int isize);
+int				not_enough_commas(char *str);
+int				other_than_digit(char *str);
+int				init_separe_colours(t_input *input);
+t_data			*t_input_to_t_data(t_input *input);
+void			free_tab(char **tab);
+char			*relay_only(char *str, int i);
+void			clean_list(t_list *list);
+void			destroy_img_texture(t_input *input);
+void			init_to_null(t_input *input);
+int				all_texture_in_data(t_input *input);
+t_data			*init_list(char **argv);
 
 // RGB part
-int		get_t(int trgb);
-int		get_r(int trgb);
-int		get_g(int trgb);
-int		get_b(int trgb);
-void	get_trgb(t_input *input);
-int		create_trgb(int t, int r, int g, int b);
+int				get_t(int trgb);
+int				get_r(int trgb);
+int				get_g(int trgb);
+int				get_b(int trgb);
+void			get_trgb(t_input *input);
+int				create_trgb(int t, int r, int g, int b);
 
-int		ft_check_map(char **map);
+int				ft_check_map(char **map);
 
 // Err
-void	ft_error_quit(t_data *data, int icode);
+void			ft_error_quit(t_data *data, int icode);
 
 // Utils
-char	*ft_strdup_endl(char *str);
-void	ft_put_array(char **a);
+char			*ft_strdup_endl(char *str);
+void			ft_put_array(char **a);
 
 // raycasting
-void	ft_raycasting(t_data *data);
-void	put_wall(t_data *data, t_ray *ray, int iframe);
-void	ft_background(t_data *data);
+void			ft_raycasting(t_data *data);
+void			put_wall(t_data *data, t_ray *ray, int iframe);
+void			ft_background(t_data *data);
 
 // Free and exit
-void	free_and_exit_prog(t_data *data);
+void			free_and_exit_prog(t_data *data);
 
 // Refresh texture
-int		put_texture_in_data(t_data *data);
+int				put_texture_in_data(t_data *data);
 
 // door
-void	ft_change_door(t_data *data);
-void	ft_check_door(t_data *data);
+void			ft_change_door(t_data *data);
+void			ft_check_door(t_data *data);
 
 #endif
