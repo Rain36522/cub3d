@@ -45,7 +45,6 @@ static int	put_texture_in_node(t_pixput *texture, t_input *input, char *name)
 {
 	texture->img = mlx_xpm_file_to_image(input->mlx, name, &texture->width, \
 		&texture->heigth);
-	ft_put_array(input->tab_map);
 	if (!texture->img)
 		return (1);
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bit_pp, \
