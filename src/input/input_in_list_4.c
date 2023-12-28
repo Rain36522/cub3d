@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 11:34:47 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/18 11:34:47 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:16:27 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:16:27 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,11 @@ static t_data	*ft_put_player(t_data *data)
 	return (data);
 }
 
+// no et so are revers
 static void put_paths_in_data(t_data *data, t_input *input)
 {
-	data->no.path = ft_strdup(input->no);
-	data->so.path = ft_strdup(input->so);
+	data->no.path = ft_strdup(input->so);
+	data->so.path = ft_strdup(input->no);
 	data->ea.path = ft_strdup(input->ea);
 	data->we.path = ft_strdup(input->we);
 	data->door.path = ft_strdup(input->door.path);

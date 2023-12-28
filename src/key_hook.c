@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 18:06:32 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 18:06:32 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:09:51 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:09:58 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	key_hook(int keycode, t_data *data)
 {
 	double	iangl;
 	
-	data->keyhook = 0;
 	if (keycode == 53)
 		exit(0);
 	else if (data->dstep || data->make_moov == '1')
@@ -57,6 +56,34 @@ int	key_hook(int keycode, t_data *data)
 	data->xpos = data->x;
 	data->ypos = data->y;
 	data->make_moov = '1';
+	return (0);
+}
+
+int	mouse_move(int x, int y, t_data *data)
+{
+	int			dx;
+	float		angle;
+	static int	ignore_event = 0;
+
+	// up to date the mouse pos
+	if (ignore_event || data->make_moov == '1' || data->dstep)
+	{
+		ignore_event = 0;
+		return (0);
+	}
+	dx = x - data->mousex;
+	angle = dx * MOUSE_SENSIBILITY;
+	data->mousex = x;
+	data->mousey = y;
+	data->look += angle;
+	data->make_moov = '1';
+	if ((x < 10 || x >= WIDTH - 10 || y < 0 || y >= HEIGHT) && MSE_LOCK)
+	{
+		ignore_event = 1;
+		mlx_mouse_move(data->mlx_win, WIDTH / 2, HEIGHT / 2);
+		data->mousex = WIDTH / 2;
+		data->mousey = HEIGHT / 2;
+	}
 	return (0);
 }
 

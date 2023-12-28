@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 18:06:07 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 18:06:07 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:10:10 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:10:10 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	ft_check_colision(t_data *data, double x, double y)
 		data->y = data->ypos;
 		return (1);
 	}
-	data->keyhook = 0;
 	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 17:59:29 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 17:59:29 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/28 18:10:24 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/28 18:10:24 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define MOUSE_SENSIBILITY 1
 # define DOOR "./img/door5.xpm"
 # define DEBUG printf("\033[1;31m%s:%d\033[0;37m\n", __FILE__, __LINE__);
-# define MSE_LOCK 1
+# define MSE_LOCK 0
 
 typedef struct s_list
 {
@@ -146,7 +146,6 @@ typedef struct s_data
 	char		cdvalue;
 	int			dchanged;
 	int			drevers;
-	int			keyhook;
 }	t_data;
 
 enum	img
@@ -179,6 +178,7 @@ double	deg_to_rad(double deg);
 // key_hook
 int		key_hook(int keycode, t_data *data);
 int		ft_press_cross(void);
+int		mouse_move(int x, int y, t_data *data);
 
 // Init part
 void	print_list(t_list *list);
