@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 18:10:24 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 19:23:58 by csil             ###   ########.fr       */
+/*   Created: 2023/12/29 09:38:55 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/29 09:38:55 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define PI 3.141592653589793
 # define MOUSE_SENSIBILITY 1
 # define DOOR "./img/door5.xpm"
-# define MSE_LOCK 0
+# define MSE_LOCK 1
 
 typedef struct s_list
 {

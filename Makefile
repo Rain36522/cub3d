@@ -6,7 +6,7 @@
 #    By: csil <csil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/29 09:27:42 by csil             ###   ########.fr        #
+#    Updated: 2023/12/29 09:36:33 by csil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c 
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
 all : lib $(NAME)
-	./cub3d map/map.cub
+	./cub3d map/break.cub
 
 push : clean
 	git add *

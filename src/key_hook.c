@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 18:09:51 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 18:09:58 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/29 09:47:37 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/29 09:47:37 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	mouse_move(int x, int y, t_data *data)
 	dx = x - data->mousex;
 	angle = dx * MOUSE_SENSIBILITY;
 	data->mousex = x;
-	data->look += angle;
+	data->look = ft_calcul_ang(data->look, angle);
 	data->make_moov = '1';
 	if ((x < 10 || x >= WIDTH - 10 || y < 0 || y >= HEIGHT) && MSE_LOCK)
 	{
