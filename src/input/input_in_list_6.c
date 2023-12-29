@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2023/12/28 22:34:50 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/29 10:42:47 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,35 @@ void	clean_list(t_list *list)
 		free(list);
 		list = NULL;
 	}
+}
+
+int	check_extension(char *str)
+{
+	int	len;
+
+	if (!str)
+		return (1);
+	len = ft_strlen(str);
+	if (str[len] != '\0')
+		return (init_print_error("Error\nWrong extension map file.\n"));
+	else if (str[len - 1] != 'b')
+		return (init_print_error("Error\nWrong extension map file.\n"));
+	else if (str[len - 2] != 'u')
+		return (init_print_error("Error\nWrong extension map file.\n"));
+	else if (str[len - 3] != 'c')
+		return (init_print_error("Error\nWrong extension map file.\n"));
+	return (0);
+}
+
+int	input_not_full(t_input *input)
+{
+	if (!input->no)
+		return (1);
+	else if (!input->so)
+		return (1);
+	else if (!input->ea)
+		return (1);
+	else if (!input->we)
+		return (1);
+	return (0);
 }

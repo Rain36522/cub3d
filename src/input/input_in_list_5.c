@@ -6,7 +6,7 @@
 /*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/28 22:36:08 by csil             ###   ########.fr       */
+/*   Updated: 2023/12/29 10:59:40 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,8 @@ void	init_to_null(t_input *input)
 	input->t_we.img = NULL;
 	input->t_ea.img = NULL;
 	input->t_no.img = NULL;
+	input->no = NULL;
+	input->so = NULL;
+	input->we = NULL;
+	input->ea = NULL;
 }

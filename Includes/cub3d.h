@@ -175,6 +175,8 @@ int				ft_press_cross(void);
 int				mouse_move(int x, int y, t_data *data);
 
 // Init part
+int				input_not_full(t_input *input);
+int				check_extension(char *str);
 void			print_list(t_list *list);
 void			print_tab(char **tab);
 void			add_end(t_list **list, char *line, t_input *input);

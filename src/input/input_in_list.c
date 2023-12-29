@@ -53,6 +53,8 @@ static int	put_map_int_tab(t_input *input)
 
 static int	create_linked_list(t_input *input, int fd, char	*line)
 {
+	if (input_not_full(input) == 1)
+		return (init_print_error("Error\nAll paths are not complete\n"));
 	if (only_path(input) == 1)
 		return (1);
 	if (only_nbr(input) == 1)

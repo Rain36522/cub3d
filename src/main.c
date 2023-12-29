@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 {
 	t_data		*data;
 
-	if (argc != 2)
+	if (argc != 2 || check_extension(argv[1]) == 1)
 		return (0);
 	data = init_game(argv);
 	if (!data)
