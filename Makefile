@@ -6,7 +6,7 @@
 #    By: csil <csil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2023/12/28 22:39:28 by csil             ###   ########.fr        #
+#    Updated: 2023/12/29 09:27:42 by csil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ INPUT = input/convert_colours_to_int.c input/convert_colours_to_int_2.c \
 
 RAY_CAST = raycasting/put_wall.c raycasting/raycasting.c raycasting/ft_background.c
 
-MAIN = main.c put_map.c key_hook.c free_and_exit_prog.c door.c
+MAIN = main.c put_map.c key_hook.c door.c free_and_exit_final.c
 
 ERR = erreurs/ft_erreur.c
 

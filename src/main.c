@@ -87,5 +87,5 @@ int	main(int argc, char **argv)
 	mlx_hook(data->mlx_win, 6, 0, mouse_move, data);
 	mlx_loop_hook(data->mlx, ft_loop, data);
 	mlx_loop(data->mlx);
-	free_and_exit_prog(data);
+	free_and_exit_final(data);
 }

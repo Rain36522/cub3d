@@ -155,15 +155,12 @@ enum	e_img
 };
 
 unsigned int	get_color_pixel(t_pixput *img, int x, int y);
-void			print_list(t_list *list);
-void			print_tab(char **tab);
 
 // utils mlx
 void			ft_put_square(t_data *data, int x, int y, int icolor);
 void			ft_make_moov(t_data *data, double x, double y);
 void			ft_new_img(t_data *data);
 void			put_pixel_img(t_data *data, int x, int y, int icolor);
-void			get_img(t_data *data, int img);
 
 // utils calcul
 double			ft_calc_depl_x(double iangl);
@@ -189,8 +186,6 @@ int				only_nbr(t_input *input);
 int				init_print_error(char *str);
 int				init_free_all_and_exit(t_input *input, int exit);
 int				free_str_and_null(char *str);
-int				only_nbr(t_input *input);
-int				only_path(t_input *input);
 char			*ft_strndup(const char *str, int isize);
 int				not_enough_commas(char *str);
 int				other_than_digit(char *str);
@@ -203,6 +198,7 @@ void			destroy_img_texture(t_input *input);
 void			init_to_null(t_input *input);
 int				all_texture_in_data(t_input *input);
 t_data			*init_list(char **argv);
+int				ft_check_map(char **map);
 
 // RGB part
 int				get_t(int trgb);
@@ -211,8 +207,6 @@ int				get_g(int trgb);
 int				get_b(int trgb);
 void			get_trgb(t_input *input);
 int				create_trgb(int t, int r, int g, int b);
-
-int				ft_check_map(char **map);
 
 // Err
 void			ft_error_quit(t_data *data, int icode);
@@ -227,8 +221,8 @@ void			put_wall(t_data *data, t_ray *ray, int iframe);
 void			ft_background(t_data *data);
 
 // Free and exit
-void			free_and_exit_prog(t_data *data);
 void			clean_list(t_list *list);
+void			free_and_exit_final(t_data *data);
 
 // Refresh texture
 int				put_texture_in_data(t_data *data);
