@@ -6,7 +6,7 @@
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 09:41:25 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/29 09:46:01 by pudry            ###   ########.ch       */
+/*   Updated: 2023/12/29 10:07:49 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	ft_door(t_data *data, int y, int x)
 {
-	if (data->map[y][x] == 'D' && data->cdvalue == 'E')
-		data->map[y][x] = 'E';
-	else if (data->map[y][x] == 'E' && data->cdvalue == 'D')
+	if (data->map[y][x] == 'D' && data->cdvalue == 'O')
+		data->map[y][x] = 'O';
+	else if (data->map[y][x] == 'O' && data->cdvalue == 'D')
 		data->map[y][x] = 'D';
 	data->dchanged ++;
 }
@@ -41,13 +41,13 @@ void	ft_change_door(t_data *data)
 void	ft_check_door2(t_data *data, int y, int x, int ineg)
 {
 	if ((data->map[y][x] == 'D' && !ineg)
-		|| (data->map[y][x] == 'E' && ineg))
+		|| (data->map[y][x] == 'O' && ineg))
 	{
 		data->dstep = -2;
 		data->dvalue = 100;
 		data->drevers = ineg;
 	}
-	else if ((data->map[y][x] == 'E' && !ineg)
+	else if ((data->map[y][x] == 'O' && !ineg)
 		|| (data->map[y][x] == 'D' && ineg))
 	{
 		data->dstep = 2;

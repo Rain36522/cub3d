@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 18:09:38 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 18:09:38 by pudry            ###   ########.ch       */
+/*   Created: 2023/12/29 10:08:04 by pudry             #+#    #+#             */
+/*   Updated: 2023/12/29 10:08:04 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ static void	ft_moov_door(t_data *data)
 	data->dvalue += data->dstep;
 	data->cdvalue = 'D';
 	ft_change_door(data);
-	data->cdvalue = 'E';
+	data->cdvalue = 'O';
 	data->dchanged = 0;
 	if (data->dvalue <= 0 || data->dvalue >= 100)
 	{
 		data->dchanged = 1;
 		if (data->dstep < 0 && !data->drevers)
-			data->cdvalue = 'E';
+			data->cdvalue = 'O';
 		else if (data->dstep < 0 && data->drevers)
 			data->cdvalue = 'D';
 		else if (data->dstep > 0 && !data->drevers)
 			data->cdvalue = 'D';
 		else
-			data->cdvalue = 'E';
+			data->cdvalue = 'O';
 		data->dstep = 0;
 		ft_change_door(data);
 	}
