@@ -22,7 +22,7 @@
 # include <unistd.h>
 
 # define WIDTH 1710
-# define HEIGHT 750
+# define HEIGHT 900
 # define MAP_SIZE 10
 # define PLAYER_SIZE 3
 # define DEPLACEMENT 0.2
@@ -32,9 +32,9 @@
 # define RESOLUTION 1
 # define ANGLE 30
 # define PI 3.141592653589793
-# define MOUSE_SENSIBILITY 1
+# define MOUSE_SENSIBILITY 0.3
 # define DOOR "./img/door5.xpm"
-# define MSE_LOCK 1
+# define MSE_LOCK 0
 
 typedef struct s_list
 {
