@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 		printf ("Error\nToo much arguments in input.\n");
 	if (check_extension(argv[1]) != 0)
 		exit(1);
+	exit(0);
 	data = init_game(argv);
 	if (!data)
 		return (0);
