@@ -51,7 +51,7 @@ int	key_hook(int keycode, t_data *data)
 		return (ft_check_angle(data, keycode));
 	data->x = ft_calc_depl_x(iangl) + data->xpos;
 	data->y = (ft_calc_depl_y(iangl) + data->ypos);
-	if (ft_check_colision(data, data->x, data->y))
+	if (ft_check_colision(data, data->x, data->y, (int)(iangl)))
 		return (0);
 	data->xpos = data->x;
 	data->ypos = data->y;

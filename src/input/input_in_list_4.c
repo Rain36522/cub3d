@@ -113,6 +113,7 @@ t_data	*t_input_to_t_data(t_input *input)
 	if (!data)
 		ft_error_quit(NULL, 12);
 	data->mlx = input->mlx;
+	data->mlx_win = NULL;
 	data = ft_map_equal_line(input->tab_map, data);
 	if (ft_check_map(data->map))
 		ft_error_quit(data, ft_check_map(data->map));

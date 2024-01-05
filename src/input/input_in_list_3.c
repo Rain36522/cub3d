@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 12:39:50 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 13:35:12 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	init_free_all_and_exit_2(t_input *input)
 		free_str_and_null(input->door.path);
 }
 
-int	init_free_all_and_exit(t_input *input, int exit)
+int	init_free_all_and_exit(t_input *input, int iexit)
 {
 	if (!input)
 		return (1);
@@ -55,13 +55,12 @@ int	init_free_all_and_exit(t_input *input, int exit)
 	init_free_all_and_exit_2(input);
 	destroy_img_texture(input);
 	clean_list(input->map);
-	if (exit)
+	if (iexit)
 		free_tab(input->tab_map);
 	if (input)
-	{
 		free (input);
-		input = NULL;
-	}
+	if (iexit)
+		exit(1);
 	return (1);
 }
 

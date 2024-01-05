@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_6.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 10:18:01 by pudry            ###   ########.fr       */
+/*   Updated: 2024/01/05 13:52:34 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ int	input_not_full(t_input *input)
 	else if (!input->ea)
 		return (1);
 	else if (!input->we)
+		return (1);
+	else if (!input->f)
+		return (1);
+	else if (!input->c)
 		return (1);
 	return (0);
 }

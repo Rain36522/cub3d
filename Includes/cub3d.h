@@ -21,8 +21,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 1710
-# define HEIGHT 900
+# define WIDTH 1880
+# define HEIGHT 1300
 # define MAP_SIZE 10
 # define PLAYER_SIZE 3
 # define DEPLACEMENT 0.2
@@ -34,7 +34,7 @@
 # define PI 3.141592653589793
 # define MOUSE_SENSIBILITY 0.3
 # define DOOR "./img/door5.xpm"
-# define MSE_LOCK 0
+# define MSE_LOCK 1
 # define DEBUG printf("%s, %d\n", __FILE__, __LINE__);
 
 typedef struct s_list
@@ -167,7 +167,7 @@ void			put_pixel_img(t_data *data, int x, int y, int icolor);
 double			ft_calc_depl_x(double iangl);
 double			ft_calc_depl_y(double iangl);
 double			ft_calcul_ang(double iangl, double iofset);
-int				ft_check_colision(t_data *data, double x, double y);
+int				ft_check_colision(t_data *data, double x, double y, int iangl);
 double			deg_to_rad(double deg);
 
 // key_hook

@@ -64,7 +64,7 @@ static int	convert_colours_to_int(char *str, int *colour)
 // Return (1) : Error has been detected,
 // Error message has been printed.
 // Ex input: 220,100,0
-static int	separe_colours_in_str_f(char *str, t_input *input)
+static int	separe_colours_in_str_f(char *str, t_input *input, int counter)
 {
 	int		i;
 	char	**tab;
@@ -72,28 +72,22 @@ static int	separe_colours_in_str_f(char *str, t_input *input)
 	i = 0;
 	tab = ft_split(str, ',');
 	if (!tab)
-	{
-		printf ("Error\nallocation failed\n");
-		return (1);
-	}
+		return(printf("Error\nallocation failed\n"));
 	while (tab[i])
 	{
-		if (i == 0
-			&& (convert_colours_to_int(tab[i], &input->f_r) == 1))
-			return (1);
-		else if (i == 1
-			&& (convert_colours_to_int(tab[i], &input->f_g) == 1))
-			return (1);
-		else if (i == 2
-			&& (convert_colours_to_int(tab[i], &input->f_b) == 1))
-			return (1);
+		if (i == 0)
+			counter += convert_colours_to_int(tab[i], &input->f_r);
+		else if (i == 1)
+			counter += convert_colours_to_int(tab[i], &input->f_g);
+		else if (i == 2)
+			counter += convert_colours_to_int(tab[i], &input->f_b) == 1;
 		i++;
 	}
 	free_tab(tab);
-	return (0);
+	return (counter);
 }
 
-static int	separe_colours_in_str_c(char *str, t_input *input)
+static int	separe_colours_in_str_c(char *str, t_input *input, int counter)
 {
 	int		i;
 	char	**tab;
@@ -101,25 +95,19 @@ static int	separe_colours_in_str_c(char *str, t_input *input)
 	i = 0;
 	tab = ft_split(str, ',');
 	if (!tab)
-	{
-		printf ("Error\nallocation failed\n");
-		return (1);
-	}
+		return (printf ("Error\nallocation failed\n"));
 	while (tab[i])
 	{
-		if (i == 0
-			&& (convert_colours_to_int(tab[i], &input->c_r) == 1))
-			return (1);
-		else if (i == 1
-			&& (convert_colours_to_int(tab[i], &input->c_g) == 1))
-			return (1);
-		else if (i == 2
-			&& (convert_colours_to_int(tab[i], &input->c_b) == 1))
-			return (1);
+		if (i == 0)
+			counter += (convert_colours_to_int(tab[i], &input->c_r) == 1);
+		else if (i == 1)
+			counter += (convert_colours_to_int(tab[i], &input->c_g) == 1);
+		else if (i == 2)
+			counter += (convert_colours_to_int(tab[i], &input->c_b) == 1);
 		i++;
 	}
 	free_tab(tab);
-	return (0);
+	return (counter);
 }
 
 int	init_separe_colours(t_input *input)
@@ -128,9 +116,9 @@ int	init_separe_colours(t_input *input)
 		return (1);
 	if (not_enough_commas(input->f) == 1)
 		return (1);
-	if (separe_colours_in_str_c(input->c, input) == 1)
+	if (separe_colours_in_str_c(input->c, input, 0) != 0)
 		return (1);
-	if (separe_colours_in_str_f(input->f, input) == 1)
+	if (separe_colours_in_str_f(input->f, input, 0) != 0)
 		return (1);
 	return (0);
 }

@@ -6,13 +6,13 @@
 #    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2024/01/05 12:41:45 by cduffaut         ###   ########.fr        #
+#    Updated: 2024/01/05 14:25:08 by cduffaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 
 MLX = mlx/libmlx.a
@@ -50,7 +50,7 @@ UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c 
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
 all : lib $(NAME)
-	./cub3d map/map_wrong_path.cub 
+	./$(NAME) map/mapwrong.cub
 
 push : clean
 	git add *
@@ -61,7 +61,7 @@ push : clean
 	$(CC) $(FLAGS) -c -o $@ $< $(INCLUDES)
 
 leaks: $(NAME)
-	leaks --atExit -- ./$(NAME)
+	leaks --atExit -- ./$(NAME) map/mapwrong.cub
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME)

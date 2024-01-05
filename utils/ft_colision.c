@@ -18,7 +18,7 @@ static int	ft_is_wall(t_data *data, int iy, int ix)
 		data->map[iy][ix] == 'D');
 }
 
-static int	ft_check_corner(t_data *data, double x, double y)
+static int	ft_check_corner(t_data *data, double x, double y, int iangl)
 {
 	int	ix;
 	int	iy;
@@ -27,22 +27,22 @@ static int	ft_check_corner(t_data *data, double x, double y)
 		return (0);
 	ix = (int)data->xpos;
 	iy = (int)data->ypos;
-	if (data->look >= 1 && data->look <= 89)
+	if (iangl >= 1 && iangl <= 89)
 		if (ft_is_wall(data, iy + 1, ix) && ft_is_wall(data, iy, ix + 1))
 			return (1);
-	if (data->look >= 91 && data->look <= 179)
+	if (iangl >= 91 && iangl <= 179)
 		if (ft_is_wall(data, iy + 1, ix) && ft_is_wall(data, iy, ix - 1))
 			return (1);
-	if (data->look >= 181 && data->look <= 269)
+	if (iangl >= 181 && iangl <= 269)
 		if (ft_is_wall(data, iy - 1, ix) && ft_is_wall(data, iy, ix - 1))
 			return (1);
-	if (data->look >= 271 && data->look <= 359)
+	if (iangl >= 271 && iangl <= 359)
 		if (ft_is_wall(data, iy + 1, ix) && ft_is_wall(data, iy, ix + 1))
 			return (1);
 	return (0);
 }
 
-int	ft_check_colision(t_data *data, double x, double y)
+int	ft_check_colision(t_data *data, double x, double y, int iangl)
 {
 	int	ix;
 	int	iy;
@@ -55,7 +55,7 @@ int	ft_check_colision(t_data *data, double x, double y)
 		iy = (int)(y - 0.1);
 	else
 		iy = (int)(y + 0.1);
-	if (ft_check_corner(data, x, y))
+	if (ft_check_corner(data, x, y, iangl))
 	{
 		data->x = data->xpos;
 		data->y = data->ypos;
