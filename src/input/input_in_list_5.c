@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:17:30 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:46:17 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,9 @@ void	init_to_null(t_input *input, char *str)
 	input->so = NULL;
 	input->we = NULL;
 	input->ea = NULL;
-	check_multiple_input(str);
+	if (check_multiple_input(str) != 0)
+	{
+		init_free_all_and_exit(input, 1);
+		exit (1);
+	}
 }

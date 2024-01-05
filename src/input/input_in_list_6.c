@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:31:33 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:47:11 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	input_not_full(t_input *input)
 int	check_multiple_input(char *str)
 {
 	int	fd;
-	int result;
+	int	result;
 
 	result = 0;
 	fd = open(str, O_RDONLY);
