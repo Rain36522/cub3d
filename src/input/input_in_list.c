@@ -131,7 +131,7 @@ t_data	*init_list(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
-		init_print_error("Error\nmap opening failed.\n");
+		init_print_error("Error\nMap opening failed.\n");
 		return (NULL);
 	}
 	if (input_in_list(input, fd, line) == 1)
