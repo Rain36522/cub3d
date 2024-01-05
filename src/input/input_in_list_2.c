@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 10:25:17 by pudry            ###   ########.fr       */
+/*   Updated: 2024/01/05 11:38:45 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,35 +75,23 @@ int	only_path(t_input *input)
 	else
 		return (init_print_error("Error\nEA is not valid.\n"));
 	if (!input->ea || !input->we || !input->so || !input->no)
-		return (printf ("Error\nEle;ent in file input are not valid.\n"));
+		return (printf ("Error\nElement in file input are not valid.\n"));
 	return (0);
 }
 
 int	only_nbr(t_input *input)
 {
-	if (input->f == NULL || input->c == NULL)
+	if (!input || !input->f || !input->c)
 		return (init_print_error("Error\nInvalid input pointers.\n"));
-	if (ft_strlen(input->c) > 1 && input->f[0] == 'F' && input->f[1] == ' ')
-	{
+	if (input->f[0] == 'F' && input->f[1] == ' ')
 		input->f = relay_only(input->f, 1);
-		if (!input->f)
-		{
-			init_free_all_and_exit(input, 1);
-			exit(1);
-		}
-	}
 	else
 		return (init_print_error("Error\nF is not valid.\n"));
-	if (ft_strlen(input->c) > 1 && input->c[0] == 'C' && input->c[1] == ' ')
-	{
+	if (input->c[0] == 'C' && input->c[1] == ' ')
 		input->c = relay_only(input->c, 1);
-		if (!input->c)
-		{
-			init_free_all_and_exit(input, 1);
-			exit(1);
-		}
-	}
 	else
 		return (init_print_error("Error\nC is not valid.\n"));
+	if (!input->c || !input->f)
+		return (init_print_error("Error\nElement map are not valid.\n"));
 	return (0);
 }

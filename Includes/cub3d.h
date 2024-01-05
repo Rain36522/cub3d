@@ -35,6 +35,7 @@
 # define MOUSE_SENSIBILITY 0.3
 # define DOOR "./img/door5.xpm"
 # define MSE_LOCK 0
+# define DEBUG printf("%s, %d\n", __FILE__, __LINE__);
 
 typedef struct s_list
 {

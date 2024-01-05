@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:24:06 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/21 13:25:19 by pudry            ###   ########.fr       */
+/*   Updated: 2024/01/05 11:07:45 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ char	*ft_strdup_endl(char *str)
 		isize --;
 	if (str[0] == '\n' && str[1] == '\0')
 		return (str);
-	dup = (char *) malloc(sizeof(char) *(isize + 1));
-	if (! dup)
+	dup = (char *) malloc(sizeof(char) * (isize + 1));
+	if (!dup)
 		return (NULL);
 	dup[isize] = '\0';
 	i = 0;

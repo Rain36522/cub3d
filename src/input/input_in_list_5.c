@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:54:56 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:38:55 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@ char	*relay_only(char *str, int i)
 {
 	char	*dup;
 
+	dup = NULL;
+	if (!str)
+		return (NULL);
 	while (str[i] && str[i] == 32)
 		i++;
 	if (str[i])
 	{
 		dup = ft_strdup(str + i);
-		free(str);
-		str = NULL;
+		free_str_and_null(str);
 		return (dup);
 	}
-	free(str);
-	str = NULL;
+	free_str_and_null(str);
 	return (str);
 }
 
@@ -47,6 +48,8 @@ void	init_to_null(t_input *input, char *str)
 	input->so = NULL;
 	input->we = NULL;
 	input->ea = NULL;
+	input->f = NULL;
+	input->c = NULL;
 	if (check_multiple_input(str) != 0)
 	{
 		init_free_all_and_exit(input, 1);
