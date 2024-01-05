@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:25:48 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:34:30 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,22 @@
 // Counter should be at 0, nbr at 1.
 int	check_multiple_input_2(int fd, int counter, int nbr)
 {
-	char	*line;
+	char	line[BUFFER_SIZE + 1];
 
-	line = NULL;
 	while (nbr > 0)
 	{
 		nbr = read(fd, line, BUFFER_SIZE);
-		if (!strncmp(line, "SO", 2))
+		if (ft_strlen(line) > 1 && !strncmp(line, "SO", 2))
 			counter++;
-		else if (!strncmp(line, "NO", 2))
+		else if (ft_strlen(line) > 1 && !strncmp(line, "NO", 2))
 			counter++;
-		else if (!strncmp(line, "WE", 2))
+		else if (ft_strlen(line) > 1 && !strncmp(line, "WE", 2))
 			counter++;
-		else if (!strncmp(line, "EA", 2))
+		else if (ft_strlen(line) > 1 && !strncmp(line, "EA", 2))
 			counter++;
-		else if (!strncmp(line, "F", 1))
+		else if (line && !strncmp(line, "F", 1))
 			counter++;
-		else if (!strncmp(line, "C", 1))
+		else if (line && !strncmp(line, "C", 1))
 			counter++;
 	}
 	if (counter > 6)
