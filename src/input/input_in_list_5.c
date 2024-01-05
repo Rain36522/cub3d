@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/29 10:59:40 by csil             ###   ########.fr       */
+/*   Updated: 2024/01/05 09:17:30 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*relay_only(char *str, int i)
 	return (str);
 }
 
-void	init_to_null(t_input *input)
+void	init_to_null(t_input *input, char *str)
 {
 	input->map = NULL;
 	input->tab_map = NULL;
@@ -45,4 +45,5 @@ void	init_to_null(t_input *input)
 	input->so = NULL;
 	input->we = NULL;
 	input->ea = NULL;
+	check_multiple_input(str);
 }

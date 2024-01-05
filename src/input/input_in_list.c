@@ -127,7 +127,7 @@ t_data	*init_list(char **argv)
 	if (!input)
 		return (NULL);
 	input->mlx = mlx_init();
-	init_to_null(input);
+	init_to_null(input, argv[1]);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{

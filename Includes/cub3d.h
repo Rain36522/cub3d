@@ -197,7 +197,7 @@ void			free_tab(char **tab);
 char			*relay_only(char *str, int i);
 void			clean_list(t_list *list);
 void			destroy_img_texture(t_input *input);
-void			init_to_null(t_input *input);
+void			init_to_null(t_input *input, char *str);
 int				all_texture_in_data(t_input *input);
 t_data			*init_list(char **argv);
 int				ft_check_map(char **map);
