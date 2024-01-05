@@ -90,17 +90,17 @@ static int	input_in_list(t_input *input, int fd, char *line)
 		line = get_next_line(fd);
 		if (line && line[0] && line[0] == '\n' && line[1] == '\0')
 			free_str_and_null(line);
-		else if (!ft_strncmp(line, "NO ", 3))
+		else if (!ft_strncmp(line, "NO ", 3) && !input->no)
 			input->no = ft_strdup_endl(line);
-		else if (!ft_strncmp(line, "SO ", 3))
+		else if (!ft_strncmp(line, "SO ", 3) && !input->so)
 			input->so = ft_strdup_endl(line);
-		else if (!ft_strncmp(line, "WE ", 3))
+		else if (!ft_strncmp(line, "WE ", 3) && !input->we)
 			input->we = ft_strdup_endl(line);
-		else if (!ft_strncmp(line, "EA ", 3))
+		else if (!ft_strncmp(line, "EA ", 3) && !input->ea)
 			input->ea = ft_strdup_endl(line);
-		else if (!ft_strncmp(line, "F ", 2))
+		else if (!ft_strncmp(line, "F ", 2) && !input->f)
 			input->f = ft_strdup_endl(line);
-		else if (!ft_strncmp(line, "C ", 2))
+		else if (!ft_strncmp(line, "C ", 2) && !input->c)
 			input->c = ft_strdup_endl(line);
 		else
 		{
