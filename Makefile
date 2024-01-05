@@ -6,7 +6,7 @@
 #    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2024/01/05 11:54:24 by cduffaut         ###   ########.fr        #
+#    Updated: 2024/01/05 12:41:45 by cduffaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ UTL = utils/print_var.c utils/ft_utils_mlx.c utils/ft_calcul.c utils/ft_utils.c 
 OBJ = $(GNL:.c=.o) $(SRC:.c=.o) $(UTL:.c=.o)
 
 all : lib $(NAME)
-	./cub3d map/map_wrong_RGB.cub
+	./cub3d map/map_wrong_path.cub 
 
 push : clean
 	git add *
