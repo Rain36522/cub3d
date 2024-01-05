@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:22:38 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:25:11 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ int	check_extension(char *str)
 		return (init_print_error("Error\nWrong extension map file.\n"));
 	else if (str[len - 3] != 'c')
 		return (init_print_error("Error\nWrong extension map file.\n"));
-	else if (open(str, O_RDONLY) < 0)
+	len = open(str, O_RDONLY);
+	if (len < 0)
 		return (init_print_error("Error\nMap file failed to open.\n"));
-	close(str);
+	close(len);
 	return (0);
 }
 

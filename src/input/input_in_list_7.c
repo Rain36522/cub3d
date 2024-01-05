@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:18:43 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:25:48 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	check_multiple_input_2(int fd, int counter, int nbr)
 {
 	char	*line;
 
+	line = NULL;
 	while (nbr > 0)
 	{
 		nbr = read(fd, line, BUFFER_SIZE);
