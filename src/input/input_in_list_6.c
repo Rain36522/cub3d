@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_6.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:47:55 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:18:01 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	check_multiple_input(char *str)
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 		return (printf ("Error\nFailed to open the file."));
-	result = check_multiple_input_2(fd, 0, 1);
+	result = check_multiple_input_2(fd, 0);
 	close (fd);
 	return (result);
 }

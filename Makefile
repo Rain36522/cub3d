@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
+#    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2024/01/05 09:20:10 by cduffaut         ###   ########.fr        #
+#    Updated: 2024/01/05 10:09:01 by pudry            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = gcc
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 LIBFT = libft/libft.a
 
 MLX = mlx/libmlx.a
@@ -64,7 +64,7 @@ leaks: $(NAME)
 	leaks --atExit -- ./$(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT) -o $(NAME)
 
 lib :
 	@make -C libft/

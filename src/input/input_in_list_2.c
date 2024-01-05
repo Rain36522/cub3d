@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:58:14 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:25:17 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	only_nbr(t_input *input)
 {
 	if (input->f == NULL || input->c == NULL)
 		return (init_print_error("Error\nInvalid input pointers.\n"));
-	if (input->f[0] == 'F' && input->f[1] == ' ')
+	if (ft_strlen(input->c) > 1 && input->f[0] == 'F' && input->f[1] == ' ')
 	{
 		input->f = relay_only(input->f, 1);
 		if (!input->f)
@@ -94,7 +94,7 @@ int	only_nbr(t_input *input)
 	}
 	else
 		return (init_print_error("Error\nF is not valid.\n"));
-	if (input->c[0] == 'C' && input->c[1] == ' ')
+	if (ft_strlen(input->c) > 1 && input->c[0] == 'C' && input->c[1] == ' ')
 	{
 		input->c = relay_only(input->c, 1);
 		if (!input->c)

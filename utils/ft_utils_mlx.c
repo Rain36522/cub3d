@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_mlx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:36:33 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 22:27:18 by csil             ###   ########.fr       */
+/*   Updated: 2024/01/05 10:08:30 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ unsigned int	get_color_pixel(t_pixput *img, int x, int y)
 {
 	char	*dst;
 
+	if (x >= img->width)
+		x = img->width - 1;
+	if (y >= img->heigth)
+		y = img->heigth - 1;
 	dst = img->addr + (y * img->line_len + x * (img->bit_pp / 8));
 	return (*(unsigned int *) dst);
 }

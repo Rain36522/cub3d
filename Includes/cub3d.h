@@ -237,7 +237,7 @@ void			ft_check_door(t_data *data);
 int				ft_check_player(char c);
 
 // New
-int				check_multiple_input_2(int fd, int counter, int nbr);
+int				check_multiple_input_2(int fd, int counter);
 int				check_multiple_input(char *str);
 
 #endif
