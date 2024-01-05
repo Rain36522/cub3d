@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pudry <pudry@student.42.fr>                +#+  +:+       +#+         #
+#    By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 08:09:16 by pudry             #+#    #+#              #
-#    Updated: 2024/01/04 08:59:13 by pudry            ###   ########.fr        #
+#    Updated: 2024/01/05 08:43:32 by cduffaut         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 CC = gcc
 FLAGS = -Wall -Wextra
 LIBFT = libft/libft.a
