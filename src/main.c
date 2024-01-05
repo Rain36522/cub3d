@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 {
 	t_data		*data;
 
-	if (argc != 2 )
+	if (argc != 2)
 		printf ("Error\nToo much arguments in input.\n");
 	if (check_extension(argv[1]) != 0)
 		exit(1);
