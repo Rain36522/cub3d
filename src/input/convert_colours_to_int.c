@@ -72,7 +72,7 @@ static int	separe_colours_in_str_f(char *str, t_input *input, int counter)
 	i = 0;
 	tab = ft_split(str, ',');
 	if (!tab)
-		return(printf("Error\nallocation failed\n"));
+		return (printf("Error\nallocation failed\n"));
 	while (tab[i])
 	{
 		if (i == 0)

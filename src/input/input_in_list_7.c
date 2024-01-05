@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_7.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 17:29:40 by pudry            ###   ########.fr       */
+/*   Updated: 2024/01/05 23:18:15 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int	check_multiple_input_2(int fd, int counter)
 	while (line != NULL)
 	{
 		if (ft_strlen(line) > 1 && !ft_strncmp(line, "SO", 2))
-			counter+= 1;
+			counter += 1;
 		else if (ft_strlen(line) > 1 && !ft_strncmp(line, "NO", 2))
-			counter+= 2;
+			counter += 2;
 		else if (ft_strlen(line) > 1 && !ft_strncmp(line, "WE", 2))
-			counter+= 3;
+			counter += 3;
 		else if (ft_strlen(line) > 1 && !ft_strncmp(line, "EA", 2))
-			counter+= 4;
+			counter += 4;
 		else if (line && !ft_strncmp(line, "F", 1))
-			counter+= 5;
+			counter += 5;
 		else if (line && !ft_strncmp(line, "C", 1))
-			counter+= 6;
+			counter += 6;
 		free (line);
 		line = get_next_line(fd);
 	}

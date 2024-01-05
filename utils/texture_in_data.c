@@ -67,7 +67,8 @@ int	all_texture_in_data(t_input *input)
 	if (count > 0)
 	{
 		printf ("Error\nFailed to open img.\n");
-		init_free_all_and_exit(input, 1);
+		free (input->tab_map);
+		init_free_all_and_exit(input, 0);
 		exit(1);
 	}
 	return (0);

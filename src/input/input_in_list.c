@@ -132,16 +132,13 @@ t_data	*init_list(char **argv)
 	{
 		init_print_error("Error\nMap opening failed.\n");
 		return (NULL);
-	}  
+	}
 	if (input_in_list(&input, fd, line) == 1)
 		return (NULL);
 	if (put_map_int_tab(&input) == 1)
 		init_free_all_and_exit(&input, 1);
 	close(fd);
-	DEBUG
 	data = t_input_to_t_data(&input);
-	DEBUG
 	init_free_all_and_exit(&input, 0);
-	DEBUG
 	return (data);
 }

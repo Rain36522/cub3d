@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_and_exit_final.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
+/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 08:51:56 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 17:19:06 by pudry            ###   ########.fr       */
+/*   Updated: 2024/01/05 23:19:47 by csil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 static void	destroy_and_free(t_pixput *list, t_data *data)
 {
-	if (!list)
-	{
-		printf("no image\n");(void) data;
-		return ;
-	}
 	if (list->path)
 	{
 		free (list->path);
@@ -26,7 +21,7 @@ static void	destroy_and_free(t_pixput *list, t_data *data)
 	}
 	if (list && list->img)
 	{
-		//mlx_destroy_image(data->mlx, list->img);
+		mlx_destroy_image(data->mlx, list->img);
 	}
 	if (list->addr)
 	{
