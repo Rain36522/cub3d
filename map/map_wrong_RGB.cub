@@ -2,7 +2,7 @@ NO ./img/text_rock.xpm
 SO ./img/crane.xpm
 WE ./img/earth.xpm
 EA ./img/wood.xpm
-F0,50,50
+F							0,50,50;
 C 50,50,0
 
 
