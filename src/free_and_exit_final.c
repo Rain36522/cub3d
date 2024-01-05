@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_and_exit_final.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 08:51:56 by csil              #+#    #+#             */
-/*   Updated: 2023/12/29 09:30:42 by csil             ###   ########.fr       */
+/*   Updated: 2024/01/05 17:19:06 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 static void	destroy_and_free(t_pixput *list, t_data *data)
 {
 	if (!list)
+	{
+		printf("no image\n");(void) data;
 		return ;
+	}
 	if (list->path)
 	{
 		free (list->path);
 		list->path = NULL;
 	}
-	if (list)
+	if (list && list->img)
 	{
-		mlx_destroy_image(data->mlx, list->img);
+		//mlx_destroy_image(data->mlx, list->img);
 	}
 	if (list->addr)
 	{
@@ -40,7 +43,8 @@ static void	destroy_and_free_pixput(t_data *data)
 	destroy_and_free(&data->no, data);
 	destroy_and_free(&data->door, data);
 	destroy_and_free(&data->img, data);
-	mlx_destroy_window(data->mlx, data->mlx_win);
+	if (data->mlx_win)
+		mlx_destroy_window(data->mlx, data->mlx_win);
 	if (data->mlx)
 		free (data->mlx);
 	data->mlx = NULL;

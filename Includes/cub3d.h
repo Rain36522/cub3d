@@ -188,7 +188,7 @@ int				only_path(t_input *input);
 int				only_nbr(t_input *input);
 int				init_print_error(char *str);
 int				init_free_all_and_exit(t_input *input, int exit);
-int				free_str_and_null(char *str);
+int				free_str_and_null(char **str);
 char			*ft_strndup(const char *str, int isize);
 int				not_enough_commas(char *str);
 int				other_than_digit(char *str);

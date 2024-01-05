@@ -22,14 +22,14 @@ static char	*ft_change_size_line(char *line, int ilen)
 		return (NULL);
 	new_line[ilen] = '\0';
 	i = 0;
-	while (line[i] && line[i] != '\n' && i < ilen)
+	while (line && line[i] && line[i] != '\n' && i < ilen)
 	{
 		new_line[i] = line[i];
 		i ++;
 	}
 	while (i < ilen)
 		new_line[i ++] = ' ';
-	free(line);
+	line = NULL;
 	return (new_line);
 }
 
@@ -97,6 +97,11 @@ static void	put_paths_in_data(t_data *data, t_input *input)
 	data->ea.path = ft_strdup(input->ea);
 	data->we.path = ft_strdup(input->we);
 	data->door.path = ft_strdup(input->door.path);
+	data->no.img = NULL;
+	data->so.img = NULL;
+	data->ea.img = NULL;
+	data->we.img = NULL;
+	data->door.img = NULL;
 	data->mousex = 0;
 }
 
@@ -116,13 +121,11 @@ t_data	*t_input_to_t_data(t_input *input)
 	data->mlx_win = NULL;
 	data = ft_map_equal_line(input->tab_map, data);
 	if (ft_check_map(data->map))
+	{
+		init_free_all_and_exit(input, 0);
 		ft_error_quit(data, ft_check_map(data->map));
+	}
 	data = ft_put_player(data);
-	data->no.img = NULL;
-	data->so.img = NULL;
-	data->ea.img = NULL;
-	data->we.img = NULL;
-	data->door.img = NULL;
 	put_paths_in_data(data, input);
 	data->f = input->color_floor;
 	data->c = input->color_ceiling;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 13:35:12 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:58:33 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,31 @@ void	free_tab(char **tab)
 
 static void	init_free_all_and_exit_2(t_input *input)
 {
+	if (input->no)
+		free_str_and_null(&input->no);
+	if (input->so)
+		free_str_and_null(&input->so);
+	if (input->we)
+		free_str_and_null(&input->we);
+	if (input->ea)
+		free_str_and_null(&input->ea);
+	if (input->f)
+		free_str_and_null(&input->f);
+	if (input->c)
+		free_str_and_null(&input->c);
 	if (input->door.path)
-		free_str_and_null(input->door.path);
+		free_str_and_null(&input->door.path);
 }
 
 int	init_free_all_and_exit(t_input *input, int iexit)
 {
 	if (!input)
 		return (1);
-	if (input->no)
-		free_str_and_null(input->no);
-	if (input->so)
-		free_str_and_null(input->so);
-	if (input->we)
-		free_str_and_null(input->we);
-	if (input->ea)
-		free_str_and_null(input->ea);
-	if (input->f)
-		free_str_and_null(input->f);
-	if (input->c)
-		free_str_and_null(input->c);
 	init_free_all_and_exit_2(input);
 	destroy_img_texture(input);
 	clean_list(input->map);
-	if (iexit)
+	if (iexit && input->tab_map)
 		free_tab(input->tab_map);
-	if (input)
-		free (input);
 	if (iexit)
 		exit(1);
 	return (1);

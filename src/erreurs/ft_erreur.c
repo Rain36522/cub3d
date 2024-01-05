@@ -16,6 +16,8 @@ static void	ft_free_array(char **map)
 {
 	int	j;
 
+	if (!map)
+		return ;
 	j = 0;
 	while (map[j])
 		free(map[j ++]);

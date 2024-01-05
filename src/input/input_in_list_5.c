@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 13:28:47 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:29:36 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ char	*relay_only(char *str, int i)
 	if (str[i])
 	{
 		dup = ft_strdup(str + i);
-		free_str_and_null(str);
+		free_str_and_null(&str);
 		return (dup);
 	}
-	free_str_and_null(str);
+	free_str_and_null(&str);
 	return (str);
 }
 

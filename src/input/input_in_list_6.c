@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_6.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 13:52:34 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:36:59 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,15 @@ void	clean_list(t_list *list)
 {
 	t_list	*tmp;
 
-	if (list)
+	while (list)
 	{
-		while (list)
-		{
-			tmp = list->next;
-			free (list);
-			list = NULL;
-			list = tmp;
-		}
-		free(list);
+		tmp = list->next;
+		free(list->str);
+		free (list);
 		list = NULL;
+		list = tmp;
 	}
+	list = NULL;
 }
 
 int	check_extension(char *str)
