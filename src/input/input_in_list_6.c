@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_6.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2023/12/29 10:42:47 by csil             ###   ########.fr       */
+/*   Updated: 2024/01/05 08:49:14 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ int	check_extension(char *str)
 		return (init_print_error("Error\nWrong extension map file.\n"));
 	else if (str[len - 3] != 'c')
 		return (init_print_error("Error\nWrong extension map file.\n"));
-	return (0);
+	else if (open(str, O_RDONLY) < 0)
+		return (init_print_error("Error\nMap file failed to open.\n"));
+	close(str);
+	exit (1);
 }
 
 int	input_not_full(t_input *input)

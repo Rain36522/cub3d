@@ -75,8 +75,11 @@ int	main(int argc, char **argv)
 {
 	t_data		*data;
 
-	if (argc != 2 || check_extension(argv[1]) == 1)
-		return (0);
+	(argc != 2 || check_extension(argv[1]) == 1)
+	{
+		printf ("Error\nToo much arguments in input.\n");
+		exit(1);
+	}
 	data = init_game(argv);
 	if (!data)
 		return (0);
