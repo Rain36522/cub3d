@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 08:50:56 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:16:08 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,44 @@ int	input_not_full(t_input *input)
 		return (1);
 	else if (!input->we)
 		return (1);
+	return (0);
+}
+
+// If it returns upper thqn zero: free all and exit.
+int	check_multiple_input(char *str)
+{
+	int	fd;
+
+	fd = open(str, O_RDONLY);
+	if (fd < 0)
+		return (printf ("Error\nFailed to open the file."));
+	close (fd);
+	return (check_multiple_input_2(fd, 0, 1));
+}
+
+
+// Counter should be at 0, nbr at 1.
+int	check_multiple_input_2(int fd, int counter, int nbr)
+{
+	char	*line;
+
+	while (nbr > 0)
+	{
+		nbr = read(fd, line, BUFFER_SIZE);
+		if (!strncmp(line, "SO", 2))
+			counter++;
+		else if (!strncmp(line, "NO", 2))
+			counter++;
+		else if (!strncmp(line, "WE", 2))
+			counter++;
+		else if (!strncmp(line, "EA", 2))
+			counter++;
+		else if (!strncmp(line, "F", 1))
+			counter++;
+		else if (!strncmp(line, "C", 1))
+			counter++;
+	}
+	if (counter > 6)
+		return (printf ("Error\nWrong number of arguments in map.\n"));
 	return (0);
 }
