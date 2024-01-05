@@ -75,9 +75,12 @@ int	main(int argc, char **argv)
 {
 	t_data		*data;
 
-	// sleep(10);
+	if (argc < 2)
+	{
+		return (printf ("Error\nToo few arguments in input.\n"));
+	}
 	if (argc != 2)
-		printf ("Error\nToo much arguments in input.\n");
+		return (printf ("Error\nToo much arguments in input.\n"));
 	if (check_extension(argv[1]) != 0)
 		exit(1);
 	data = init_game(argv);
