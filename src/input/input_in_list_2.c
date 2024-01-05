@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:57:28 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:58:14 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	only_path(t_input *input)
 		input->ea = relay_only(input->ea, 2);
 	else
 		return (init_print_error("Error\nEA is not valid.\n"));
-	if (!input->ea|| !input->we || !input->so || !input->no)
+	if (!input->ea || !input->we || !input->so || !input->no)
 		return (printf ("Error\nEle;ent in file input are not valid.\n"));
 	return (0);
 }
