@@ -55,9 +55,9 @@ static int	create_linked_list(t_input *input, int fd, char	*line)
 {
 	if (input_not_full(input) == 1)
 		return (init_print_error("Error\nAll paths are not complete\n"));
-	if (only_path(input) == 1)
+	if (only_path(input) != 0)
 		return (1);
-	if (only_nbr(input) == 1)
+	if (only_nbr(input) != 0)
 		return (1);
 	if (init_separe_colours(input) == 1)
 		return (1);

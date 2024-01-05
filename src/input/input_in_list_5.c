@@ -6,7 +6,7 @@
 /*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 09:46:17 by cduffaut         ###   ########.fr       */
+/*   Updated: 2024/01/05 09:54:56 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*relay_only(char *str, int i)
 		str = NULL;
 		return (dup);
 	}
+	free(str);
+	str = NULL;
 	return (str);
 }
 

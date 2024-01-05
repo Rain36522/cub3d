@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cduffaut <cduffaut@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 10:02:41 by csil              #+#    #+#             */
-/*   Updated: 2023/12/29 10:58:02 by csil             ###   ########.fr       */
+/*   Updated: 2024/01/05 09:57:28 by cduffaut         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	only_path(t_input *input)
 		input->ea = relay_only(input->ea, 2);
 	else
 		return (init_print_error("Error\nEA is not valid.\n"));
+	if (!input->ea|| !input->we || !input->so || !input->no)
+		return (printf ("Error\nEle;ent in file input are not valid.\n"));
 	return (0);
 }
 
@@ -82,11 +84,25 @@ int	only_nbr(t_input *input)
 	if (input->f == NULL || input->c == NULL)
 		return (init_print_error("Error\nInvalid input pointers.\n"));
 	if (input->f[0] == 'F' && input->f[1] == ' ')
+	{
 		input->f = relay_only(input->f, 1);
+		if (!input->f)
+		{
+			init_free_all_and_exit(input, 1);
+			exit(1);
+		}
+	}
 	else
 		return (init_print_error("Error\nF is not valid.\n"));
 	if (input->c[0] == 'C' && input->c[1] == ' ')
+	{
 		input->c = relay_only(input->c, 1);
+		if (!input->c)
+		{
+			init_free_all_and_exit(input, 1);
+			exit(1);
+		}
+	}
 	else
 		return (init_print_error("Error\nC is not valid.\n"));
 	return (0);
