@@ -45,7 +45,7 @@ static void	init_raytracer(t_ray *ray, t_data *data, int iframe)
 {
 	ray->mapx = (int)ray->posx;
 	ray->mapy = (int)ray->posy;
-	ray->angle = (double)(ft_calcul_ang(data->look, - (LOOK_ANGLE / 2)));
+	ray->angle = (double)(ft_calcul_ang(data->lok, - (LOOK_ANGLE / 2)));
 	ray->angle = ft_calcul_ang(ray->angle, \
 				(double)LOOK_ANGLE / ((WIDTH / RESOLUTION)) * iframe);
 	ray->dirx = cos(deg_to_rad(ray->angle));

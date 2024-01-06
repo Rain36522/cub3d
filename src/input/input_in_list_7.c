@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_in_list_7.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csil <csil@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pudry <pudry@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 22:16:21 by csil              #+#    #+#             */
-/*   Updated: 2024/01/05 23:18:15 by csil             ###   ########.fr       */
+/*   Updated: 2024/01/06 10:29:13 by pudry            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	check_multiple_input_2(int fd, int counter)
 	}
 	free_str_and_null(&line);
 	if (counter != 21)
-		return (printf ("Error\nWrong number of arguments in map.\n"));
+		return (printf ("Error\nWrong argument in file.\n"));
 	return (0);
 }

@@ -37,7 +37,7 @@ int	key_hook(int keycode, t_data *data)
 
 	if (keycode == 53)
 		exit(0);
-	else if (data->dstep || data->make_moov == '1')
+	else if (data->dstep)
 		return (0);
 	else if (keycode == 13 || keycode == 126)
 		iangl = data->look;

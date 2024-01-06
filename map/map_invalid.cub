@@ -3,7 +3,7 @@ SO ./img/crane.xpm
 WE ./img/earth.xpm
 EA ./img/wood.xpm
 F 0,50,50
-C               50,---50,0
+C               50,-50,0
 
 
         1111111111111111111111111

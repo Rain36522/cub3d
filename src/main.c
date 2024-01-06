@@ -65,6 +65,7 @@ static int	ft_loop(t_data *data)
 		ft_moov_door(data);
 	if (data->make_moov == '1')
 	{
+		data->lok = data->look;
 		ft_make_moov(data, data->x, data->y);
 		data->make_moov = '0';
 	}
@@ -77,8 +78,10 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (printf ("Error\nToo few arguments in input.\n"));
-	if (argc != 2)
+	if (argc > 2)
 		return (printf ("Error\nToo much arguments in input.\n"));
+	if (argc != 2)
+		exit(1);
 	if (check_extension(argv[1]) != 0)
 		exit(1);
 	data = init_game(argv);

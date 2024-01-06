@@ -34,8 +34,9 @@
 # define PI 3.141592653589793
 # define MOUSE_SENSIBILITY 0.3
 # define DOOR "./img/door5.xpm"
-# define MSE_LOCK 1
-# define DEBUG printf("%s, %d\n", __FILE__, __LINE__);
+# define MSE_LOCK 0
+
+//# define DEBUG printf("%s, %d\n", __FILE__, __LINE__);
 
 typedef struct s_list
 {
@@ -124,6 +125,7 @@ typedef struct s_data
 	double		xpos;
 	double		ypos;
 	double		look;
+	double		lok;
 	double		x;
 	double		y;
 	int			mousex;

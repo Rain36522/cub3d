@@ -26,8 +26,8 @@ void	ft_change_door(t_data *data)
 	int	l;
 	int	r;
 
-	r = (int)ft_calcul_ang(data->look, LOOK_ANGLE / 2);
-	l = (int)ft_calcul_ang(data->look, -(LOOK_ANGLE / 2));
+	r = (int)ft_calcul_ang(data->lok, LOOK_ANGLE / 2);
+	l = (int)ft_calcul_ang(data->lok, -(LOOK_ANGLE / 2));
 	if ((l > 315 || l < 45) || (r > 315 || r < 45))
 		ft_door(data, (int)data->ypos, (int)data->xpos + 1);
 	if ((l > 45 && l < 135) || (r > 45 && r < 135))
