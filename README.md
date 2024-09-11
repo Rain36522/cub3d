@@ -14,5 +14,5 @@ Because the minilibix is only available on unix system and the compilation betwe
 - **make header**: Prints a decorative header.
 
 ## run
-For runing this project: `./cub3d <map>
+For runing this project: `./cub3d <map>`
 For playing use standard touch with mouse (W, A, S, D, space)
