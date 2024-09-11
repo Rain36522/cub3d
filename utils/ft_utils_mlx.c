@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "cub3d.h"
 
 // Attention a bien generer l image avant.
 void	ft_put_square(t_data *data, int x, int y, int icolor)

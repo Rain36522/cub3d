@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 // return 1: if the number of commas is incorrect
 // return 0: if there is the right number of commas

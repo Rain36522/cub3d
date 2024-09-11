@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 // function that return in int
 // the value of trgb in one

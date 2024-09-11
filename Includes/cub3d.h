@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 09:38:55 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/29 09:38:55 by pudry            ###   ########.ch       */
+/*   Created: 2024/09/11 21:54:34 by pudry             #+#    #+#             */
+/*   Updated: 2024/09/11 21:54:34 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "../mlx/mlx.h"
 # include <math.h>
-# include "../gnl/get_next_line.h"
-# include "../libft/libft.h"
+# include "get_next_line.h"
+# include "libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

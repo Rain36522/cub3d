@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 // give the trgb top color
 // give the trgb bottom color

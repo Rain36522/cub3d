@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 // Counter should be at 0, nbr at 1.
 int	check_multiple_input_2(int fd, int counter)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 // take in input the entire trgb value (int)
 // extract from trgb the respective

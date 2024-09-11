@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 static void	ft_raytracer(t_ray *ray, t_data *data, int iframe)
 {

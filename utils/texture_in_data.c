@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/cub3d.h"
+#include "cub3d.h"
 
 static int	put_texture_in_data_2(t_data *data, t_pixput *texture)
 {

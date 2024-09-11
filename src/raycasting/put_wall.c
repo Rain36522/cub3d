@@ -6,11 +6,11 @@
 /*   By: pudry <pudry@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:57:09 by pudry             #+#    #+#             */
-/*   Updated: 2023/12/28 16:57:14 by pudry            ###   ########.ch       */
+/*   Updated: 2024/09/11 21:54:43 by pudry            ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/cub3d.h"
+#include "cub3d.h"
 
 static t_pixput	*ft_get_texture(t_ray *ray, t_data *data)
 {
