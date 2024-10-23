@@ -64,6 +64,10 @@ fclean : clean
 
 re : fclean all
 
+init :
+	git submodule init
+	git submodule update
+
 
 header :
 	@echo "${GREEN}"
@@ -149,4 +153,4 @@ header :
 
 
 
-.PHONY : fclean re all header clean lib
+.PHONY : fclean re all header clean lib init
